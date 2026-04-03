@@ -1,0 +1,3 @@
+# speKset redirect rules
+# /app/ proxies to the existing demo/builder deployment
+/app/*  https://led-wall-builder-deploy.pages.dev/:splat  200

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>speKset — Spec. Build. Ship.</title>
+  <meta name="description" content="speKset is a professional LED wall design platform for live event production. Spec, visualize, and export your LED builds in minutes.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── BACKGROUND SCENE ──────────────────────────────────────────────────── -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-wall">
+      <div class="bg-wall-panels"></div>
+      <div class="bg-wall-glow"></div>
+    </div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- ── MAIN CARD ─────────────────────────────────────────────────────────── -->
+  <main class="splash">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="assets/logo.svg" alt="speKset" class="logo" width="340" height="118">
+    </div>
+
+    <!-- Hero copy -->
+    <div class="hero-text">
+      <h1 class="hero-headline">LED design,<br>built for production.</h1>
+      <p class="hero-sub">
+        speKset is a professional LED wall design platform for live events.
+        Build 3D layouts, generate spec sheets, map raster signals, and export
+        client-ready documentation — all in the browser.
+      </p>
+      <ul class="feature-pills">
+        <li>3D Visualization</li>
+        <li>Spec PDF Export</li>
+        <li>Raster Mapping</li>
+        <li>Inventory Matching</li>
+        <li>DXF / CAD Output</li>
+        <li>Portal &amp; Curved Walls</li>
+      </ul>
+    </div>
+
+    <!-- Password gate -->
+    <div class="gate-card" id="gate-card">
+      <p class="gate-label">Early access — enter your access code</p>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <input
+          type="password"
+          id="gate-input"
+          class="gate-input"
+          placeholder="Access code"
+          aria-label="Access code"
+          autofocus
+          spellcheck="false"
+        >
+        <button type="submit" class="gate-btn">
+          Enter
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+      <p class="gate-error" id="gate-error" aria-live="polite"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="splash-footer">
+      <span class="footer-brand">speKset</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-copy">Built for live production</span>
+    </footer>
+
+  </main>
+
+  <script>
+    // ── Access gate ───────────────────────────────────────────────────────────
+    // Simple client-side gate for early access. Replace with server-side auth
+    // for production deployments.
+    const HASH = '6b3f8c2a1d9e4f7b0c5a2e8d3f1b6c9a'; // not used for simple check
+
+    const form  = document.getElementById('gate-form');
+    const input = document.getElementById('gate-input');
+    const err   = document.getElementById('gate-error');
+    const card  = document.getElementById('gate-card');
+
+    // If already authenticated this session, skip straight to app
+    if (sessionStorage.getItem('sk_auth') === '1') {
+      goToApp();
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const val = input.value.trim().toLowerCase();
+
+      if (val === 'stage2026') {
+        // Correct — animate out and redirect
+        sessionStorage.setItem('sk_auth', '1');
+        card.classList.add('gate-success');
+        err.textContent = '';
+        setTimeout(goToApp, 600);
+      } else {
+        // Wrong — shake and show error
+        card.classList.remove('gate-shake');
+        void card.offsetWidth; // force reflow
+        card.classList.add('gate-shake');
+        err.textContent = 'Incorrect access code.';
+        input.value = '';
+        input.focus();
+      }
+    });
+
+    function goToApp() {
+      // Redirect to the LED Wall Builder app
+      window.location.href = '/app/';
+    }
+  </script>
+
+</body>
+</html>
