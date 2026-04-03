@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- speKset favicon — dark panel with K mark -->
+  <rect width="100" height="100" rx="16" fill="#050505"/>
+  <!-- Bracket: top, left, partial bottom -->
+  <line x1="18" y1="14" x2="88" y2="14" stroke="#4A8FFF" stroke-width="3.5" stroke-linecap="square"/>
+  <line x1="18" y1="14" x2="18" y2="78" stroke="#4A8FFF" stroke-width="3.5" stroke-linecap="square"/>
+  <line x1="18" y1="78" x2="56" y2="78" stroke="#4A8FFF" stroke-width="3.5" stroke-linecap="square"/>
+  <!-- K -->
+  <text x="50" y="72"
+        font-family="'Arial Black',Arial,sans-serif"
+        font-weight="800"
+        font-size="62"
+        text-anchor="middle"
+        fill="#3a51a3">K</text>
+</svg>
