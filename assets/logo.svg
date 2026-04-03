@@ -1,50 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="130 72 1055 338" width="1055" height="338">
-  <!-- speKset logo — transparent bg, Arial Black wordmark, #3a51a3 K, #4a8fff bracket -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 30 1380 452" width="1380" height="452">
+  <!--
+    speKset logo — Option A dark
+    Font: Arial Black (system) / Syne 800 fallback
+    K: #4A8FFF  |  Bracket: #4A8FFF  |  BG: #050505
+  -->
+  <style>
+    .brand { font-family:'Arial Black',Arial,sans-serif; font-weight:800; font-size:190px; letter-spacing:-6px; }
+    .tag   { font-family:'Courier New',monospace; font-size:34px; letter-spacing:9px; fill:rgba(255,255,255,0.5); }
+  </style>
 
-  <!-- Bracket: top bar, left vertical, partial bottom -->
-  <line x1="150" y1="90" x2="1170" y2="90" stroke="#4a8fff" stroke-width="4" stroke-linecap="square"/>
-  <line x1="150" y1="90" x2="150" y2="398" stroke="#4a8fff" stroke-width="4" stroke-linecap="square"/>
-  <line x1="150" y1="398" x2="760" y2="398" stroke="#4a8fff" stroke-width="4" stroke-linecap="square"/>
+  <!-- Dark panel -->
+  <rect x="15" y="35" width="1370" height="440" rx="20" fill="#050505"/>
 
-  <!-- Wordmark: spe (white) K (navy) set (white) -->
-  <text transform="translate(230,275)"
-        font-family="'Arial Black',Arial,sans-serif"
-        font-weight="800"
-        font-size="190"
-        letter-spacing="-7.6"
-        fill="#ffffff">spe</text>
-  <text transform="translate(583.59,275)"
-        font-family="'Arial Black',Arial,sans-serif"
-        font-weight="800"
-        font-size="190"
-        letter-spacing="-7.6"
-        fill="#3a51a3">K</text>
-  <text transform="translate(731.6,275)"
-        font-family="'Arial Black',Arial,sans-serif"
-        font-weight="800"
-        font-size="190"
-        letter-spacing="-7.6"
-        fill="#ffffff">set</text>
+  <!-- Bracket: top bar, left leg, partial bottom -->
+  <line x1="150" y1="90"  x2="1170" y2="90"  stroke="#4A8FFF" stroke-width="4" stroke-linecap="square"/>
+  <line x1="150" y1="90"  x2="150"  y2="398" stroke="#4A8FFF" stroke-width="4" stroke-linecap="square"/>
+  <line x1="150" y1="398" x2="760"  y2="398" stroke="#4A8FFF" stroke-width="4" stroke-linecap="square"/>
 
-  <!-- Tagline: SPEC — BUILD — SHIP -->
-  <text transform="translate(190,368)"
-        font-family="'DM Mono','Courier New',monospace"
-        font-weight="500"
-        font-size="34"
-        letter-spacing="9.5"
-        fill="rgba(255,255,255,0.55)">SPEC</text>
-  <line x1="338" y1="351" x2="388" y2="351" stroke="#4a8fff" stroke-width="2" stroke-linecap="square"/>
-  <text transform="translate(404,368)"
-        font-family="'DM Mono','Courier New',monospace"
-        font-weight="500"
-        font-size="34"
-        letter-spacing="9.5"
-        fill="rgba(255,255,255,0.55)">BUILD</text>
-  <line x1="603" y1="351" x2="653" y2="351" stroke="#4a8fff" stroke-width="2" stroke-linecap="square"/>
-  <text transform="translate(672,368)"
-        font-family="'DM Mono','Courier New',monospace"
-        font-weight="500"
-        font-size="34"
-        letter-spacing="9.5"
-        fill="rgba(255,255,255,0.55)">SHIP</text>
+  <!-- Wordmark — single text element, K gets its own fill via tspan -->
+  <text class="brand" x="230" y="275" fill="#ffffff">spe<tspan fill="#3a51a3">K</tspan>set</text>
+
+  <!-- Tagline -->
+  <text class="tag" x="190" y="368">SPEC</text>
+  <line x1="338" y1="351" x2="388" y2="351" stroke="#4A8FFF" stroke-width="2" stroke-linecap="square"/>
+  <text class="tag" x="404" y="368">BUILD</text>
+  <line x1="603" y1="351" x2="653" y2="351" stroke="#4A8FFF" stroke-width="2" stroke-linecap="square"/>
+  <text class="tag" x="672" y="368">SHIP</text>
 </svg>
