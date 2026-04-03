@@ -1,137 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="520" height="180">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="130 72 1055 338" width="1055" height="338">
+  <!-- speKset logo — transparent bg, Arial Black wordmark, #3a51a3 K, #4a8fff bracket -->
 
-  <title>speKset Logo</title>
-  <desc>SpekSet brand lockup — Syne 800 wordmark, DM Mono tagline, blue bracket</desc>
+  <!-- Bracket: top bar, left vertical, partial bottom -->
+  <line x1="150" y1="90" x2="1170" y2="90" stroke="#4a8fff" stroke-width="4" stroke-linecap="square"/>
+  <line x1="150" y1="90" x2="150" y2="398" stroke="#4a8fff" stroke-width="4" stroke-linecap="square"/>
+  <line x1="150" y1="398" x2="760" y2="398" stroke="#4a8fff" stroke-width="4" stroke-linecap="square"/>
 
-  <!-- Google Fonts import — Syne 800 + DM Mono 500 -->
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&amp;family=DM+Mono:wght@500&amp;display=swap');
+  <!-- Wordmark: spe (white) K (navy) set (white) -->
+  <text transform="translate(230,275)"
+        font-family="'Arial Black',Arial,sans-serif"
+        font-weight="800"
+        font-size="190"
+        letter-spacing="-7.6"
+        fill="#ffffff">spe</text>
+  <text transform="translate(583.59,275)"
+        font-family="'Arial Black',Arial,sans-serif"
+        font-weight="800"
+        font-size="190"
+        letter-spacing="-7.6"
+        fill="#3a51a3">K</text>
+  <text transform="translate(731.6,275)"
+        font-family="'Arial Black',Arial,sans-serif"
+        font-weight="800"
+        font-size="190"
+        letter-spacing="-7.6"
+        fill="#ffffff">set</text>
 
-      /* ── EDITABLE BRAND TOKENS ─────────────────────────
-         Change these to update the whole logo at once     */
-      :root {
-        --brand-dark:     #111111;   /* background / dark text */
-        --brand-white:    #FFFFFF;   /* wordmark on dark bg    */
-        --brand-blue:     #4A8FFF;   /* K, bracket, dashes     */
-        --brand-tag:      rgba(255,255,255,0.50); /* tagline on dark */
-      }
-
-      #wordmark {
-        font-family: 'Syne', 'Arial Black', sans-serif;
-        font-size: 96px;
-        font-weight: 800;
-        letter-spacing: -2px;
-      }
-
-      #tagline-spec,
-      #tagline-build,
-      #tagline-ship {
-        font-family: 'DM Mono', 'Courier New', monospace;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 4px;
-      }
-    </style>
-  </defs>
-
-  <!-- ── DARK BACKGROUND (delete this rect to use on your own bg) -->
-  <rect id="background" x="0" y="0" width="520" height="180" fill="#111111"/>
-
-  <!-- ══════════════════════════════════════════
-       BRACKET — 3 lines, all editable separately
-       stroke="#4A8FFF"  stroke-width="4"
-       stroke-linecap="square"
-       ══════════════════════════════════════════ -->
-  <g id="bracket" fill="none" stroke="#4A8FFF" stroke-width="4" stroke-linecap="square">
-    <!-- Top bar: x1=18 y1=10 → x2=500 y2=10 -->
-    <line id="bracket-top"    x1="18"  y1="10"  x2="500" y2="10"/>
-    <!-- Left vertical: x1=18 y1=10 → x2=18 y2=168 -->
-    <line id="bracket-left"   x1="18"  y1="10"  x2="18"  y2="168"/>
-    <!-- Bottom bar (longer, ~60% width): x1=18 y1=168 → x2=310 y2=168 -->
-    <line id="bracket-bottom" x1="18"  y1="168" x2="310" y2="168"/>
-  </g>
-
-  <!-- ══════════════════════════════════════════
-       WORDMARK — "spe" white, "K" blue, "set" white
-       Baseline y=122, x=36
-       ══════════════════════════════════════════ -->
-  <g id="wordmark-group">
-    <!-- "spe" — white -->
-    <text id="wordmark-spe"
-      x="36" y="122"
-      font-family="'Syne','Arial Black',sans-serif"
-      font-size="96"
-      font-weight="800"
-      letter-spacing="-2"
-      fill="#FFFFFF">spe</text>
-
-    <!-- "K" — blue accent -->
-    <text id="wordmark-K"
-      x="220" y="122"
-      font-family="'Syne','Arial Black',sans-serif"
-      font-size="96"
-      font-weight="800"
-      letter-spacing="-2"
-      fill="#4A8FFF">K</text>
-
-    <!-- "set" — white -->
-    <text id="wordmark-set"
-      x="283" y="122"
-      font-family="'Syne','Arial Black',sans-serif"
-      font-size="96"
-      font-weight="800"
-      letter-spacing="-2"
-      fill="#FFFFFF">set</text>
-  </g>
-
-  <!-- ══════════════════════════════════════════
-       TAGLINE — DM Mono 500, 14px, letter-spacing 4px
-       Baseline y=158
-       ══════════════════════════════════════════ -->
-  <g id="tagline-group">
-
-    <text id="tagline-spec"
-      x="36" y="158"
-      font-family="'DM Mono','Courier New',monospace"
-      font-size="14"
-      font-weight="500"
-      letter-spacing="4"
-      fill="rgba(255,255,255,0.50)">SPEC</text>
-
-    <!-- Dash 1 — blue, centered between SPEC and BUILD -->
-    <line id="dash-1"
-      x1="100" y1="152"
-      x2="122" y2="152"
-      stroke="#4A8FFF"
-      stroke-width="2"
-      stroke-linecap="square"/>
-
-    <text id="tagline-build"
-      x="128" y="158"
-      font-family="'DM Mono','Courier New',monospace"
-      font-size="14"
-      font-weight="500"
-      letter-spacing="4"
-      fill="rgba(255,255,255,0.50)">BUILD</text>
-
-    <!-- Dash 2 — blue, centered between BUILD and SHIP -->
-    <line id="dash-2"
-      x1="212" y1="152"
-      x2="234" y2="152"
-      stroke="#4A8FFF"
-      stroke-width="2"
-      stroke-linecap="square"/>
-
-    <text id="tagline-ship"
-      x="240" y="158"
-      font-family="'DM Mono','Courier New',monospace"
-      font-size="14"
-      font-weight="500"
-      letter-spacing="4"
-      fill="rgba(255,255,255,0.50)">SHIP</text>
-
-  </g>
-
+  <!-- Tagline: SPEC — BUILD — SHIP -->
+  <text transform="translate(190,368)"
+        font-family="'DM Mono','Courier New',monospace"
+        font-weight="500"
+        font-size="34"
+        letter-spacing="9.5"
+        fill="rgba(255,255,255,0.55)">SPEC</text>
+  <line x1="338" y1="351" x2="388" y2="351" stroke="#4a8fff" stroke-width="2" stroke-linecap="square"/>
+  <text transform="translate(404,368)"
+        font-family="'DM Mono','Courier New',monospace"
+        font-weight="500"
+        font-size="34"
+        letter-spacing="9.5"
+        fill="rgba(255,255,255,0.55)">BUILD</text>
+  <line x1="603" y1="351" x2="653" y2="351" stroke="#4a8fff" stroke-width="2" stroke-linecap="square"/>
+  <text transform="translate(672,368)"
+        font-family="'DM Mono','Courier New',monospace"
+        font-weight="500"
+        font-size="34"
+        letter-spacing="9.5"
+        fill="rgba(255,255,255,0.55)">SHIP</text>
 </svg>
