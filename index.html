@@ -40,63 +40,86 @@
     <div class="bg-vignette"></div>
   </div>
 
-  <!-- ── MAIN CARD ─────────────────────────────────────────────────────────── -->
-  <main class="splash">
+  <!-- ── PAGE LAYOUT ──────────────────────────────────────────────────────── -->
+  <div class="page-layout">
 
-    <!-- Logo -->
-    <div class="logo-wrap">
-      <img src="/assets/logo.svg?v=3" alt="speKset — Spec. Build. Ship." class="logo">
+    <!-- Left demo panel -->
+    <div class="demo-panel">
+      <div class="demo-frame">
+        <video src="/assets/videos/demo_builder.mp4" autoplay muted loop playsinline></video>
+        <div class="demo-frame-border"></div>
+      </div>
+      <p class="demo-label">LED Wall Builder <span>· Concert Stage</span></p>
     </div>
 
-    <!-- Hero copy -->
-    <div class="hero-text">
-      <h1 class="hero-headline">LED design,<br>built for production.</h1>
-      <p class="hero-sub">
-        speKset is a professional LED wall design platform for live events.
-        Build 3D layouts, generate spec sheets, map raster signals, and export
-        client-ready documentation — all in the browser.
-      </p>
-      <ul class="feature-pills">
-        <li>3D Visualization</li>
-        <li>Spec PDF Export</li>
-        <li>Raster Mapping</li>
-        <li>Inventory Matching</li>
-        <li>DXF / CAD Output</li>
-        <li>Portal &amp; Curved Walls</li>
-      </ul>
+    <!-- ── CENTER CARD ──────────────────────────────────────────────────────── -->
+    <main class="splash">
+
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <img src="/assets/logo.svg?v=3" alt="speKset — Spec. Build. Ship." class="logo">
+      </div>
+
+      <!-- Hero copy -->
+      <div class="hero-text">
+        <h1 class="hero-headline">LED design,<br>built for production.</h1>
+        <p class="hero-sub">
+          speKset is a professional LED wall design platform for live events.
+          Build 3D layouts, generate spec sheets, map raster signals, and export
+          client-ready documentation — all in the browser.
+        </p>
+        <ul class="feature-pills">
+          <li>3D Visualization</li>
+          <li>Spec PDF Export</li>
+          <li>Raster Mapping</li>
+          <li>Inventory Matching</li>
+          <li>DXF / CAD Output</li>
+          <li>Portal &amp; Curved Walls</li>
+        </ul>
+      </div>
+
+      <!-- Password gate -->
+      <div class="gate-card" id="gate-card">
+        <p class="gate-label">Early access — enter your access code</p>
+        <form class="gate-form" id="gate-form" autocomplete="off">
+          <input
+            type="password"
+            id="gate-input"
+            class="gate-input"
+            placeholder="Access code"
+            aria-label="Access code"
+            autofocus
+            spellcheck="false"
+          >
+          <button type="submit" class="gate-btn">
+            Enter
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+        <p class="gate-error" id="gate-error" aria-live="polite"></p>
+      </div>
+
+    </main>
+
+    <!-- Right demo panel -->
+    <div class="demo-panel">
+      <div class="demo-frame">
+        <video src="/assets/videos/demo_awards.mp4" autoplay muted loop playsinline></video>
+        <div class="demo-frame-border"></div>
+      </div>
+      <p class="demo-label">LED Wall Builder <span>· Awards Show</span></p>
     </div>
 
-    <!-- Password gate -->
-    <div class="gate-card" id="gate-card">
-      <p class="gate-label">Early access — enter your access code</p>
-      <form class="gate-form" id="gate-form" autocomplete="off">
-        <input
-          type="password"
-          id="gate-input"
-          class="gate-input"
-          placeholder="Access code"
-          aria-label="Access code"
-          autofocus
-          spellcheck="false"
-        >
-        <button type="submit" class="gate-btn">
-          Enter
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </form>
-      <p class="gate-error" id="gate-error" aria-live="polite"></p>
-    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="splash-footer">
-      <span class="footer-brand">speKset</span>
-      <span class="footer-sep">·</span>
-      <span class="footer-copy">Built for live production</span>
-    </footer>
-
-  </main>
+  <!-- Footer -->
+  <footer class="splash-footer">
+    <span class="footer-brand">speKset</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-copy">Built for live production</span>
+  </footer>
 
   <script>
     // ── Access gate ───────────────────────────────────────────────────────────
