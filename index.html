@@ -125,17 +125,65 @@
     // ── Access gate ───────────────────────────────────────────────────────────
     // Simple client-side gate for early access. Replace with server-side auth
     // for production deployments.
-    const HASH = '6b3f8c2a1d9e4f7b0c5a2e8d3f1b6c9a'; // not used for simple check
+
+    // Shared secret — must match generate-invite.js
+    const INV_SECRET = 'sk_inv_7f3a9c2e1b4d8f6a0e5c3b7d2a9f1e4c';
 
     const form  = document.getElementById('gate-form');
     const input = document.getElementById('gate-input');
     const err   = document.getElementById('gate-error');
     const card  = document.getElementById('gate-card');
 
-    // If already authenticated this session, skip straight to app
-    if (sessionStorage.getItem('sk_auth') === '1') {
-      goToApp();
+    // ── HMAC-SHA256 via SubtleCrypto (async) ─────────────────────────────────
+    async function hmacHex(secret, message) {
+      const enc = new TextEncoder();
+      const key = await crypto.subtle.importKey(
+        'raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+      );
+      const sig = await crypto.subtle.sign('HMAC', key, enc.encode(message));
+      return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
     }
+
+    // ── Validate a ?i= invite token ───────────────────────────────────────────
+    async function validateInviteToken(token) {
+      try {
+        const raw = atob(token.replace(/-/g,'+').replace(/_/g,'/')); // base64url → string
+        const sep = raw.lastIndexOf(':');
+        if (sep === -1) return false;
+        const payload  = raw.slice(0, sep);
+        const sigShort = raw.slice(sep + 1);          // first 32 hex chars from generator
+        const expiry   = parseInt(payload, 10);
+        if (!expiry || Date.now() > expiry) return false; // expired or invalid
+        const expected = await hmacHex(INV_SECRET, payload);
+        return expected.slice(0, 32) === sigShort;    // constant-ish compare
+      } catch { return false; }
+    }
+
+    // ── Magic invite link check ───────────────────────────────────────────────
+    const params = new URLSearchParams(window.location.search);
+    const inviteToken = params.get('i');
+
+    async function init() {
+      // Already authed this session
+      if (sessionStorage.getItem('sk_auth') === '1') {
+        goToApp(); return;
+      }
+
+      // Check magic invite token
+      if (inviteToken) {
+        const valid = await validateInviteToken(inviteToken);
+        if (valid) {
+          sessionStorage.setItem('sk_auth', '1');
+          card.classList.add('gate-success');
+          setTimeout(goToApp, 600);
+          return;
+        }
+        // Token present but invalid/expired — show message
+        err.textContent = 'This invite link has expired.';
+      }
+    }
+
+    init();
 
     form.addEventListener('submit', e => {
       e.preventDefault();
