@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>speKset — Invite Generator</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0c1a;
+    color: #dde3ff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #8abaff;
+    letter-spacing: .04em;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #555;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: rgba(16,18,36,.95);
+    border: 1px solid rgba(78,142,255,.25);
+    border-radius: 14px;
+    padding: 32px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.6);
+  }
+
+  .card h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #c8d8ff;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(78,142,255,.15);
+  }
+
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #8abaff;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"], input[type="number"], input[type="password"] {
+    width: 100%;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(78,142,255,.25);
+    border-radius: 7px;
+    color: #dde3ff;
+    font-size: 14px;
+    padding: 10px 13px;
+    outline: none;
+    transition: border-color .2s;
+    margin-bottom: 18px;
+  }
+  input:focus { border-color: rgba(78,142,255,.6); }
+
+  .row { display: flex; gap: 14px; }
+  .row > div { flex: 1; }
+
+  button {
+    width: 100%;
+    background: #2a5ae8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+    margin-top: 4px;
+    letter-spacing: .02em;
+  }
+  button:hover { background: #3a6af8; }
+  button:active { transform: scale(.98); }
+
+  .result-box {
+    margin-top: 28px;
+    display: none;
+  }
+  .result-box.visible { display: block; }
+
+  .result-meta {
+    font-size: 12px;
+    color: #8abaff;
+    margin-bottom: 10px;
+  }
+  .result-meta span { color: #dde3ff; font-weight: 600; }
+
+  .link-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,.3);
+    border: 1px solid rgba(78,142,255,.2);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+
+  .link-url {
+    flex: 1;
+    font-size: 12px;
+    color: #aac4ff;
+    word-break: break-all;
+    line-height: 1.5;
+    font-family: "SF Mono", "Fira Code", monospace;
+  }
+
+  .copy-btn {
+    width: auto;
+    flex-shrink: 0;
+    padding: 7px 14px;
+    font-size: 12px;
+    background: rgba(42,90,232,.5);
+    border: 1px solid rgba(78,142,255,.35);
+    border-radius: 6px;
+    margin-top: 0;
+    letter-spacing: 0;
+  }
+  .copy-btn:hover { background: rgba(42,90,232,.8); }
+  .copy-btn.copied { background: rgba(30,160,80,.6); border-color: rgba(40,200,100,.4); }
+
+  .divider {
+    height: 1px;
+    background: rgba(78,142,255,.1);
+    margin: 28px 0;
+  }
+
+  .history { margin-top: 0; }
+  .history h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    font-size: 12px;
+  }
+  .history-item:last-child { border-bottom: none; }
+  .history-name { color: #dde3ff; font-weight: 600; }
+  .history-meta { color: #555; font-size: 11px; margin-top: 2px; }
+  .history-copy {
+    width: auto;
+    padding: 5px 11px;
+    font-size: 11px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 5px;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+  .history-copy:hover { background: rgba(42,90,232,.4); }
+
+  .gate {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+  .gate input { text-align: center; letter-spacing: .1em; }
+  .gate-err { font-size: 12px; color: #e06060; margin-top: -12px; margin-bottom: 14px; min-height: 16px; }
+
+  #main { display: none; width: 100%; max-width: 520px; }
+</style>
+</head>
+<body>
+
+<div class="logo">speKset</div>
+<div class="subtitle">Invite Admin</div>
+
+<!-- Gate -->
+<div class="gate" id="gate-section">
+  <div class="card">
+    <h2 style="text-align:center;border:none;margin-bottom:20px;">Admin Access</h2>
+    <label>Password</label>
+    <input type="password" id="gate-input" placeholder="Enter admin password" autocomplete="off">
+    <div class="gate-err" id="gate-err"></div>
+    <button onclick="checkGate()">Enter</button>
+  </div>
+</div>
+
+<!-- Main UI -->
+<div id="main">
+
+  <div class="card">
+    <h2>Generate Invite Link</h2>
+
+    <div class="row">
+      <div>
+        <label>Recipient Name</label>
+        <input type="text" id="inv-name" placeholder="e.g. Nike AV Team">
+      </div>
+      <div>
+        <label>Days Until Expiry</label>
+        <input type="number" id="inv-days" value="10" min="1" max="365">
+      </div>
+    </div>
+
+    <button onclick="generate()">Generate Invite Link</button>
+
+    <div class="result-box" id="result-box">
+      <div class="result-meta" id="result-meta"></div>
+      <div class="link-row">
+        <div class="link-url" id="result-url"></div>
+        <button class="copy-btn" id="copy-btn" onclick="copyLink()">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="card history">
+    <h3>Recent Links</h3>
+    <div id="history-list"><div style="color:#444;font-size:12px;">No links generated yet.</div></div>
+  </div>
+
+</div>
+
+<script>
+  // ── Shared secret — matches generate-invite.js ────────────────────────────
+  const SECRET = 'sk_inv_7f3a9c2e1b4d8f6a0e5c3b7d2a9f1e4c';
+  const ADMIN_PASS = 'stagetek';
+  const BASE_URL = 'https://spekset.com';
+  const STORAGE_KEY = 'sk_invite_history';
+
+  // ── Gate ──────────────────────────────────────────────────────────────────
+  function checkGate() {
+    const val = document.getElementById('gate-input').value.trim();
+    if (val === ADMIN_PASS) {
+      sessionStorage.setItem('sk_admin_auth', '1');
+      document.getElementById('gate-section').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      loadHistory();
+    } else {
+      document.getElementById('gate-err').textContent = 'Incorrect password.';
+      document.getElementById('gate-input').value = '';
+      document.getElementById('gate-input').focus();
+    }
+  }
+
+  document.getElementById('gate-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkGate();
+  });
+
+  if (sessionStorage.getItem('sk_admin_auth') === '1') {
+    document.getElementById('gate-section').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    loadHistory();
+  }
+
+  // ── HMAC via SubtleCrypto ─────────────────────────────────────────────────
+  async function hmacHex(secret, message) {
+    const enc = new TextEncoder();
+    const key = await crypto.subtle.importKey(
+      'raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+    );
+    const sig = await crypto.subtle.sign('HMAC', key, enc.encode(message));
+    return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  async function generateToken(expiryMs) {
+    const payload = String(expiryMs);
+    const hmac = await hmacHex(SECRET, payload);
+    const raw = payload + ':' + hmac.slice(0, 32);
+    return btoa(raw).replace(/\+/g,'-').replace(/\//g,'_').replace(/=/g,'');
+  }
+
+  // ── Generate ──────────────────────────────────────────────────────────────
+  let _lastLink = '';
+
+  async function generate() {
+    const name = document.getElementById('inv-name').value.trim();
+    const days = parseInt(document.getElementById('inv-days').value) || 10;
+    const expiry = Date.now() + days * 24 * 60 * 60 * 1000;
+    const token = await generateToken(expiry);
+    const url = `${BASE_URL}/?i=${token}`;
+    _lastLink = url;
+
+    const expiryDate = new Date(expiry).toLocaleDateString('en-US', {
+      weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+    });
+
+    document.getElementById('result-meta').innerHTML =
+      `<span>${name || 'Unnamed'}</span> &nbsp;·&nbsp; Expires ${expiryDate} &nbsp;·&nbsp; ${days} day${days !== 1 ? 's' : ''}`;
+    document.getElementById('result-url').textContent = url;
+    document.getElementById('result-box').classList.add('visible');
+
+    const copyBtn = document.getElementById('copy-btn');
+    copyBtn.textContent = 'Copy';
+    copyBtn.classList.remove('copied');
+
+    saveHistory({ name: name || 'Unnamed', days, expiry, url });
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(_lastLink).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  // ── History ───────────────────────────────────────────────────────────────
+  function saveHistory(entry) {
+    const history = getHistory();
+    history.unshift(entry);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(0, 20)));
+    renderHistory(history);
+  }
+
+  function getHistory() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
+  }
+
+  function loadHistory() { renderHistory(getHistory()); }
+
+  function renderHistory(history) {
+    const list = document.getElementById('history-list');
+    if (!history.length) {
+      list.innerHTML = '<div style="color:#444;font-size:12px;">No links generated yet.</div>';
+      return;
+    }
+    list.innerHTML = history.map((h, i) => {
+      const expired = Date.now() > h.expiry;
+      const expiryDate = new Date(h.expiry).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      return `
+        <div class="history-item">
+          <div>
+            <div class="history-name">${h.name}</div>
+            <div class="history-meta">${expired ? '⚠ Expired' : `Expires ${expiryDate}`} · ${h.days}d</div>
+          </div>
+          <button class="history-copy" onclick="copyHistoryLink(${i})">Copy</button>
+        </div>`;
+    }).join('');
+  }
+
+  function copyHistoryLink(i) {
+    const history = getHistory();
+    if (!history[i]) return;
+    navigator.clipboard.writeText(history[i].url).then(() => {
+      const btns = document.querySelectorAll('.history-copy');
+      if (btns[i]) {
+        btns[i].textContent = 'Copied!';
+        setTimeout(() => { btns[i].textContent = 'Copy'; }, 2000);
+      }
+    });
+  }
+</script>
+</body>
+</html>
