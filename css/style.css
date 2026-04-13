@@ -371,6 +371,59 @@ html, body {
   min-height: 18px;
 }
 
+/* Trial divider + button */
+.trial-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+.trial-divider::before,
+.trial-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(74,143,255,0.15);
+}
+.trial-divider span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.trial-btn {
+  width: 100%;
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid rgba(74,143,255,0.35);
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+.trial-btn:hover {
+  background: rgba(74,143,255,0.1);
+  border-color: var(--blue);
+  box-shadow: 0 0 16px rgba(74,143,255,0.2);
+}
+.trial-btn:active {
+  transform: scale(0.97);
+}
+.trial-status {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  min-height: 16px;
+}
+.trial-status.active { color: #66bb6a; }
+.trial-status.expired { color: #ff6b6b; }
+
 /* Success flash */
 .gate-success {
   border-color: rgba(74,143,255,0.6) !important;

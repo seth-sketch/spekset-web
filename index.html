@@ -103,6 +103,9 @@
           </button>
         </form>
         <p class="gate-error" id="gate-error" aria-live="polite"></p>
+        <div class="trial-divider"><span>or</span></div>
+        <button id="trial-btn" class="trial-btn">Start 5-Day Free Trial</button>
+        <p class="trial-status" id="trial-status"></p>
       </div>
 
     </main>
@@ -187,7 +190,7 @@
       }
     }
 
-    init();
+    // init() is called below as initWithTrial() which includes trial check
 
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -209,6 +212,93 @@
         input.focus();
       }
     });
+
+    // ── 5-Day Trial ────────────────────────────────────────────────────────
+    const TRIAL_KEY   = 'sk_trial_token';
+    const trialBtn    = document.getElementById('trial-btn');
+    const trialStatus = document.getElementById('trial-status');
+
+    async function generateTrialToken() {
+      const expiry  = Date.now() + 5 * 24 * 60 * 60 * 1000; // 5 days
+      const payload = String(expiry);
+      const hmac    = await hmacHex(INV_SECRET, payload);
+      const raw     = payload + ':' + hmac.slice(0, 32);
+      return btoa(raw);
+    }
+
+    function trialDaysLeft(token) {
+      try {
+        const raw    = atob(token);
+        const sep    = raw.lastIndexOf(':');
+        if (sep === -1) return -1;
+        const expiry = parseInt(raw.slice(0, sep), 10);
+        if (!expiry) return -1;
+        const ms     = expiry - Date.now();
+        if (ms <= 0) return 0;
+        return Math.ceil(ms / (24 * 60 * 60 * 1000));
+      } catch { return -1; }
+    }
+
+    // Check for existing trial on load
+    async function checkTrial() {
+      const token = localStorage.getItem(TRIAL_KEY);
+      if (!token) return false;
+
+      const valid = await validateInviteToken(token);
+      if (valid) {
+        const days = trialDaysLeft(token);
+        trialStatus.textContent = `Trial active — ${days} day${days !== 1 ? 's' : ''} remaining`;
+        trialStatus.className = 'trial-status active';
+        trialBtn.textContent = `Continue Trial (${days}d left)`;
+        sessionStorage.setItem('sk_auth', '1');
+        card.classList.add('gate-success');
+        setTimeout(goToApp, 800);
+        return true;
+      } else {
+        // Expired
+        localStorage.removeItem(TRIAL_KEY);
+        trialStatus.textContent = 'Your free trial has expired.';
+        trialStatus.className = 'trial-status expired';
+        return false;
+      }
+    }
+
+    // Wire button
+    trialBtn.addEventListener('click', async () => {
+      trialBtn.disabled = true;
+      trialBtn.textContent = 'Starting…';
+      const token = await generateTrialToken();
+      localStorage.setItem(TRIAL_KEY, token);
+      sessionStorage.setItem('sk_auth', '1');
+      card.classList.add('gate-success');
+      trialStatus.textContent = 'Trial active — 5 days remaining';
+      trialStatus.className = 'trial-status active';
+      setTimeout(goToApp, 600);
+    });
+
+    // Run trial check inside init (after invite check)
+    // Patch init to also check trial
+    const _origInit = init;
+    async function initWithTrial() {
+      // Already authed this session
+      if (sessionStorage.getItem('sk_auth') === '1') {
+        goToApp(); return;
+      }
+      // Check magic invite token first
+      if (inviteToken) {
+        const valid = await validateInviteToken(inviteToken);
+        if (valid) {
+          sessionStorage.setItem('sk_auth', '1');
+          card.classList.add('gate-success');
+          setTimeout(goToApp, 600);
+          return;
+        }
+        err.textContent = 'This invite link has expired.';
+      }
+      // Then check trial
+      await checkTrial();
+    }
+    initWithTrial();
 
     function goToApp() {
       window.location.href = 'https://demo.productionplugins.com/?tour=1';
