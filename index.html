@@ -301,7 +301,11 @@
     initWithTrial();
 
     function goToApp() {
-      window.location.href = 'https://demo.productionplugins.com/?tour=1';
+      // Keep customers on the spekset.com domain family. app.spekset.com is
+      // bound to the led-wall-builder Cloudflare Pages project, same as
+      // demo.productionplugins.com — both serve the same app. No ?tour=1 so
+      // returning users aren't forced through the onboarding tour every time.
+      window.location.href = 'https://app.spekset.com/';
     }
   </script>
 
