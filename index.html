@@ -3,30 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>speKset — The LED Design Tool Built for Production</title>
-  <meta name="description" content="speKset is the LED wall design platform built exclusively for live entertainment. Faster than Vectorworks Spotlight. Build 3D layouts, generate raster maps, power draw, weight loads, and client-ready spec PDFs — all in the browser.">
+  <title>speKset — Your Last Manual LED Spec</title>
+  <meta name="description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours. Complete rigging calcs, processor recommendations, 13-page branded PDFs. Works with disguise, MA3, Unreal, SketchUp. $1,500/yr.">
 
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="shortcut icon" href="/assets/favicon.svg?v=3">
 
-  <!-- Open Graph / social sharing -->
+  <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://spekset.com/">
-  <meta property="og:title"       content="speKset — The LED Design Tool Built for Production">
-  <meta property="og:description" content="Think SketchUp, built exclusively for entertainment. Faster than Vectorworks Spotlight. Rental inventory, raster maps, power draw, weight loads, spec PDFs — all in the browser.">
+  <meta property="og:title"       content="speKset — Your Last Manual LED Spec">
+  <meta property="og:description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours. No CAD license required.">
   <meta property="og:image"       content="https://spekset.com/assets/logo.svg">
 
   <!-- Twitter card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="speKset — The LED Design Tool Built for Production">
-  <meta name="twitter:description" content="Think SketchUp, built exclusively for entertainment. Faster than Vectorworks Spotlight. Rental inventory, raster maps, power draw, spec PDFs — all in the browser.">
+  <meta name="twitter:title"       content="speKset — Your Last Manual LED Spec">
+  <meta name="twitter:description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours.">
 
-  <!-- Search / indexing -->
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#060609">
 
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css?v=2">
 </head>
 <body>
 
@@ -40,11 +39,23 @@
     <div class="bg-vignette"></div>
   </div>
 
-  <!-- ── PAGE LAYOUT ──────────────────────────────────────────────────────── -->
-  <div class="page-layout">
+  <!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+  <nav class="topnav">
+    <a href="#" class="topnav-brand">
+      <img src="/assets/logo.svg?v=3" alt="speKset" class="topnav-logo">
+    </a>
+    <div class="topnav-links">
+      <a href="#outputs">Outputs</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#pricing" class="topnav-cta">Start Building</a>
+    </div>
+  </nav>
 
-    <!-- Left demo panel -->
-    <div class="demo-panel">
+  <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+  <section class="hero-layout">
+
+    <div class="demo-panel demo-panel-left">
       <div class="demo-frame">
         <video src="/assets/videos/demo_builder.mp4" autoplay muted loop playsinline></video>
         <div class="demo-frame-border"></div>
@@ -52,66 +63,35 @@
       <p class="demo-label">LED Wall Builder <span>· Concert Stage</span></p>
     </div>
 
-    <!-- ── CENTER CARD ──────────────────────────────────────────────────────── -->
     <main class="splash">
+      <div class="eyebrow">Production Design Platform</div>
+      <h1 class="hero-headline">Your Last <em>Manual</em><br>LED Spec.</h1>
+      <p class="hero-sub">
+        Build client-ready LED documentation in <strong>20 minutes instead of 20 hours</strong>.
+        No CAD license required.
+      </p>
 
-      <!-- Logo -->
-      <div class="logo-wrap">
-        <img src="/assets/logo.svg?v=3" alt="speKset — Spec. Build. Ship." class="logo">
+      <ul class="value-bullets">
+        <li><span class="arrow">→</span> Complete rigging calculations with safety factors</li>
+        <li><span class="arrow">→</span> Automatic processor recommendations &amp; signal planning</li>
+        <li><span class="arrow">→</span> 13-page branded PDFs with technical drawings</li>
+        <li><span class="arrow">→</span> Works with disguise, MA3, Unreal, SketchUp</li>
+      </ul>
+
+      <div class="hero-cta-row">
+        <a href="https://buy.stripe.com/fZucN60ju93NcxL3ai87K0a" class="cta-primary" id="cta-start" data-event="cta_start_annual">
+          Start Building
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#demo-video" class="cta-secondary" id="cta-demo" data-event="cta_watch_demo">Watch Demo</a>
       </div>
 
-      <!-- Hero copy -->
-      <div class="hero-text">
-        <h1 class="hero-headline">LED design.<br>Built for the <em>people who build screens.</em></h1>
-        <p class="hero-sub">
-          speKset is purpose-built for screen builders, rental houses, and
-          designers — not a feature inside a larger CAD platform. Open a browser,
-          build your rig in 3D, and walk away with raster signal maps, power draw,
-          weight loads, and a client-ready spec PDF. No training course. No install.
-          No rigging module you'll never use. Just the LED workflow, done right.
-        </p>
-        <ul class="feature-pills">
-          <li>3D LED Layout</li>
-          <li>Rental Inventory Integration</li>
-          <li>Raster Signal Maps</li>
-          <li>Power &amp; Weight Output</li>
-          <li>Spec PDF Export</li>
-          <li>Virtual Production · Previz</li>
-          <li>Portal &amp; Curved Walls</li>
-          <li>Client-Ready Deliverables</li>
-        </ul>
-      </div>
-
-      <!-- Password gate -->
-      <div class="gate-card" id="gate-card">
-        <p class="gate-label">Early access — enter your access code</p>
-        <form class="gate-form" id="gate-form" autocomplete="off">
-          <input
-            type="password"
-            id="gate-input"
-            class="gate-input"
-            placeholder="Access code"
-            aria-label="Access code"
-            autofocus
-            spellcheck="false"
-          >
-          <button type="submit" class="gate-btn">
-            Enter
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </form>
-        <p class="gate-error" id="gate-error" aria-live="polite"></p>
-        <div class="trial-divider"><span>or</span></div>
-        <button id="trial-btn" class="trial-btn">Start 5-Day Free Trial</button>
-        <p class="trial-status" id="trial-status"></p>
-      </div>
-
+      <p class="hero-price-note">$1,500/yr · Or <a href="#pricing" class="price-link">monthly plan available</a></p>
     </main>
 
-    <!-- Right demo panel -->
-    <div class="demo-panel">
+    <div class="demo-panel demo-panel-right">
       <div class="demo-frame">
         <video src="/assets/videos/demo_awards.mp4" autoplay muted loop playsinline></video>
         <div class="demo-frame-border"></div>
@@ -119,9 +99,197 @@
       <p class="demo-label">LED Wall Builder <span>· Awards Show</span></p>
     </div>
 
-  </div>
+  </section>
 
-  <!-- Footer -->
+  <!-- ── COMPARISON STRIP ─────────────────────────────────────────────────── -->
+  <section class="compare-strip">
+    <div class="compare-col compare-before">
+      <div class="compare-label">The old way</div>
+      <div class="compare-time">8–20 hours</div>
+      <div class="compare-desc">Manual drawings in SketchUp + Vectorworks, hand-calculated power and weight, copy-paste spec sheets, endless revisions.</div>
+    </div>
+    <div class="compare-divider" aria-hidden="true">→</div>
+    <div class="compare-col compare-after">
+      <div class="compare-label">With speKset</div>
+      <div class="compare-time">20 minutes</div>
+      <div class="compare-desc">Build in 3D, export a 13-page branded PDF with rigging, signal maps, power budgets, and bill-of-materials. Ship it.</div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIAL ──────────────────────────────────────────────────────── -->
+  <section class="testimonial">
+    <blockquote class="quote">
+      <p>"Used to take me all weekend. Now takes 20 minutes."</p>
+      <footer class="quote-by">— Production Designer, U.S. touring circuit</footer>
+    </blockquote>
+  </section>
+
+  <!-- ── OUTPUTS GALLERY ──────────────────────────────────────────────────── -->
+  <section class="outputs" id="outputs">
+    <div class="section-head">
+      <div class="eyebrow">What you ship</div>
+      <h2>Client-ready paperwork. One click.</h2>
+      <p class="section-sub">Every spec package includes per-screen infrastructure, per-truss bill-of-materials, a floor plan, an isometric render, and content-spec guide for your media team.</p>
+    </div>
+
+    <div class="outputs-grid">
+      <div class="output-card">
+        <div class="output-icon">📄</div>
+        <div class="output-title">13-Page Spec PDF</div>
+        <div class="output-desc">Cover, per-screen infrastructure, per-truss bill-of-materials, processor assignments, floor plan, iso render, content spec guide.</div>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">📐</div>
+        <div class="output-title">Rigging Calculations</div>
+        <div class="output-desc">Point counts, lbs/point, safety cables, 6:1 safety factor baseline. WLL-checked against brand-specific truss series.</div>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">⚡</div>
+        <div class="output-title">Power &amp; Signal Planning</div>
+        <div class="output-desc">20A/120V + 208V circuit counts, PowerCON feeds per column, Cat6 run counts, MP budget, FHD + 2K-wide output assignments.</div>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">🎛️</div>
+        <div class="output-title">Processor Recommendations</div>
+        <div class="output-desc">Brompton Tessera, NovaStar, Colorlight — auto-matched with utilization %, output counts, and vendor verification note.</div>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">📦</div>
+        <div class="output-title">Bill of Materials</div>
+        <div class="output-desc">Section-level truss inventory with item IDs and per-kg weights. Base plates, sandbags, spigots, L-corners, couplers.</div>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">🎬</div>
+        <div class="output-title">Native Cross-Tool Exports</div>
+        <div class="output-desc">disguise Live Push, MVR for MA3, OBJ/GLB for SketchUp &amp; Blender, nDisplay Config for Unreal, DXF for CAD.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INTEGRATIONS ─────────────────────────────────────────────────────── -->
+  <section class="integrations" id="integrations">
+    <div class="int-group">
+      <div class="int-label">Integrates with</div>
+      <div class="int-logos">
+        <span>disguise</span>
+        <span>MA3</span>
+        <span>Unreal Engine</span>
+        <span>SketchUp</span>
+        <span>Blender</span>
+        <span>Vectorworks (DXF)</span>
+      </div>
+    </div>
+    <div class="int-group">
+      <div class="int-label">Hardware catalog</div>
+      <div class="int-logos">
+        <span>ROE</span>
+        <span>Brompton</span>
+        <span>Absen</span>
+        <span>Sony</span>
+        <span>Samsung</span>
+        <span>LG Magnit</span>
+        <span>Leyard</span>
+        <span>LianTronics</span>
+        <span>INFiLED</span>
+        <span>Prolyte</span>
+        <span>Global Truss</span>
+        <span>Tyler</span>
+        <span>Sixty82</span>
+        <span>Milos / Tomcat</span>
+        <span>NovaStar</span>
+        <span>Colorlight</span>
+      </div>
+    </div>
+    <div class="int-group int-group-replace">
+      <div class="int-label">Replaces</div>
+      <div class="int-logos int-logos-replace">
+        <span class="strikethrough">Vectorworks Spotlight — $3,150/yr</span>
+        <span class="strikethrough">Weekend manual drawings</span>
+        <span class="strikethrough">Copy-paste spec sheets</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEMO VIDEO ────────────────────────────────────────────────────────── -->
+  <section class="demo-video" id="demo-video">
+    <div class="section-head">
+      <div class="eyebrow">See it in motion</div>
+      <h2>From empty canvas to shipped PDF.</h2>
+    </div>
+    <div class="demo-video-frame">
+      <video src="/assets/videos/demo_builder.mp4" autoplay muted loop playsinline controls></video>
+    </div>
+  </section>
+
+  <!-- ── PRICING ──────────────────────────────────────────────────────────── -->
+  <section class="pricing" id="pricing">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>Enterprise tool. Designer price.</h2>
+      <p class="section-sub">One seat. Unlimited projects. All features. No per-project fees, no add-on modules.</p>
+    </div>
+
+    <div class="billing-toggle" role="tablist" aria-label="Billing cycle">
+      <button class="toggle-btn active" data-cadence="annual" role="tab" aria-selected="true">
+        Annual
+        <span class="toggle-save">Save $0/yr</span>
+      </button>
+      <button class="toggle-btn" data-cadence="monthly" role="tab" aria-selected="false">
+        Monthly
+      </button>
+    </div>
+
+    <div class="price-card">
+      <div class="price-amount">
+        <span class="price-currency">$</span>
+        <span class="price-num" id="price-num">1,500</span>
+        <span class="price-unit" id="price-unit">/year</span>
+      </div>
+      <div class="price-alt" id="price-alt">That's $125/month, billed annually.</div>
+
+      <ul class="price-features">
+        <li>Unlimited projects &amp; exports</li>
+        <li>13-page branded Spec PDFs</li>
+        <li>Full hardware catalog (30+ brands)</li>
+        <li>disguise · MA3 · Unreal · SketchUp · Blender exports</li>
+        <li>Rigging calculations &amp; processor recommendations</li>
+        <li>Client share links &amp; review workflow</li>
+        <li>Priority support</li>
+      </ul>
+
+      <a href="https://buy.stripe.com/fZucN60ju93NcxL3ai87K0a" class="cta-primary cta-large" id="pricing-cta" data-event="cta_pricing_annual">
+        Start Building
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <p class="price-trust">Secure checkout via Stripe · Cancel anytime</p>
+    </div>
+
+    <details class="access-gate" id="gate-card">
+      <summary class="gate-summary">Have an access code or invite?</summary>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <input
+          type="password"
+          id="gate-input"
+          class="gate-input"
+          placeholder="Access code"
+          aria-label="Access code"
+          spellcheck="false"
+        >
+        <button type="submit" class="gate-btn">
+          Enter
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+      <p class="gate-error" id="gate-error" aria-live="polite"></p>
+    </details>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────────────────── -->
   <footer class="splash-footer">
     <span class="footer-brand">speKset</span>
     <span class="footer-sep">·</span>
@@ -129,11 +297,9 @@
   </footer>
 
   <script>
-    // ── Access gate ───────────────────────────────────────────────────────────
-    // Simple client-side gate for early access. Replace with server-side auth
-    // for production deployments.
-
-    // Shared secret — must match generate-invite.js
+    // ══════════════════════════════════════════════════════════════════════════
+    // Admin / VIP access — preserved from v1
+    // ══════════════════════════════════════════════════════════════════════════
     const INV_SECRET = 'sk_inv_7f3a9c2e1b4d8f6a0e5c3b7d2a9f1e4c';
 
     const form  = document.getElementById('gate-form');
@@ -141,7 +307,6 @@
     const err   = document.getElementById('gate-error');
     const card  = document.getElementById('gate-card');
 
-    // ── HMAC-SHA256 via SubtleCrypto (async) ─────────────────────────────────
     async function hmacHex(secret, message) {
       const enc = new TextEncoder();
       const key = await crypto.subtle.importKey(
@@ -151,22 +316,20 @@
       return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
     }
 
-    // ── Validate a ?i= invite token ───────────────────────────────────────────
     async function validateInviteToken(token) {
       try {
-        const raw = atob(token.replace(/-/g,'+').replace(/_/g,'/')); // base64url → string
+        const raw = atob(token.replace(/-/g,'+').replace(/_/g,'/'));
         const sep = raw.lastIndexOf(':');
         if (sep === -1) return false;
         const payload  = raw.slice(0, sep);
-        const sigShort = raw.slice(sep + 1);          // first 32 hex chars from generator
+        const sigShort = raw.slice(sep + 1);
         const expiry   = parseInt(payload, 10);
-        if (!expiry || Date.now() > expiry) return false; // expired or invalid
+        if (!expiry || Date.now() > expiry) return false;
         const expected = await hmacHex(INV_SECRET, payload);
-        return expected.slice(0, 32) === sigShort;    // constant-ish compare
+        return expected.slice(0, 32) === sigShort;
       } catch { return false; }
     }
 
-    // ── Magic invite link check ───────────────────────────────────────────────
     const params = new URLSearchParams(window.location.search);
     const inviteToken = params.get('i');
 
@@ -175,134 +338,108 @@
       if (sessionStorage.getItem('sk_auth') === '1') {
         goToApp(); return;
       }
-
-      // Check magic invite token
+      // Magic invite token
       if (inviteToken) {
         const valid = await validateInviteToken(inviteToken);
         if (valid) {
           sessionStorage.setItem('sk_auth', '1');
-          card.classList.add('gate-success');
-          setTimeout(goToApp, 600);
+          setTimeout(goToApp, 300);
           return;
         }
-        // Token present but invalid/expired — show message
+        // Expose the gate and show the expiry message
+        card.open = true;
         err.textContent = 'This invite link has expired.';
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
+    init();
 
-    // init() is called below as initWithTrial() which includes trial check
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const val = input.value.trim().toLowerCase();
-
-      if (val === 'stagetek') {
-        // Correct — animate out and redirect
-        sessionStorage.setItem('sk_auth', '1');
-        card.classList.add('gate-success');
-        err.textContent = '';
-        setTimeout(goToApp, 600);
-      } else {
-        // Wrong — shake and show error
-        card.classList.remove('gate-shake');
-        void card.offsetWidth; // force reflow
-        card.classList.add('gate-shake');
-        err.textContent = 'Incorrect access code.';
-        input.value = '';
-        input.focus();
-      }
-    });
-
-    // ── 5-Day Trial ────────────────────────────────────────────────────────
-    const TRIAL_KEY   = 'sk_trial_token';
-    const trialBtn    = document.getElementById('trial-btn');
-    const trialStatus = document.getElementById('trial-status');
-
-    async function generateTrialToken() {
-      const expiry  = Date.now() + 5 * 24 * 60 * 60 * 1000; // 5 days
-      const payload = String(expiry);
-      const hmac    = await hmacHex(INV_SECRET, payload);
-      const raw     = payload + ':' + hmac.slice(0, 32);
-      return btoa(raw);
-    }
-
-    function trialDaysLeft(token) {
-      try {
-        const raw    = atob(token);
-        const sep    = raw.lastIndexOf(':');
-        if (sep === -1) return -1;
-        const expiry = parseInt(raw.slice(0, sep), 10);
-        if (!expiry) return -1;
-        const ms     = expiry - Date.now();
-        if (ms <= 0) return 0;
-        return Math.ceil(ms / (24 * 60 * 60 * 1000));
-      } catch { return -1; }
-    }
-
-    // Check for existing trial on load
-    async function checkTrial() {
-      const token = localStorage.getItem(TRIAL_KEY);
-      if (!token) return false;
-
-      const valid = await validateInviteToken(token);
-      if (valid) {
-        const days = trialDaysLeft(token);
-        trialStatus.textContent = `Trial active — ${days} day${days !== 1 ? 's' : ''} remaining`;
-        trialStatus.className = 'trial-status active';
-        trialBtn.textContent = `Continue Trial (${days}d left)`;
-        sessionStorage.setItem('sk_auth', '1');
-        card.classList.add('gate-success');
-        setTimeout(goToApp, 800);
-        return true;
-      } else {
-        // Expired
-        localStorage.removeItem(TRIAL_KEY);
-        trialStatus.textContent = 'Your free trial has expired.';
-        trialStatus.className = 'trial-status expired';
-        return false;
-      }
-    }
-
-    // Wire button
-    trialBtn.addEventListener('click', async () => {
-      trialBtn.disabled = true;
-      trialBtn.textContent = 'Starting…';
-      const token = await generateTrialToken();
-      localStorage.setItem(TRIAL_KEY, token);
-      sessionStorage.setItem('sk_auth', '1');
-      card.classList.add('gate-success');
-      trialStatus.textContent = 'Trial active — 5 days remaining';
-      trialStatus.className = 'trial-status active';
-      setTimeout(goToApp, 600);
-    });
-
-    // Run trial check inside init (after invite check)
-    // Patch init to also check trial
-    const _origInit = init;
-    async function initWithTrial() {
-      // Already authed this session
-      if (sessionStorage.getItem('sk_auth') === '1') {
-        goToApp(); return;
-      }
-      // Check magic invite token first
-      if (inviteToken) {
-        const valid = await validateInviteToken(inviteToken);
-        if (valid) {
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const val = input.value.trim().toLowerCase();
+        if (val === 'stagetek') {
           sessionStorage.setItem('sk_auth', '1');
+          err.textContent = '';
           card.classList.add('gate-success');
-          setTimeout(goToApp, 600);
-          return;
+          setTimeout(goToApp, 400);
+        } else {
+          card.classList.remove('gate-shake');
+          void card.offsetWidth;
+          card.classList.add('gate-shake');
+          err.textContent = 'Incorrect access code.';
+          input.value = '';
+          input.focus();
         }
-        err.textContent = 'This invite link has expired.';
-      }
-      // Then check trial
-      await checkTrial();
+      });
     }
-    initWithTrial();
 
     function goToApp() {
       window.location.href = 'https://app.spekset.com/';
     }
+
+    // ══════════════════════════════════════════════════════════════════════════
+    // Pricing toggle — annual ↔ monthly
+    // ══════════════════════════════════════════════════════════════════════════
+    const STRIPE_ANNUAL  = 'https://buy.stripe.com/fZucN60ju93NcxL3ai87K0a';
+    const STRIPE_MONTHLY = 'https://buy.stripe.com/7sYdRa4zK4Nx8hv5iq87K0b';
+
+    const toggleBtns  = document.querySelectorAll('.toggle-btn');
+    const priceNum    = document.getElementById('price-num');
+    const priceUnit   = document.getElementById('price-unit');
+    const priceAlt    = document.getElementById('price-alt');
+    const pricingCTA  = document.getElementById('pricing-cta');
+    const heroCTA     = document.getElementById('cta-start');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const cadence = btn.dataset.cadence;
+        if (cadence === 'annual') {
+          priceNum.textContent  = '1,500';
+          priceUnit.textContent = '/year';
+          priceAlt.textContent  = "That's $125/month, billed annually.";
+          pricingCTA.href       = STRIPE_ANNUAL;
+          pricingCTA.dataset.event = 'cta_pricing_annual';
+          heroCTA.href          = STRIPE_ANNUAL;
+          heroCTA.dataset.event = 'cta_start_annual';
+        } else {
+          priceNum.textContent  = '125';
+          priceUnit.textContent = '/month';
+          priceAlt.textContent  = 'Billed monthly. Cancel anytime.';
+          pricingCTA.href       = STRIPE_MONTHLY;
+          pricingCTA.dataset.event = 'cta_pricing_monthly';
+          heroCTA.href          = STRIPE_MONTHLY;
+          heroCTA.dataset.event = 'cta_start_monthly';
+        }
+        if (window.skTrack) window.skTrack('toggle_cadence', { cadence });
+      });
+    });
+
+    // ══════════════════════════════════════════════════════════════════════════
+    // Conversion tracking hook — wire any analytics tool here.
+    // (gtag, Plausible, Fathom, PostHog, etc. Left as a no-op stub so analytics
+    //  can be dropped in without touching the CTA handlers below.)
+    // ══════════════════════════════════════════════════════════════════════════
+    window.skTrack = window.skTrack || function(event, props) {
+      // Example hookup (uncomment and wire your own):
+      // if (window.gtag)     gtag('event', event, props);
+      // if (window.plausible) plausible(event, { props });
+      // if (window.posthog)   posthog.capture(event, props);
+      try { console.debug('[sk-track]', event, props); } catch {}
+    };
+
+    document.querySelectorAll('[data-event]').forEach(el => {
+      el.addEventListener('click', () => {
+        window.skTrack(el.dataset.event, { href: el.href });
+      });
+    });
   </script>
 
 </body>
