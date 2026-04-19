@@ -296,6 +296,9 @@
     <span class="footer-brand">speKset</span>
     <span class="footer-sep">·</span>
     <span class="footer-copy">Design it. Spec it. Ship it.</span>
+    <div style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:.3px;">
+      © 2026 <span id="owner-mark" style="cursor:default;user-select:none;">Seth</span> Easter Design. All rights reserved.
+    </div>
   </footer>
 
   <script>
@@ -360,7 +363,7 @@
       form.addEventListener('submit', e => {
         e.preventDefault();
         const val = input.value.trim().toLowerCase();
-        if (val === 'stagetek') {
+        if (val === 'stagetek' || val === 'seth') {
           sessionStorage.setItem('sk_auth', '1');
           err.textContent = '';
           card.classList.add('gate-success');
@@ -372,6 +375,19 @@
           err.textContent = 'Incorrect access code.';
           input.value = '';
           input.focus();
+        }
+      });
+    }
+
+    // Owner backdoor — clicking the word "Seth" in the footer copyright opens
+    // a quick prompt; typing "seth" (case-insensitive) grants app access.
+    const ownerMark = document.getElementById('owner-mark');
+    if (ownerMark) {
+      ownerMark.addEventListener('click', () => {
+        const code = window.prompt('Access code');
+        if (code && code.trim().toLowerCase() === 'seth') {
+          sessionStorage.setItem('sk_auth', '1');
+          goToApp();
         }
       });
     }
