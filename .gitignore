@@ -1,0 +1,22 @@
+# Local dev / editor artifacts
+.DS_Store
+.claude/
+*.log
+*.tmp
+
+# Voice-over and video source files — keep local only
+*.wav
+*.mp4
+*.mov
+*.pkf
+*.aiff
+Recording*
+DemoVideo*.js
+speKset_P1_*
+
+# Deck / presentation drafts
+*.md
+
+# Never commit secrets
+.env
+.env.local
