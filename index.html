@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>speKset — Your Last Manual LED Spec</title>
-  <meta name="description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours. Complete rigging calcs, processor recommendations, multi-page branded PDFs. Works with disguise, MA3, Unreal, SketchUp. $1,800/yr.">
+  <meta name="description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours. Complete rigging calcs, processor recommendations, multi-page branded PDFs. Works with disguise, MA3, Unreal, SketchUp. $1,800/yr · 5-day free trial.">
 
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
@@ -80,15 +80,16 @@
 
       <div class="hero-cta-row">
         <a href="https://buy.stripe.com/3cI3cw3vG3JtgO14em87K0c" class="cta-primary" id="cta-start" data-event="cta_start_annual">
-          Start Building
+          Start Free Trial
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
         <a href="#demo-video" class="cta-secondary" id="cta-demo" data-event="cta_watch_demo">Watch Demo</a>
       </div>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-dim,#8890a8);">5 days free · no charge until day 6 · cancel anytime</p>
 
-      <p class="hero-price-note">$1,500/yr · Or <a href="#pricing" class="price-link">monthly plan available</a></p>
+      <p class="hero-price-note">$1,800/yr after trial · Or <a href="#pricing" class="price-link">monthly plan available</a></p>
     </main>
 
     <div class="demo-panel demo-panel-right">
@@ -242,10 +243,11 @@
     <div class="price-card">
       <div class="price-amount">
         <span class="price-currency">$</span>
-        <span class="price-num" id="price-num">1,500</span>
+        <span class="price-num" id="price-num">1,800</span>
         <span class="price-unit" id="price-unit">/year</span>
       </div>
-      <div class="price-alt" id="price-alt">That's $125/month, billed annually.</div>
+      <div class="price-alt" id="price-alt">That's $150/month, billed annually.</div>
+      <div class="trial-badge" id="trial-badge" style="margin-top:8px;display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(62,207,110,0.15);color:#3ecf6e;font-size:12px;font-weight:600;letter-spacing:.3px;">5-day free trial · no charge until day 6</div>
 
       <ul class="price-features">
         <li>Unlimited projects &amp; exports</li>
@@ -258,13 +260,13 @@
       </ul>
 
       <a href="https://buy.stripe.com/3cI3cw3vG3JtgO14em87K0c" class="cta-primary cta-large" id="pricing-cta" data-event="cta_pricing_annual">
-        Start Building
+        Start Free Trial
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
 
-      <p class="price-trust">Secure checkout via Stripe · Cancel anytime</p>
+      <p class="price-trust">5-day free trial · secure checkout via Stripe · cancel anytime during trial, no charge</p>
     </div>
 
     <details class="access-gate" id="gate-card">
@@ -402,9 +404,9 @@
 
         const cadence = btn.dataset.cadence;
         if (cadence === 'annual') {
-          priceNum.textContent  = '1,500';
+          priceNum.textContent  = '1,800';
           priceUnit.textContent = '/year';
-          priceAlt.textContent  = "That's $125/month, billed annually.";
+          priceAlt.textContent  = "That's $150/month, billed annually.";
           pricingCTA.href       = STRIPE_ANNUAL;
           pricingCTA.dataset.event = 'cta_pricing_annual';
           heroCTA.href          = STRIPE_ANNUAL;
