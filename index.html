@@ -87,7 +87,7 @@
         </a>
         <a href="#demo-video" class="cta-secondary" id="cta-demo" data-event="cta_watch_demo">Watch Demo</a>
       </div>
-      <p style="margin-top:10px;font-size:13px;color:var(--text-dim,#8890a8);">5 days free · no charge until day 6 · cancel anytime</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-dim,#8890a8);">5 days free · no credit card required · we'll email you before the trial ends</p>
 
       <p class="hero-price-note">$1,800/yr after trial · Or <a href="#pricing" class="price-link">monthly plan available</a></p>
     </main>
@@ -247,7 +247,7 @@
         <span class="price-unit" id="price-unit">/year</span>
       </div>
       <div class="price-alt" id="price-alt">That's $150/month, billed annually.</div>
-      <div class="trial-badge" id="trial-badge" style="margin-top:8px;display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(62,207,110,0.15);color:#3ecf6e;font-size:12px;font-weight:600;letter-spacing:.3px;">5-day free trial · no charge until day 6</div>
+      <div class="trial-badge" id="trial-badge" style="margin-top:8px;display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(62,207,110,0.15);color:#3ecf6e;font-size:12px;font-weight:600;letter-spacing:.3px;">5-day free trial · no credit card required</div>
 
       <ul class="price-features">
         <li>Unlimited projects &amp; exports</li>
@@ -266,7 +266,7 @@
         </svg>
       </a>
 
-      <p class="price-trust">5-day free trial · secure checkout via Stripe · cancel anytime during trial, no charge</p>
+      <p class="price-trust">5-day free trial · no credit card required · we email you before the trial ends so you only pay if you want to continue · secure checkout via Stripe</p>
     </div>
 
     <details class="access-gate" id="gate-card">
@@ -412,7 +412,7 @@
           heroCTA.href          = STRIPE_ANNUAL;
           heroCTA.dataset.event = 'cta_start_annual';
         } else {
-          priceNum.textContent  = '125';
+          priceNum.textContent  = '150';
           priceUnit.textContent = '/month';
           priceAlt.textContent  = 'Billed monthly. Cancel anytime.';
           pricingCTA.href       = STRIPE_MONTHLY;
