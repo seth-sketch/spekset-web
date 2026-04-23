@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>speKset — Your Last Manual LED Spec</title>
-  <meta name="description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours. Complete rigging calcs, processor recommendations, multi-page branded PDFs. Works with disguise, MA3, Unreal, SketchUp. $1,800/yr · 5-day free trial.">
+  <meta name="description" content="Build client-ready LED documentation in 20 minutes instead of 20 hours. Complete rigging calcs, processor recommendations, multi-page branded PDFs. Works with disguise, MA3, Unreal, SketchUp. $1,800/yr · Access by request.">
 
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
@@ -79,17 +79,17 @@
       </ul>
 
       <div class="hero-cta-row">
-        <a href="https://buy.stripe.com/3cI3cw3vG3JtgO14em87K0c" class="cta-primary" id="cta-start" data-event="cta_start_annual">
-          Start Free Trial
+        <a href="mailto:info@setheasterdesign.com?subject=speKset%20Access%20Request&body=Name%3A%20%0ACompany%3A%20%0ARole%3A%20%0AWhat%20you%27d%20use%20it%20for%3A%20" class="cta-primary" id="cta-start" data-event="cta_request_access">
+          Request Access
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
         <a href="#demo-video" class="cta-secondary" id="cta-demo" data-event="cta_watch_demo">Watch Demo</a>
       </div>
-      <p style="margin-top:10px;font-size:13px;color:var(--text-dim,#8890a8);">5 days free · no credit card required · we'll email you before the trial ends</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-dim,#8890a8);">By invitation during scale-up phase · spekset.com/access</p>
 
-      <p class="hero-price-note">$1,800/yr after trial · Or <a href="#pricing" class="price-link">monthly plan available</a></p>
+      <p class="hero-price-note">$1,800/yr · Or <a href="#pricing" class="price-link">monthly plan available</a></p>
     </main>
 
     <div class="demo-panel demo-panel-right">
@@ -247,7 +247,7 @@
         <span class="price-unit" id="price-unit">/year</span>
       </div>
       <div class="price-alt" id="price-alt">That's $150/month, billed annually.</div>
-      <div class="trial-badge" id="trial-badge" style="margin-top:8px;display:inline-block;padding:4px 12px;border-radius:20px;background:rgba(62,207,110,0.15);color:#3ecf6e;font-size:12px;font-weight:600;letter-spacing:.3px;">5-day free trial · no credit card required</div>
+      <div class="trial-badge" id="trial-badge" style="margin-top:12px;padding:10px 16px;border-radius:12px;background:rgba(78,142,255,0.10);color:#cfe3ff;font-size:13px;font-weight:500;letter-spacing:.2px;line-height:1.5;max-width:560px;margin-left:auto;margin-right:auto;">Access by request. Currently available to qualified production designers, rental houses, and broadcast studios while we scale thoughtfully.</div>
 
       <ul class="price-features">
         <li>Unlimited projects &amp; exports</li>
@@ -259,14 +259,12 @@
         <li>Priority support</li>
       </ul>
 
-      <a href="https://buy.stripe.com/3cI3cw3vG3JtgO14em87K0c" class="cta-primary cta-large" id="pricing-cta" data-event="cta_pricing_annual">
-        Start Free Trial
+      <a href="mailto:info@setheasterdesign.com?subject=speKset%20Access%20Request&body=Name%3A%20%0ACompany%3A%20%0ARole%3A%20%0AWhat%20you%27d%20use%20it%20for%3A%20" class="cta-primary cta-large" id="pricing-cta" data-event="cta_request_access_pricing">
+        Request Access
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
-
-      <p class="price-trust">5-day free trial · no credit card required · we email you before the trial ends so you only pay if you want to continue · secure checkout via Stripe</p>
     </div>
 
     <details class="access-gate" id="gate-card">
@@ -399,15 +397,14 @@
     // ══════════════════════════════════════════════════════════════════════════
     // Pricing toggle — annual ↔ monthly
     // ══════════════════════════════════════════════════════════════════════════
-    const STRIPE_ANNUAL  = 'https://buy.stripe.com/3cI3cw3vG3JtgO14em87K0c';
-    const STRIPE_MONTHLY = 'https://buy.stripe.com/7sYdRa4zK4Nx8hv5iq87K0b';
-
+    // Site is invite-only during scale-up. The toggle still updates the
+    // displayed price so prospects can see both options, but the CTA
+    // href stays on the Request Access mailto in both states — no Stripe
+    // buy links leak back in via cadence flip.
     const toggleBtns  = document.querySelectorAll('.toggle-btn');
     const priceNum    = document.getElementById('price-num');
     const priceUnit   = document.getElementById('price-unit');
     const priceAlt    = document.getElementById('price-alt');
-    const pricingCTA  = document.getElementById('pricing-cta');
-    const heroCTA     = document.getElementById('cta-start');
 
     toggleBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -423,18 +420,10 @@
           priceNum.textContent  = '1,800';
           priceUnit.textContent = '/year';
           priceAlt.textContent  = "That's $150/month, billed annually.";
-          pricingCTA.href       = STRIPE_ANNUAL;
-          pricingCTA.dataset.event = 'cta_pricing_annual';
-          heroCTA.href          = STRIPE_ANNUAL;
-          heroCTA.dataset.event = 'cta_start_annual';
         } else {
           priceNum.textContent  = '150';
           priceUnit.textContent = '/month';
           priceAlt.textContent  = 'Billed monthly. Cancel anytime.';
-          pricingCTA.href       = STRIPE_MONTHLY;
-          pricingCTA.dataset.event = 'cta_pricing_monthly';
-          heroCTA.href          = STRIPE_MONTHLY;
-          heroCTA.dataset.event = 'cta_start_monthly';
         }
         if (window.skTrack) window.skTrack('toggle_cadence', { cadence });
       });
