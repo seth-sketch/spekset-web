@@ -305,6 +305,32 @@
     // ══════════════════════════════════════════════════════════════════════════
     const INV_SECRET = 'sk_inv_7f3a9c2e1b4d8f6a0e5c3b7d2a9f1e4c';
 
+    // Per-user identity codes (Phase 2A). Exact match (case + special chars).
+    // Each maps to a stable userId that the app uses to scope localStorage
+    // and IndexedDB so the same account follows the user across machines
+    // (once Phase 2B's R2 sync ships) and across reloads. Codes here are
+    // demo / owner accounts; real customers come in via the legacy gate
+    // (stagetek / seth) and run anonymous, OR via a signed invite link.
+    const USER_CODES = {
+      'S.3the@ster1': 'seth-1',
+      'S.3the@ster2': 'seth-2',
+      'S.3the@ster3': 'seth-3',
+      'S.3the@ster4': 'seth-4',
+    };
+    // Legacy anonymous codes — case-insensitive, no per-user identity.
+    const LEGACY_CODES = ['stagetek', 'seth'];
+
+    function _checkCode(rawInput) {
+      const trimmed = (rawInput || '').trim();
+      if (Object.prototype.hasOwnProperty.call(USER_CODES, trimmed)) {
+        return { ok: true, userId: USER_CODES[trimmed] };
+      }
+      if (LEGACY_CODES.includes(trimmed.toLowerCase())) {
+        return { ok: true, userId: null };
+      }
+      return { ok: false };
+    }
+
     const form  = document.getElementById('gate-form');
     const input = document.getElementById('gate-input');
     const err   = document.getElementById('gate-error');
@@ -335,9 +361,26 @@
 
     const params = new URLSearchParams(window.location.search);
     const inviteToken = params.get('i');
+    const arrivedFromLogout = params.get('logout') === '1';
 
     async function init() {
-      // Already authed this session
+      // App-side logout bounces the user back here with ?logout=1. Clear
+      // the session-cleared-the-gate flag so they can sign in as a
+      // DIFFERENT user, and scrub the param so a refresh doesn't keep
+      // forcing the gate on subsequent visits.
+      if (arrivedFromLogout) {
+        try { sessionStorage.removeItem('sk_auth'); } catch {}
+        const clean = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, '', clean);
+        if (card) {
+          card.open = true;
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (err) err.textContent = 'You\'ve been signed out — enter a code to sign back in.';
+        return;
+      }
+      // Already authed this session — bounce straight to app. App's own
+      // localStorage holds whichever userId was set on the prior login.
       if (sessionStorage.getItem('sk_auth') === '1') {
         goToApp(); return;
       }
@@ -346,7 +389,7 @@
         const valid = await validateInviteToken(inviteToken);
         if (valid) {
           sessionStorage.setItem('sk_auth', '1');
-          setTimeout(goToApp, 300);
+          setTimeout(() => goToApp(null), 300);  // invite tokens are anonymous
           return;
         }
         // Expose the gate and show the expiry message
@@ -360,12 +403,12 @@
     if (form) {
       form.addEventListener('submit', e => {
         e.preventDefault();
-        const val = input.value.trim().toLowerCase();
-        if (val === 'stagetek' || val === 'seth') {
+        const result = _checkCode(input.value);
+        if (result.ok) {
           sessionStorage.setItem('sk_auth', '1');
           err.textContent = '';
           card.classList.add('gate-success');
-          setTimeout(goToApp, 400);
+          setTimeout(() => goToApp(result.userId), 400);
         } else {
           card.classList.remove('gate-shake');
           void card.offsetWidth;
@@ -377,21 +420,30 @@
       });
     }
 
-    // Owner backdoor — clicking the word "Seth" in the footer copyright opens
-    // a quick prompt; typing "seth" (case-insensitive) grants app access.
+    // Owner backdoor — clicking the word "Seth" in the footer copyright
+    // opens a quick prompt. Same code-check flow as the gate-form so
+    // S.3the@ster1..4 work here too.
     const ownerMark = document.getElementById('owner-mark');
     if (ownerMark) {
       ownerMark.addEventListener('click', () => {
         const code = window.prompt('Access code');
-        if (code && code.trim().toLowerCase() === 'seth') {
+        if (!code) return;
+        const result = _checkCode(code);
+        if (result.ok) {
           sessionStorage.setItem('sk_auth', '1');
-          goToApp();
+          goToApp(result.userId);
         }
       });
     }
 
-    function goToApp() {
-      window.location.href = 'https://app.spekset.com/';
+    // userId is optional. When provided, the app is told via ?u=<userId>
+    // which user just signed in so it can scope localStorage + IDB.
+    // Anonymous (legacy) entry sends no param.
+    function goToApp(userId) {
+      const base = 'https://app.spekset.com/';
+      window.location.href = userId
+        ? `${base}?u=${encodeURIComponent(userId)}`
+        : base;
     }
 
     // ══════════════════════════════════════════════════════════════════════════
