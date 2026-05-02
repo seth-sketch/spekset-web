@@ -308,25 +308,26 @@
     // Per-user identity codes (Phase 2A). Exact match (case + special chars).
     // Each maps to a stable userId that the app uses to scope localStorage
     // and IndexedDB so the same account follows the user across machines
-    // (once Phase 2B's R2 sync ships) and across reloads. Codes here are
-    // demo / owner accounts; real customers come in via the legacy gate
-    // (stagetek / seth) and run anonymous, OR via a signed invite link.
+    // (once Phase 2B's R2 sync ships) and across reloads.
+    //
+    // `seth1` is the owner shortcut — same target as S.3the@ster1, but easier
+    // to type when getting in via the footer-click backdoor.
+    //
+    // Legacy anonymous gate codes (stagetek / seth) have been retired —
+    // current customers come in via a signed invite link (?i=...) or via
+    // Stripe payment, and the gate-form is now strictly named-account only.
     const USER_CODES = {
       'S.3the@ster1': 'seth-1',
       'S.3the@ster2': 'seth-2',
       'S.3the@ster3': 'seth-3',
       'S.3the@ster4': 'seth-4',
+      'seth1':        'seth-1',
     };
-    // Legacy anonymous codes — case-insensitive, no per-user identity.
-    const LEGACY_CODES = ['stagetek', 'seth'];
 
     function _checkCode(rawInput) {
       const trimmed = (rawInput || '').trim();
       if (Object.prototype.hasOwnProperty.call(USER_CODES, trimmed)) {
         return { ok: true, userId: USER_CODES[trimmed] };
-      }
-      if (LEGACY_CODES.includes(trimmed.toLowerCase())) {
-        return { ok: true, userId: null };
       }
       return { ok: false };
     }
