@@ -366,6 +366,20 @@
     const params = new URLSearchParams(window.location.search);
     const inviteToken = params.get('i');
     const arrivedFromLogout = params.get('logout') === '1';
+    const lockedFlag = params.get('locked') === '1';
+    const nextUrl = params.get('next');
+
+    // After auth: bounce to ?next=<encoded URL> if present, else use the
+    // legacy goToApp(userId) path. The app's worker sets ?next= when it
+    // redirects unauth'd visitors here, so signing in returns them to
+    // exactly the URL they were trying to reach.
+    function _afterAuth(userId) {
+      if (nextUrl) {
+        try { window.location.href = decodeURIComponent(nextUrl); return; }
+        catch (e) { /* fall through */ }
+      }
+      goToApp(userId);
+    }
 
     async function init() {
       // App-side logout bounces the user back here with ?logout=1. Clear
@@ -383,6 +397,20 @@
         if (err) err.textContent = 'You\'ve been signed out — enter a code to sign back in.';
         return;
       }
+      // App worker bounced us here with ?locked=1 — owner-only lockdown
+      // active. Clear sessionStorage so we don't infinite-loop back to the
+      // app (which would just bounce us back again with locked=1). Force
+      // the gate-form open with a clear message; only the owner code will
+      // pass the worker check during lockdown.
+      if (lockedFlag) {
+        try { sessionStorage.removeItem('sk_auth'); } catch {}
+        if (card) {
+          card.open = true;
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (err) err.textContent = 'Access temporarily restricted. Enter the owner code.';
+        return;
+      }
       // Already authed this session — bounce straight to app. App's own
       // localStorage holds whichever userId was set on the prior login.
       if (sessionStorage.getItem('sk_auth') === '1') {
@@ -393,7 +421,8 @@
         const valid = await validateInviteToken(inviteToken);
         if (valid) {
           sessionStorage.setItem('sk_auth', '1');
-          setTimeout(() => goToApp(null), 300);  // invite tokens are anonymous
+          _setAuthCookie('anon');
+          setTimeout(() => _afterAuth(null), 300);  // invite tokens are anonymous
           return;
         }
         // Expose the gate and show the expiry message
@@ -404,15 +433,27 @@
     }
     init();
 
+    // Cross-subdomain auth cookie. Set on .spekset.com so app.spekset.com
+    // can read it. App's _worker.js gates static-asset requests on this
+    // cookie's presence — anyone hitting app.spekset.com without it gets
+    // redirected back to spekset.com (this gate) to enter a code.
+    function _setAuthCookie(userIdOrAnon) {
+      try {
+        const exp = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `sk_auth=${encodeURIComponent(userIdOrAnon)}; expires=${exp}; path=/; domain=.spekset.com; secure; samesite=lax`;
+      } catch (e) { /* best-effort */ }
+    }
+
     if (form) {
       form.addEventListener('submit', e => {
         e.preventDefault();
         const result = _checkCode(input.value);
         if (result.ok) {
           sessionStorage.setItem('sk_auth', '1');
+          _setAuthCookie(result.userId);
           err.textContent = '';
           card.classList.add('gate-success');
-          setTimeout(() => goToApp(result.userId), 400);
+          setTimeout(() => _afterAuth(result.userId), 400);
         } else {
           card.classList.remove('gate-shake');
           void card.offsetWidth;
@@ -435,7 +476,8 @@
         const result = _checkCode(code);
         if (result.ok) {
           sessionStorage.setItem('sk_auth', '1');
-          goToApp(result.userId);
+          _setAuthCookie(result.userId);
+          _afterAuth(result.userId);
         }
       });
     }
