@@ -1,0 +1,4 @@
+ezdxf>=1.4
+reportlab>=4.0
+# optional, only for rasterizing PDFs to PNG previews while developing:
+PyMuPDF>=1.24

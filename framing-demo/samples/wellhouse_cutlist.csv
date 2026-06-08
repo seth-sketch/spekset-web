@@ -1,0 +1,31 @@
+STRUT CHANNEL CUT LIST
+member,length_in,qty
+Base perimeter (long),45.25,2
+Base perimeter (end),36.5,2
+Top/eave rail (long),45.25,2
+Top/eave rail (end),36.5,2
+Corner post,26.75,4
+Mid gable post,26.75,2
+Rafter (sloped),19,6
+Ridge rail,45.25,2
+"Ridge spacer (6"" cap)",6.0,3
+
+7 sticks of 10ft strut,70.0 lin-ft,15.5% waste
+
+CLADDING / ROOF
+Wall cladding — T&G PVC (AZEK-type),38.9,sqft
+Roof — standing-seam aluminum panel,14.9,sqft
+"Roof substrate — 1/2"" PVC sheet (under lid)",7.5,sqft
+
+HARDWARE
+"Pillow block bearing, 3/4"" 316 SS",2,ea
+"Shaft, 3/4"" 316 SS x 50""",1,ea
+"Drum: 6"" Sch-40 PVC x 42"" (or keep log)",1,ea
+HDPE/PVC drum end disk,2,ea
+"Piano hinge, 316 SS x 45""",1,ea
+"Gas strut, 20-30 lb + ball mounts",2,set
+Strut 90-deg corner gusset,16,ea
+"Strut spring nut + 3/8"" SS bolt",48,set
+Strut end cap,8,ea
+"316 SS cladding screws (#8 x 1-5/8"")",2,box
+Crank handle assembly (reuse/rebuild),1,ea

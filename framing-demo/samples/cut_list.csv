@@ -1,0 +1,35 @@
+category,size,length_in,qty
+Bottom plate,2x4,120,2
+Top plate (dbl),2x4,120,4
+Bottom plate,2x4,96,2
+Top plate (dbl),2x4,96,4
+King stud,2x4,91.5,4
+Wall stud,2x4,91.5,27
+Jack stud,2x4,82.0,2
+Jack stud,2x4,66,2
+Rough sill,2x4,41.0,1
+Cripple (under sill),2x4,38.5,3
+Cripple (above header),2x4,20.0,3
+Cripple (above header),2x4,4.0,3
+Rim joist,2x6,120,2
+Floor joist,2x6,93.0,9
+Header,2x6,41.0,4
+
+--- OPTIMIZED STOCK ---
+size,stock_ft,count,drop_in
+2x4,10,6,0.0
+2x4,8,6,0.0
+2x4,8,3,0.38
+2x4,8,28,4.5
+2x4,8,2,14.0
+2x4,8,2,9.88
+2x4,8,1,16.38
+2x4,8,1,18.88
+2x4,8,1,76.0
+2x6,10,2,0.0
+2x6,8,9,3.0
+2x6,8,2,13.88
+
+board_feet,382.7
+stock_count,63
+waste_pct,5.5
