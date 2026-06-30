@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>speKset — concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1220; --muted:#5b6478; --faint:#9098a8; --line:#e6e8ee;
+    --paper:#ffffff; --paper-2:#f7f8fa; --accent:#2f6df6; --accent-bright:#4e8eff; --night:#0a0d16;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+  .disp{font-family:'Archivo',sans-serif;letter-spacing:-.025em;line-height:1.02}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .eyb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  nav{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:22px 32px}
+  nav .brand{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;color:#fff}
+  nav .brand b{color:var(--accent-bright)}
+  nav .navlinks{display:flex;gap:26px;align-items:center}
+  nav .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-size:14px}
+  nav .req{background:var(--accent);color:#fff;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:600}
+
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--night)}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,20,.55) 0%,rgba(8,11,20,.12) 38%,rgba(8,11,20,.8) 100%)}
+  .hero .vign{position:absolute;inset:0;box-shadow:inset 0 0 220px 40px rgba(5,7,13,.7)}
+  .hero .inner{position:relative;width:100%;max-width:1180px;margin:0 auto;padding:0 32px 64px}
+  .hero .disciplines{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;color:#aebfe6;margin-bottom:20px}
+  .hero h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,82px);letter-spacing:-.03em;line-height:.98;max-width:14ch}
+  .hero p.sub{font-size:clamp(15px,1.6vw,18px);color:#c7cee0;margin-top:20px;max-width:48ch;line-height:1.55}
+  .hero .cta-row{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
+  .btn-primary{background:var(--accent);color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary:hover{background:#2a5fd6}
+  .hero .scrollhint{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8d97b3}
+  .crop{position:absolute;width:18px;height:18px;opacity:.55;z-index:2}
+  .crop.tl{left:24px;top:88px;border-left:1px solid var(--accent-bright);border-top:1px solid var(--accent-bright)}
+  .crop.br{right:24px;bottom:24px;border-right:1px solid var(--accent-bright);border-bottom:1px solid var(--accent-bright)}
+
+  section.band{padding:96px 0;border-bottom:1px solid var(--line)}
+  section.band.alt{background:var(--paper-2)}
+  h2.head{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-.025em;line-height:1.05;margin:12px 0 0;max-width:18ch}
+  p.lead{font-size:16px;color:var(--muted);line-height:1.65;max-width:60ch;margin-top:18px}
+
+  /* spec viewer */
+  .spec{display:grid;grid-template-columns:148px 1fr;gap:20px;margin-top:38px;height:600px}
+  .spec .rail{overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--paper-2);display:flex;flex-direction:column;gap:9px}
+  .spec .rail img{width:100%;border:1px solid var(--line);border-radius:5px;cursor:pointer;background:#fff;display:block;transition:border-color .12s, transform .12s}
+  .spec .rail img:hover{transform:translateY(-1px)}
+  .spec .rail img.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(47,109,246,.25)}
+  .spec .view{position:relative;border:1px solid var(--line);border-radius:10px;background:#eef1f6;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .spec .view img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 10px 30px rgba(13,18,32,.18)}
+  .spec .view .count{position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);background:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;border:1px solid var(--line)}
+  .spec .view .hintp{position:absolute;bottom:12px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--faint)}
+
+  /* compare */
+  .compare{position:relative;margin-top:38px;border-radius:12px;overflow:hidden;border:1px solid var(--line);user-select:none;aspect-ratio:2000/955;box-shadow:0 22px 50px rgba(13,18,32,.16)}
+  .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .compare .top{clip-path:inset(0 50% 0 0)}
+  .compare .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px);cursor:ew-resize;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+  .compare .handle .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3);color:#0d1220;font-size:13px}
+  .compare .tag{position:absolute;bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:#fff;background:rgba(8,11,20,.55);padding:5px 11px;border-radius:6px;backdrop-filter:blur(4px)}
+  .compare .tag.l{left:14px}.compare .tag.r{right:14px}
+
+  .browser{border:1px solid #d7dbe4;border-radius:14px;overflow:hidden;box-shadow:0 26px 60px rgba(13,18,32,.16);margin-top:38px}
+  .browser .chrome{display:flex;align-items:center;gap:8px;padding:11px 15px;background:#fff;border-bottom:1px solid var(--line)}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .browser .url{font-family:'IBM Plex Mono',monospace;color:var(--faint);font-size:12px;margin-left:10px}
+  .browser .stage{position:relative;height:320px;background:radial-gradient(110% 90% at 50% 38%,#1c2540,#0c1019)}
+  .browser .stage .g{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px)}
+  .browser .stage .scr{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:170px;height:90px;background:#1f2a44;border:1px solid var(--accent-bright);border-radius:4px;box-shadow:0 0 46px rgba(78,142,255,.32)}
+  .browser .bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(0deg,rgba(8,10,16,.9),transparent);color:#cfd6e8;font-size:13px}
+  .browser .bar .mono{color:#8d97b3;font-size:11px}
+
+  .tickers{overflow:hidden;padding:70px 0;border-bottom:1px solid var(--line)}
+  @keyframes scL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes scR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  .row-tk{overflow:hidden;margin:11px 0}
+  .tk{display:flex;gap:14px;width:max-content}
+  .tk.l{animation:scL 38s linear infinite}.tk.r{animation:scR 32s linear infinite}.tk.l2{animation:scL 46s linear infinite}
+  .lg{display:flex;align-items:center;gap:9px;padding:12px 22px;border:1px solid var(--line);border-radius:10px;color:#aab0bf;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;white-space:nowrap;background:#fff;filter:grayscale(1)}
+
+  .closer{padding:110px 0;text-align:center}
+  .badge{display:inline-flex;align-items:center;gap:9px;border:1px solid #d8deea;background:#f4f8ff;color:#33415c;font-size:13px;font-weight:500;padding:9px 16px;border-radius:999px;margin-bottom:26px}
+  .closer h2{font-family:'Archivo';font-weight:800;font-size:clamp(30px,5vw,52px);letter-spacing:-.03em}
+  .closer .price{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:13px;margin-top:18px}
+
+  @media(max-width:860px){
+    nav .navlinks a{display:none}
+    .spec{grid-template-columns:96px 1fr;height:460px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">spe<b>K</b>set</div>
+  <div class="navlinks">
+    <a href="#output">Platform</a>
+    <a href="#reveal">Rasters</a>
+    <a href="#live">Live</a>
+    <a href="#catalog">Catalog</a>
+    <a href="#access" class="req">Request access</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="bg" src="assets/concept/hero-build.jpg" alt="A broadcast set built in speKset">
+  <div class="scrim"></div><div class="vign"></div>
+  <span class="crop tl"></span><span class="crop br"></span>
+  <div class="inner">
+    <div class="disciplines">LED · LIGHTING · PROJECTION · AUDIO · RIGGING · SCENIC</div>
+    <h1>Design the entire show.</h1>
+    <p class="sub">One model. Every discipline. Client-ready production paperwork in twenty minutes — from a browser tab.</p>
+    <div class="cta-row">
+      <a href="#access" class="btn-primary">Request access
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <span class="scrollhint">↓ built entirely in speKset</span>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="output">
+  <div class="wrap">
+    <div class="eyb">The output — page by page</div>
+    <h2 class="head">A full spec package, straight from the model.</h2>
+    <p class="lead">This is a real export — 40 pages of cover, per-screen infrastructure, rigging, signal, power, plan views and content spec. Click any page to open it.</p>
+    <div class="spec">
+      <div class="rail" id="spec-rail"></div>
+      <div class="view">
+        <img id="spec-big" src="assets/concept/spec/page-01.jpg" alt="Spec PDF page">
+        <div class="count" id="spec-count">01 / 40</div>
+        <div class="hintp">← scroll the strip · click to open</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="reveal">
+  <div class="wrap">
+    <div class="eyb">Lit show ↔ raster map</div>
+    <h2 class="head">The render, then the signal underneath.</h2>
+    <p class="lead">Drag to wipe between the finished look and the raster map — every cabinet, processor feed and content target the media team actually builds against.</p>
+    <div class="compare" id="cmp">
+      <img class="bottom" src="assets/concept/hero-raster.jpg" alt="Raster map view">
+      <img class="top" id="cmp-top" src="assets/concept/hero-build.jpg" alt="Lit show view">
+      <div class="tag l">LIT SHOW</div>
+      <div class="tag r">RASTER MAP</div>
+      <div class="handle" id="cmp-handle"><div class="grip">⟷</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="live">
+  <div class="wrap">
+    <div class="eyb">Runs in the browser</div>
+    <h2 class="head">The whole platform. No install, no plugin.</h2>
+    <p class="lead">Everything the desktop CAD tools do — screens, rigging, signal, paperwork — running in a tab. Not an add-on to someone else's software. The platform.</p>
+    <div class="browser">
+      <div class="chrome"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="url">app.spekset.com</span></div>
+      <div class="stage"><div class="g"></div><div class="scr"></div>
+        <div class="bar"><span>▶ Plays itself when idle — click to take over</span><span class="mono">BUILD → PDF → RESET</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tickers" id="catalog">
+  <div class="wrap"><div class="eyb">The catalog — every brand you spec</div></div>
+  <div style="margin-top:26px">
+    <div class="row-tk"><div class="tk l">
+      <span class="lg">Screens Co</span><span class="lg">Panelworks</span><span class="lg">PixelCorp</span><span class="lg">Lumawall</span><span class="lg">VividLED</span><span class="lg">Brightline</span><span class="lg">NovaPanel</span>
+      <span class="lg">Screens Co</span><span class="lg">Panelworks</span><span class="lg">PixelCorp</span><span class="lg">Lumawall</span><span class="lg">VividLED</span><span class="lg">Brightline</span><span class="lg">NovaPanel</span>
+    </div></div>
+    <div class="row-tk"><div class="tk r">
+      <span class="lg">Lumen Labs</span><span class="lg">BeamTech</span><span class="lg">Trussform</span><span class="lg">Processr</span><span class="lg">SonicArray</span><span class="lg">Halo Optics</span><span class="lg">RigPro</span>
+      <span class="lg">Lumen Labs</span><span class="lg">BeamTech</span><span class="lg">Trussform</span><span class="lg">Processr</span><span class="lg">SonicArray</span><span class="lg">Halo Optics</span><span class="lg">RigPro</span>
+    </div></div>
+    <div class="row-tk"><div class="tk l2">
+      <span class="lg">disguise</span><span class="lg">MA3</span><span class="lg">Unreal</span><span class="lg">SketchUp</span><span class="lg">Vectorworks</span><span class="lg">DXF · MVR</span><span class="lg">Blender</span>
+      <span class="lg">disguise</span><span class="lg">MA3</span><span class="lg">Unreal</span><span class="lg">SketchUp</span><span class="lg">Vectorworks</span><span class="lg">DXF · MVR</span><span class="lg">Blender</span>
+    </div></div>
+  </div>
+  <div class="wrap" style="text-align:center;margin-top:22px"><span class="mono" style="font-size:11px;color:var(--faint)">↑ standin logos — swap for real monochrome brand marks</span></div>
+</section>
+
+<section class="closer" id="access">
+  <div class="wrap">
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 8h6M8 5l3 3-3 3" stroke="#2f6df6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Already in Vectorworks? Imports MVR · DXF · Vectorworks files</span>
+    <h2>Spec the whole show. Today.</h2>
+    <a href="mailto:info@setheasterdesign.com?subject=speKset%20Access%20Request" class="btn-primary" style="margin-top:30px">Request access
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="price">$1,800 / yr · monthly available · by invitation during scale-up</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var N=40, rail=document.getElementById('spec-rail'),
+      big=document.getElementById('spec-big'), count=document.getElementById('spec-count');
+  function pad(n){return String(n).padStart(2,'0');}
+  for(var i=1;i<=N;i++){(function(i){
+    var t=document.createElement('img');
+    t.src='assets/concept/spec/thumb-'+pad(i)+'.jpg';
+    t.loading='lazy'; t.alt='Page '+i; t.dataset.n=i;
+    if(i===1)t.className='active';
+    t.addEventListener('click',function(){
+      big.src='assets/concept/spec/page-'+pad(i)+'.jpg';
+      count.textContent=pad(i)+' / '+N;
+      rail.querySelectorAll('img').forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+    });
+    rail.appendChild(t);
+  })(i);}
+
+  var cmp=document.getElementById('cmp'), top=document.getElementById('cmp-top'),
+      handle=document.getElementById('cmp-handle'), dragging=false;
+  function setPos(clientX){
+    var r=cmp.getBoundingClientRect();
+    var p=Math.max(0,Math.min(1,(clientX-r.left)/r.width));
+    top.style.clipPath='inset(0 '+((1-p)*100)+'% 0 0)';
+    handle.style.left=(p*100)+'%';
+  }
+  cmp.addEventListener('pointerdown',function(e){dragging=true;setPos(e.clientX);});
+  window.addEventListener('pointermove',function(e){if(dragging)setPos(e.clientX);});
+  window.addEventListener('pointerup',function(){dragging=false;});
+})();
+</script>
+</body>
+</html>

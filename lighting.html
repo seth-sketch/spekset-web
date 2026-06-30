@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>speKset — Lighting</title>
+<meta name="description" content="2,267 fixtures from 44 lighting manufacturers, plus GDTF Share. Drop, focus, gobo and patch — every parameter in one inspector, straight into your lighting plot and paperwork.">
+<link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0d1220;--muted:#5b6478;--faint:#9098a8;--line:#e6e8ee;--paper:#fff;--paper-2:#f7f8fa;--accent:#2f6df6;--accent-bright:#4e8eff;--night:#0a0d16}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+  a{color:inherit;text-decoration:none}
+  .disp{font-family:'Archivo',sans-serif;letter-spacing:-.025em;line-height:1.02}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .eyb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+  nav .brand{font-family:'Archivo';font-weight:800;font-size:20px;color:var(--ink)}
+  nav .brand b{color:var(--accent)}
+  nav .navlinks{display:flex;gap:24px;align-items:center}
+  nav .navlinks a{color:var(--muted);font-size:14px}
+  nav .navlinks a.on{color:var(--ink);font-weight:600}
+  nav .req{background:var(--accent);color:#fff;padding:9px 16px;border-radius:9px;font-size:14px;font-weight:600}
+
+  .subhero{padding:70px 0 40px}
+  .subhero h1{font-family:'Archivo';font-weight:900;font-size:clamp(36px,6vw,64px);letter-spacing:-.03em;line-height:1;margin-top:14px}
+  .subhero p.lead{font-size:17px;color:var(--muted);line-height:1.6;max-width:60ch;margin-top:18px}
+  .kpis{display:flex;gap:46px;margin-top:34px;flex-wrap:wrap}
+  .kpi b{font-family:'Archivo';font-weight:800;font-size:38px;display:block;color:var(--ink)}
+  .kpi span{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase}
+
+  .shot{border-radius:12px;border:1px solid var(--line);box-shadow:0 24px 54px rgba(13,18,32,.16);overflow:hidden;display:block;width:100%}
+  .shot img{display:block;width:100%}
+  .feature{padding:60px 0;border-top:1px solid var(--line)}
+  .feature.alt{background:var(--paper-2)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .feature h2{font-family:'Archivo';font-weight:800;font-size:clamp(24px,3.4vw,36px);letter-spacing:-.02em;line-height:1.08}
+  .feature p{font-size:15.5px;color:var(--muted);line-height:1.7;margin-top:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chip{font-family:'IBM Plex Mono';font-size:11.5px;color:#3f4759;background:#fff;border:1px solid var(--line);border-radius:7px;padding:6px 11px}
+
+  /* scrollable inspector frame — the panel is too tall to show at once */
+  .inspector-frame{border:1px solid var(--line);border-radius:14px;background:#141a28;overflow:hidden;box-shadow:0 24px 54px rgba(13,18,32,.18)}
+  .inspector-frame .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);background:#1a2030}
+  .inspector-frame .bar .mono{color:#9aa3bd;font-size:11px}
+  .inspector-frame .scroll{height:520px;overflow-y:auto}
+  .inspector-frame .scroll img{display:block;width:100%}
+
+  .cta-band{background:var(--night);color:#fff;padding:90px 0;text-align:center;position:relative;overflow:hidden}
+  .cta-band .glow{position:absolute;inset:0;background:radial-gradient(70% 120% at 50% 0%,rgba(47,109,246,.35),transparent 60%)}
+  .cta-band h2{font-family:'Archivo';font-weight:800;font-size:clamp(28px,4.4vw,46px);letter-spacing:-.03em;position:relative}
+  .btn-primary{background:var(--accent);color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;margin-top:26px;position:relative}
+  .btn-primary:hover{background:#2a5fd6}
+  footer{padding:40px 0;text-align:center;color:var(--faint);font-size:13px;background:var(--paper-2);border-top:1px solid var(--line)}
+  footer b{font-family:'Archivo';color:var(--ink)}
+  @media(max-width:820px){nav .navlinks a:not(.req){display:none}.two{grid-template-columns:1fr;gap:24px}.kpis{gap:26px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">spe<b>K</b>set</a>
+  <div class="navlinks">
+    <a href="index.html">Home</a>
+    <a href="screen-shop.html">Screen Shop</a>
+    <a href="rack-shop.html">Rack Shop</a>
+    <a href="lighting.html" class="on">Lighting</a>
+    <a href="staging.html">Staging</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#access" class="req">Request access</a>
+  </div>
+</nav>
+
+<header class="subhero">
+  <div class="wrap">
+    <div class="eyb">Lighting</div>
+    <h1>Every fixture,<br>ready to hang.</h1>
+    <p class="lead">A real lighting library — 2,267 fixtures from 44 manufacturers, each with accurate beam, power, weight and DMX footprint — and anything missing pulls straight from GDTF Share. Place it, focus it, patch it, and it flows into your plot, instrument schedule and channel hookup.</p>
+    <div class="kpis">
+      <div class="kpi"><b>2,267</b><span>fixtures</span></div>
+      <div class="kpi"><b>44</b><span>manufacturers</span></div>
+      <div class="kpi"><b>+ GDTF</b><span>share library</span></div>
+    </div>
+    <div style="margin-top:40px"><a class="shot" href="assets/shops/lighting-library.jpg" target="_blank"><img src="assets/shops/lighting-library.jpg" alt="Lighting library — add fixture"></a></div>
+  </div>
+</header>
+
+<section class="feature alt">
+  <div class="wrap">
+    <div class="eyb" style="text-align:center">The library</div>
+    <h2 style="text-align:center;max-width:24ch;margin:12px auto 0">Browse by type. From PAR to MegaPointe.</h2>
+    <p style="text-align:center;max-width:62ch;margin:16px auto 0">Filter by fixture type and manufacturer, favorite the ones you reach for, and drop them into the rig. Real product data — ETC Source Four, Martin MAC Aura PXL, Robe MegaPointe, Vari-Lite VL2600 and thousands more.</p>
+    <div class="chips" style="justify-content:center">
+      <span class="chip">Moving Spot</span><span class="chip">Moving Wash</span><span class="chip">Moving Beam</span><span class="chip">Static Wash</span><span class="chip">Ellipsoidal</span><span class="chip">PAR</span><span class="chip">Strobe</span><span class="chip">Fresnel</span><span class="chip">Linear</span>
+    </div>
+    <div class="chips" style="justify-content:center;margin-top:10px">
+      <span class="chip">Robe</span><span class="chip">Martin</span><span class="chip">Clay Paky</span><span class="chip">Vari-Lite</span><span class="chip">High End</span><span class="chip">ETC</span><span class="chip">Elation</span><span class="chip">GLP</span><span class="chip">Ayrton</span><span class="chip">Astera</span><span class="chip">+34 more</span>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="wrap two">
+    <div>
+      <div class="eyb">The inspector</div>
+      <h2>Every parameter for the fixture — in one panel.</h2>
+      <p>Select any fixture and the inspector opens its full control set: beam, power, weight and DMX channel count; plot-symbol color for the Spec-PDF; gel preset and live gobo wheels; color &amp; intensity; DMX patch with auto-address; rig position, rotation, tilt and pan; and "Set Focus" to aim it anywhere in the 3D scene with a real beam cone. Scroll it →</p>
+      <p style="font-size:13px;color:var(--faint)">(The panel's taller than a screen — scroll inside the frame to see all of it.)</p>
+    </div>
+    <div class="inspector-frame">
+      <div class="bar"><span class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#4e8eff"></span><span class="mono">Fixture inspector — MAC Viper Profile</span></div>
+      <div class="scroll"><img src="assets/shops/inspector-full.jpg" alt="Full fixture inspector"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="glow"></div>
+  <div class="wrap">
+    <h2>Light the whole rig — then ship the plot.</h2>
+    <a href="index.html#access" class="btn-primary">Request access
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<footer><b>speKset</b> · Design it. Spec it. Ship it. &nbsp;·&nbsp; <a href="index.html" style="color:var(--accent)">Back home</a></footer>
+</body>
+</html>
