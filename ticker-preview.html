@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>speKset — ticker tint preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#fff;color:#0d1220;font-family:'IBM Plex Mono',monospace;padding:40px 0}
+  .lab{max-width:1180px;margin:0 auto 10px;padding:0 32px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9098a8}
+  .block{padding:26px 0 44px;border-bottom:1px solid #eef0f4}
+  .row{overflow:hidden;margin:11px 0}
+  .tk{display:flex;gap:14px;width:max-content;animation:scL 40s linear infinite}
+  @keyframes scL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .lg{display:flex;align-items:center;padding:12px 22px;border:1px solid #e6e8ee;border-radius:10px;font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;white-space:nowrap;background:#fff}
+  /* A: current — grayscale */
+  .a .lg{color:#aab0bf;filter:grayscale(1)}
+  /* B: subtle blue-gray */
+  .b .lg{color:#6b83b5}
+  /* C: full accent blue */
+  .c .lg{color:#2f6df6;border-color:#d8e2f6}
+  /* D: blue text on faint blue tint chip */
+  .d .lg{color:#2f6df6;background:#f4f8ff;border-color:#dbe6fb}
+</style></head>
+<body>
+<script>
+  var brands=["ROE","Absen","AOTO","Barco","INFiLED","Unilumin","Leyard","PixelFlex","Samsung","Sony","LG","Robe","Martin","Clay Paky","Vari-Lite","ETC","Elation","GLP","Ayrton","Astera"];
+  function rowHTML(cls){var s='<span class="lg">'+brands.join('</span><span class="lg">')+'</span>';return '<div class="block '+cls+'"><div class="lab" style="color:#9098a8">'+({a:"A · current (grayscale)",b:"B · subtle blue-gray",c:"C · full accent blue",d:"D · blue on faint-blue chip"}[cls])+'</div><div class="row"><div class="tk">'+s+s+'</div></div></div>';}
+  document.body.insertAdjacentHTML('beforeend',['a','b','c','d'].map(rowHTML).join(''));
+</script>
+</body></html>
