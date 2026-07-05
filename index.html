@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>speKset — Design the entire show</title>
+<title>Forectra — Design the entire show</title>
 <meta name="description" content="Browser-based production design platform. Build LED, lighting, projection, audio, rigging and scenic in one 3D model and auto-generate the full spec package — in 20 minutes, from a tab. Imports MVR · DXF · Vectorworks.">
 <link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
 <link rel="shortcut icon" href="/assets/favicon.svg?v=3">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://spekset.com/">
-<meta property="og:title" content="speKset — Design the entire show">
+<meta property="og:title" content="Forectra — Design the entire show">
 <meta property="og:description" content="One model. Every discipline. Client-ready production paperwork in twenty minutes — from a browser tab.">
 <meta property="og:image" content="https://spekset.com/assets/logo.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="speKset — Design the entire show">
+<meta name="twitter:title" content="Forectra — Design the entire show">
 <meta name="twitter:description" content="One model. Every discipline. Production paperwork in twenty minutes, from a tab.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a0d16">
@@ -23,7 +23,7 @@
 <style>
   :root{
     --ink:#0d1220; --muted:#5b6478; --faint:#9098a8; --line:#e6e8ee;
-    --paper:#ffffff; --paper-2:#f7f8fa; --accent:#2f6df6; --accent-bright:#4e8eff; --night:#0a0d16;
+    --paper:#ffffff; --paper-2:#f7f8fa; --accent:#5f9a00; --accent-bright:#B4FF39; --night:#0a0d16;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -39,7 +39,7 @@
   nav .brand b{color:var(--accent-bright)}
   nav .navlinks{display:flex;gap:26px;align-items:center}
   nav .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-size:14px}
-  nav .req{background:var(--accent);color:#fff;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:600}
+  nav .req{background:#B4FF39;color:#14161f;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:600}
 
   /* hero with sliding image bg */
   .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--night)}
@@ -53,8 +53,8 @@
   .hero h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,82px);letter-spacing:-.03em;line-height:.98;max-width:14ch}
   .hero p.sub{font-size:clamp(15px,1.6vw,18px);color:#c7cee0;margin-top:20px;max-width:48ch;line-height:1.55}
   .hero .cta-row{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
-  .btn-primary{background:var(--accent);color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
-  .btn-primary:hover{background:#2a5fd6}
+  .btn-primary{background:#B4FF39;color:#14161f;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+  .btn-primary:hover{background:#a3ec24}
   .hero .scrollhint{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#aeb6cf}
   .hero .sdots{position:absolute;right:32px;bottom:32px;display:flex;gap:8px;z-index:3}
   .hero .sdots b{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);display:block;cursor:pointer}
@@ -70,7 +70,7 @@
 
   /* statement A — white on color, full bleed, not a card */
   .statement{position:relative;background:var(--night);color:#fff;overflow:hidden;padding:110px 0}
-  .statement .glow{position:absolute;inset:0;background:radial-gradient(80% 120% at 78% 20%,rgba(47,109,246,.35),transparent 60%)}
+  .statement .glow{position:absolute;inset:0;background:radial-gradient(80% 120% at 78% 20%,rgba(95,154,0,.35),transparent 60%)}
   .statement .rule{width:46px;height:3px;background:var(--accent-bright);margin-bottom:26px}
   .statement h2{font-family:'Archivo';font-weight:800;font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.05;max-width:20ch}
   .statement p{font-size:17px;color:#aeb6cf;line-height:1.7;max-width:58ch;margin-top:22px}
@@ -104,7 +104,7 @@
   .spec .rail .rlbl{font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.14em;color:var(--faint);text-align:center;padding:2px 0 6px}
   .spec .rail img{width:100%;border:1px solid var(--line);border-radius:5px;cursor:pointer;background:#fff;display:block;transition:border-color .12s, transform .12s}
   .spec .rail img:hover{transform:translateY(-1px)}
-  .spec .rail img.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(47,109,246,.25)}
+  .spec .rail img.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(95,154,0,.25)}
   .spec .view{position:relative;border:1px solid var(--line);border-radius:10px;background:#eef1f6;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .spec .view img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 10px 30px rgba(13,18,32,.18)}
   .spec .view .count{position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono';font-size:11px;color:var(--muted);background:rgba(255,255,255,.9);padding:4px 10px;border-radius:6px;border:1px solid var(--line)}
@@ -126,7 +126,7 @@
   .browser .stage .ph{position:absolute;inset:0;transition:opacity .4s ease}
   .browser .stage .ph.hidden{opacity:0;pointer-events:none}
   .browser .stage .g{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px)}
-  .browser .stage .scr{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:170px;height:90px;background:#1f2a44;border:1px solid var(--accent-bright);border-radius:4px;box-shadow:0 0 46px rgba(78,142,255,.32)}
+  .browser .stage .scr{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:170px;height:90px;background:#1f2a44;border:1px solid var(--accent-bright);border-radius:4px;box-shadow:0 0 46px rgba(180,255,57,.32)}
   .browser .bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(0deg,rgba(8,10,16,.9),transparent);color:#cfd6e8;font-size:13px}
   .browser .bar .mono{color:#8d97b3;font-size:11px}
   .demo-launch{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-decoration:none}
@@ -147,7 +147,7 @@
   .pricing{padding:96px 0;text-align:center;border-bottom:1px solid var(--line)}
   .toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;margin:24px 0 30px;background:var(--paper-2)}
   .toggle .toggle-btn{border:none;background:none;font-family:'Inter';font-size:13px;font-weight:600;color:var(--muted);padding:8px 18px;border-radius:999px;cursor:pointer}
-  .toggle .toggle-btn.active{background:var(--accent);color:#fff}
+  .toggle .toggle-btn.active{background:#B4FF39;color:#14161f}
   .toggle .toggle-save{font-family:'IBM Plex Mono';font-size:10px;margin-left:6px;opacity:.8}
   .price-amount{font-family:'Archivo';font-weight:800;letter-spacing:-.02em}
   .price-amount .price-currency{font-size:24px;vertical-align:top}
@@ -190,29 +190,16 @@
   #presplash .ps-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#8d97b3}
   #presplash .ps-mark{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(52px,11vw,104px);letter-spacing:-.03em;color:#f3f5fb;line-height:1}
   #presplash .ps-mark b{color:var(--accent-bright);font-weight:900}
-  #presplash .ps-enter{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px 42px;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:background .15s}
-  #presplash .ps-enter:hover{background:#2a5fd6}
+  #presplash .ps-enter{background:#B4FF39;color:#14161f;border:none;border-radius:10px;padding:14px 42px;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:background .15s}
+  #presplash .ps-enter:hover{background:#a3ec24}
 </style>
 </head>
 <body>
 
-<div id="presplash">
-  <div class="ps-tag">Production Design Platform</div>
-  <div class="ps-mark">spe<b>K</b>set</div>
-  <button class="ps-enter" id="ps-enter">Enter</button>
-</div>
-<script>
-  (function(){
-    var ps=document.getElementById('presplash');
-    var p=new URLSearchParams(location.search);
-    if(p.get('i')||p.get('next')||p.get('logout')||p.get('locked')||sessionStorage.getItem('sk_entered')){ if(ps)ps.remove(); return; }
-    var b=document.getElementById('ps-enter');
-    if(b)b.addEventListener('click',function(){ try{sessionStorage.setItem('sk_entered','1');}catch(e){} ps.classList.add('gone'); setTimeout(function(){if(ps)ps.remove();},520); });
-  })();
-</script>
+<!-- pre-splash entry gate removed — homepage now loads immediately (no click-wall) -->
 
 <nav>
-  <a href="#" class="brand">spe<b>K</b>set</a>
+  <a href="#" class="brand"><img src="/assets/forectra_logo.png" alt="Forectra" style="height:26px;display:block"></a>
   <div class="navlinks">
     <a href="#output">Platform</a>
     <a href="screen-shop.html">Screen Shop</a>
@@ -220,7 +207,7 @@
     <a href="lighting.html">Lighting</a>
     <a href="staging.html">Staging</a>
     <a href="#pricing">Pricing</a>
-    <a href="#access" class="req">Request access</a>
+    <a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="req" data-event="cta_try_free_nav">Try it free</a>
   </div>
 </nav>
 
@@ -237,9 +224,10 @@
     <h1>Design the entire show.</h1>
     <p class="sub">One model. Every discipline. Client-ready production paperwork in twenty minutes — from a browser tab.</p>
     <div class="cta-row">
-      <a href="#access" class="btn-primary" data-event="cta_request_access">Request access
+      <a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="btn-primary" data-event="cta_try_free">Try it free
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <span class="scrollhint">↓ built entirely in speKset</span>
+      <a href="#access" class="btn-ghost" data-event="cta_request_access" style="display:inline-flex;align-items:center;padding:14px 22px;border:1px solid rgba(255,255,255,.28);border-radius:10px;color:#eef2fb;font-weight:600;font-size:15px;text-decoration:none">Request access</a>
+      <span class="scrollhint">↓ built entirely in Forectra</span>
     </div>
   </div>
 </header>
@@ -281,7 +269,7 @@
   <div class="wrap">
     <div class="eyb">Built for every discipline</div>
     <h2 class="head">Spec the screens. Build the racks. Light the rig.</h2>
-    <p class="lead">Beyond the model, speKset has dedicated workspaces for the gear you spec most — and they ship with everything else, no add-ons.</p>
+    <p class="lead">Beyond the model, Forectra has dedicated workspaces for the gear you spec most — and they ship with everything else, no add-ons.</p>
     <div class="shops">
       <a class="shopcard" href="screen-shop.html">
         <div class="shopimg"><img src="assets/shops/screen-shop-overview.jpg" alt="Screen Shop"></div>
@@ -324,7 +312,7 @@
     <div class="box">
       <div class="eyb">Who it's for</div>
       <h2>For the people who need it fast — and need it right.</h2>
-      <p>speKset isn't here to replace the deep CAD suites. It's for designers, rental houses and broadcast teams who want speed without giving up accuracy. Already living in Vectorworks? Bring your files — MVR from lighting, DXF, Vectorworks geometry — plug them in, spec the rest in minutes, and export back out to the pipeline.</p>
+      <p>Forectra isn't here to replace the deep CAD suites. It's for designers, rental houses and broadcast teams who want speed without giving up accuracy. Already living in Vectorworks? Bring your files — MVR from lighting, DXF, Vectorworks geometry — plug them in, spec the rest in minutes, and export back out to the pipeline.</p>
       <div class="sig">— SETH EASTER · 3× EMMY · ADG · DUPONT-COLUMBIA</div>
     </div>
   </div>
@@ -339,11 +327,11 @@
     <div class="browser">
       <div class="chrome"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="url">app.spekset.com</span></div>
       <div class="stage" id="live-stage" style="background:#0c1019">
-        <img id="demo-poster" src="assets/shops/screen-shop-overview.jpg" alt="speKset running in the browser" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:.85;transition:opacity .6s">
+        <img id="demo-poster" src="assets/shops/screen-shop-overview.jpg" alt="Forectra running in the browser" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:.85;transition:opacity .6s">
         <div id="demo-frame-wrap" style="position:absolute;inset:0"></div>
         <div class="demo-mobile-note" style="background:linear-gradient(0deg,rgba(8,10,16,.9),rgba(8,10,16,.55))">
           <span style="color:#f3f5fb;font-weight:600;font-size:16px">The live demo runs on desktop</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#aeb6cf;line-height:1.5">Visit speKset.com on a computer<br>to build a show yourself.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#aeb6cf;line-height:1.5">Visit Forectra.com on a computer<br>to build a show yourself.</span>
         </div>
         <a class="demo-pop" href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener">Open full-screen ↗</a>
       </div>
@@ -363,7 +351,7 @@
     if(wrap.dataset.mounted) return; wrap.dataset.mounted='1';
     var f=document.createElement('iframe');
     f.src='https://app.spekset.com/?demo=1';
-    f.title='speKset live demo — build a show yourself';
+    f.title='Forectra live demo — build a show yourself';
     f.setAttribute('allow','fullscreen');
     f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#0c1019';
     f.addEventListener('load',function(){ var p=document.getElementById('demo-poster'); if(p) p.style.opacity='0'; });
@@ -403,11 +391,11 @@
     <div class="eyb">Pricing</div>
     <h2 class="head" style="margin-left:auto;margin-right:auto">Enterprise tool. Designer price.</h2>
     <div class="toggle" role="tablist" aria-label="Billing cycle">
-      <button class="toggle-btn active" data-cadence="annual" role="tab" aria-selected="true">Annual<span class="toggle-save">save $600/yr</span></button>
+      <button class="toggle-btn active" data-cadence="annual" role="tab" aria-selected="true">Annual<span class="toggle-save">save $760/yr</span></button>
       <button class="toggle-btn" data-cadence="monthly" role="tab" aria-selected="false">Monthly</button>
     </div>
-    <div class="price-amount"><span class="price-currency">$</span><span class="price-num" id="price-num">1,800</span><span class="price-unit" id="price-unit">/year</span></div>
-    <div class="price-alt" id="price-alt">That's $150/month, billed annually.</div>
+    <div class="price-amount"><span class="price-currency">$</span><span class="price-num" id="price-num">1,400</span><span class="price-unit" id="price-unit">/year</span></div>
+    <div class="price-alt" id="price-alt">That's $117/month, billed annually.</div>
     <ul class="price-features">
       <li>Unlimited projects &amp; exports</li>
       <li>Multi-page branded Spec PDFs</li>
@@ -417,19 +405,21 @@
       <li>Rigging calcs &amp; processor recommendations</li>
       <li>Client share links &amp; review workflow</li>
     </ul>
-    <div style="margin-top:30px"><a href="mailto:info@setheasterdesign.com?subject=speKset%20Access%20Request" class="btn-primary" data-event="cta_request_access_pricing">Request access
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    <div style="margin-top:30px"><a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="btn-primary" data-event="cta_try_free_pricing">Try it free
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div style="margin-top:12px;font-size:13px"><a href="mailto:info@setheasterdesign.com?subject=Forectra%20Account%20Request" data-event="cta_request_access_pricing" style="color:var(--accent);text-decoration:none">or request an account →</a></div></div>
   </div>
 </section>
 
 <!-- CLOSER + ACCESS GATE (ported) -->
 <section class="closer" id="access">
   <div class="wrap">
-    <span class="badge"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 8h6M8 5l3 3-3 3" stroke="#2f6df6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Already in Vectorworks? Imports MVR · DXF · Vectorworks files</span>
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 8h6M8 5l3 3-3 3" stroke="#5f9a00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Already in Vectorworks? Imports MVR · DXF · Vectorworks files</span>
     <h2>Spec the whole show. Today.</h2>
-    <a href="mailto:info@setheasterdesign.com?subject=speKset%20Access%20Request&body=Name%3A%20%0ACompany%3A%20%0ARole%3A%20%0AWhat%20you%27d%20use%20it%20for%3A%20" class="btn-primary" style="margin-top:28px" data-event="cta_request_access_closer">Request access
+    <a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="btn-primary" style="margin-top:28px" data-event="cta_try_free_closer">Try it free
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <div class="price">$1,800 / yr · monthly available · by invitation during scale-up</div>
+    <div style="margin-top:14px;font-size:14px"><a href="mailto:info@setheasterdesign.com?subject=Forectra%20Account%20Request&body=Name%3A%20%0ACompany%3A%20%0ARole%3A%20%0AWhat%20you%27d%20use%20it%20for%3A%20" data-event="cta_request_access_closer" style="color:var(--accent);text-decoration:none">or request an account →</a></div>
+    <div class="price">$1,400 / yr · $180 / mo · free to try, no account needed</div>
 
     <details class="access-gate" id="gate-card">
       <summary class="gate-summary">Have an access code or invite?</summary>
@@ -445,7 +435,7 @@
 </section>
 
 <footer class="splash-footer">
-  <span class="footer-brand">speKset</span> · Design it. Spec it. Ship it.
+  <span class="footer-brand">Forectra</span> · Design it. Spec it. Ship it.
   <div style="margin-top:10px;font-size:11px;color:var(--faint)">© 2026 <span id="owner-mark" style="cursor:default;user-select:none">Seth</span> Easter Design. All rights reserved.</div>
 </footer>
 
@@ -547,8 +537,8 @@
     btn.addEventListener('click',()=>{
       toggleBtns.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
       btn.classList.add('active');btn.setAttribute('aria-selected','true');
-      if(btn.dataset.cadence==='annual'){priceNum.textContent='1,800';priceUnit.textContent='/year';priceAlt.textContent="That's $150/month, billed annually.";}
-      else{priceNum.textContent='200';priceUnit.textContent='/month';priceAlt.textContent='Billed monthly. Cancel anytime.';}
+      if(btn.dataset.cadence==='annual'){priceNum.textContent='1,400';priceUnit.textContent='/year';priceAlt.textContent="That's $117/month, billed annually.";}
+      else{priceNum.textContent='180';priceUnit.textContent='/month';priceAlt.textContent='Billed monthly. Cancel anytime.';}
       if(window.skTrack)window.skTrack('toggle_cadence',{cadence:btn.dataset.cadence});
     });
   });

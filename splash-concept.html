@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>speKset — concept</title>
+<title>Forectra — concept</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0d1220; --muted:#5b6478; --faint:#9098a8; --line:#e6e8ee;
-    --paper:#ffffff; --paper-2:#f7f8fa; --accent:#2f6df6; --accent-bright:#4e8eff; --night:#0a0d16;
+    --paper:#ffffff; --paper-2:#f7f8fa; --accent:#5f9a00; --accent-bright:#B4FF39; --night:#0a0d16;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -25,7 +25,7 @@
   nav .brand b{color:var(--accent-bright)}
   nav .navlinks{display:flex;gap:26px;align-items:center}
   nav .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-size:14px}
-  nav .req{background:var(--accent);color:#fff;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:600}
+  nav .req{background:#B4FF39;color:#14161f;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:600}
 
   .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--night)}
   .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
@@ -36,8 +36,8 @@
   .hero h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,82px);letter-spacing:-.03em;line-height:.98;max-width:14ch}
   .hero p.sub{font-size:clamp(15px,1.6vw,18px);color:#c7cee0;margin-top:20px;max-width:48ch;line-height:1.55}
   .hero .cta-row{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
-  .btn-primary{background:var(--accent);color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-  .btn-primary:hover{background:#2a5fd6}
+  .btn-primary{background:#B4FF39;color:#14161f;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary:hover{background:#a3ec24}
   .hero .scrollhint{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8d97b3}
   .crop{position:absolute;width:18px;height:18px;opacity:.55;z-index:2}
   .crop.tl{left:24px;top:88px;border-left:1px solid var(--accent-bright);border-top:1px solid var(--accent-bright)}
@@ -53,7 +53,7 @@
   .spec .rail{overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--paper-2);display:flex;flex-direction:column;gap:9px}
   .spec .rail img{width:100%;border:1px solid var(--line);border-radius:5px;cursor:pointer;background:#fff;display:block;transition:border-color .12s, transform .12s}
   .spec .rail img:hover{transform:translateY(-1px)}
-  .spec .rail img.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(47,109,246,.25)}
+  .spec .rail img.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(95,154,0,.25)}
   .spec .view{position:relative;border:1px solid var(--line);border-radius:10px;background:#eef1f6;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .spec .view img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 10px 30px rgba(13,18,32,.18)}
   .spec .view .count{position:absolute;top:12px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);background:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;border:1px solid var(--line)}
@@ -74,7 +74,7 @@
   .browser .url{font-family:'IBM Plex Mono',monospace;color:var(--faint);font-size:12px;margin-left:10px}
   .browser .stage{position:relative;height:320px;background:radial-gradient(110% 90% at 50% 38%,#1c2540,#0c1019)}
   .browser .stage .g{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px)}
-  .browser .stage .scr{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:170px;height:90px;background:#1f2a44;border:1px solid var(--accent-bright);border-radius:4px;box-shadow:0 0 46px rgba(78,142,255,.32)}
+  .browser .stage .scr{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:170px;height:90px;background:#1f2a44;border:1px solid var(--accent-bright);border-radius:4px;box-shadow:0 0 46px rgba(180,255,57,.32)}
   .browser .bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:linear-gradient(0deg,rgba(8,10,16,.9),transparent);color:#cfd6e8;font-size:13px}
   .browser .bar .mono{color:#8d97b3;font-size:11px}
 
@@ -100,7 +100,7 @@
 <body>
 
 <nav>
-  <div class="brand">spe<b>K</b>set</div>
+  <div class="brand">FOR<b>ECTRA</b></div>
   <div class="navlinks">
     <a href="#output">Platform</a>
     <a href="#reveal">Rasters</a>
@@ -111,7 +111,7 @@
 </nav>
 
 <header class="hero">
-  <img class="bg" src="assets/concept/hero-build.jpg" alt="A broadcast set built in speKset">
+  <img class="bg" src="assets/concept/hero-build.jpg" alt="A broadcast set built in Forectra">
   <div class="scrim"></div><div class="vign"></div>
   <span class="crop tl"></span><span class="crop br"></span>
   <div class="inner">
@@ -121,7 +121,7 @@
     <div class="cta-row">
       <a href="#access" class="btn-primary">Request access
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <span class="scrollhint">↓ built entirely in speKset</span>
+      <span class="scrollhint">↓ built entirely in Forectra</span>
     </div>
   </div>
 </header>
@@ -192,9 +192,9 @@
 
 <section class="closer" id="access">
   <div class="wrap">
-    <span class="badge"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 8h6M8 5l3 3-3 3" stroke="#2f6df6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Already in Vectorworks? Imports MVR · DXF · Vectorworks files</span>
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 8h6M8 5l3 3-3 3" stroke="#5f9a00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Already in Vectorworks? Imports MVR · DXF · Vectorworks files</span>
     <h2>Spec the whole show. Today.</h2>
-    <a href="mailto:info@setheasterdesign.com?subject=speKset%20Access%20Request" class="btn-primary" style="margin-top:30px">Request access
+    <a href="mailto:info@setheasterdesign.com?subject=Forectra%20Access%20Request" class="btn-primary" style="margin-top:30px">Request access
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <div class="price">$1,800 / yr · monthly available · by invitation during scale-up</div>
   </div>

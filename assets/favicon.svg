@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- speKset favicon — dark panel with K mark -->
-  <rect width="100" height="100" rx="16" fill="#050505"/>
-  <!-- Bracket: top, left, partial bottom -->
-  <line x1="18" y1="14" x2="88" y2="14" stroke="#4A8FFF" stroke-width="3.5" stroke-linecap="square"/>
-  <line x1="18" y1="14" x2="18" y2="78" stroke="#4A8FFF" stroke-width="3.5" stroke-linecap="square"/>
-  <line x1="18" y1="78" x2="56" y2="78" stroke="#4A8FFF" stroke-width="3.5" stroke-linecap="square"/>
-  <!-- K -->
-  <text x="50" y="72"
-        font-family="'Arial Black',Arial,sans-serif"
-        font-weight="800"
-        font-size="62"
-        text-anchor="middle"
-        fill="#3a51a3">K</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="256" height="256"><rect width="120" height="120" rx="20" fill="#12141c"/><g transform="translate(-4,6) scale(1)"><polygon points="36.0,24.0 86.0,24.0 99.0,15.0 49.0,15.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="86.0,24.0 86.0,41.0 99.0,32.0 99.0,15.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="86.0,41.0 53.0,41.0 66.0,32.0 99.0,32.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="53.0,41.0 53.0,53.0 66.0,44.0 66.0,32.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="53.0,53.0 72.0,53.0 85.0,44.0 66.0,44.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="72.0,53.0 72.0,70.0 85.0,61.0 85.0,44.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="72.0,70.0 53.0,70.0 66.0,61.0 85.0,61.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="53.0,70.0 53.0,96.0 66.0,87.0 66.0,61.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="53.0,96.0 36.0,96.0 49.0,87.0 66.0,87.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="36.0,96.0 36.0,24.0 49.0,15.0 49.0,87.0" fill="#B4FF39" stroke="none" stroke-width="0" stroke-linejoin="round"/><polygon points="36.0,24.0 86.0,24.0 86.0,41.0 53.0,41.0 53.0,53.0 72.0,53.0 72.0,70.0 53.0,70.0 53.0,96.0 36.0,96.0" fill="#ffffff"/></g></svg>
