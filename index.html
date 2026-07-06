@@ -399,7 +399,7 @@
       <button class="toggle-btn active" data-cadence="annual" role="tab" aria-selected="true">Annual<span class="toggle-save">save $760/yr</span></button>
       <button class="toggle-btn" data-cadence="monthly" role="tab" aria-selected="false">Monthly</button>
     </div>
-    <div class="price-amount"><span class="price-currency">$</span><span class="price-num" id="price-num">1,400</span><span class="price-unit" id="price-unit">/year</span></div>
+    <a id="price-link" href="#" target="_blank" rel="noopener" data-event="cta_price_click" style="text-decoration:none;color:inherit;display:inline-block"><div class="price-amount"><span class="price-currency">$</span><span class="price-num" id="price-num">1,400</span><span class="price-unit" id="price-unit">/year</span></div></a>
     <div class="price-alt" id="price-alt">That's $117/month, billed annually.</div>
     <ul class="price-features">
       <li>Unlimited projects &amp; exports</li>
@@ -410,9 +410,9 @@
       <li>Rigging calcs &amp; processor recommendations</li>
       <li>Client share links &amp; review workflow</li>
     </ul>
-    <div style="margin-top:30px"><a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="btn-primary" data-event="cta_try_free_pricing">Try it free
+    <div style="margin-top:30px"><a id="pay-btn" href="#" target="_blank" rel="noopener" class="btn-primary" data-event="cta_subscribe_pricing"><span class="pay-label">Get Forectra — $1,400/year</span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <div style="margin-top:12px;font-size:13px"><a href="mailto:info@setheasterdesign.com?subject=Forectra%20Account%20Request" data-event="cta_request_access_pricing" style="color:var(--accent);text-decoration:none">or request an account →</a></div></div>
+      <div style="margin-top:14px;font-size:14px"><a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" data-event="cta_try_free_pricing" style="color:var(--accent);font-weight:600;text-decoration:none">or try it free first →</a></div></div>
   </div>
 </section>
 
@@ -535,6 +535,23 @@
     window.location.href=userId?`${base}?u=${encodeURIComponent(userId)}`:base;
   }
 
+  /* ===== Stripe checkout links (Forectra, Inc.) =====
+     Paste the LIVE Payment Link URLs below once the Stripe business is verified.
+     Until a URL is set, the buttons fall back to the account-request email so nothing 404s. */
+  const PAY={
+    annual:{url:'',label:'Get Forectra — $1,400/year'},
+    monthly:{url:'',label:'Get Forectra — $180/month'}
+  };
+  const REQUEST_URL='mailto:info@setheasterdesign.com?subject=Forectra%20Account%20Request';
+  function applyPay(cadence){
+    const p=PAY[cadence]||PAY.annual;
+    const url=p.url||REQUEST_URL;
+    const btn=document.getElementById('pay-btn'), plink=document.getElementById('price-link'), lbl=document.querySelector('#pay-btn .pay-label');
+    if(btn) btn.href=url;
+    if(plink) plink.href=url;
+    if(lbl) lbl.textContent=p.url?p.label:'Request an account';
+  }
+
   /* ===== Pricing toggle ===== */
   const toggleBtns=document.querySelectorAll('.toggle-btn'),
         priceNum=document.getElementById('price-num'), priceUnit=document.getElementById('price-unit'), priceAlt=document.getElementById('price-alt');
@@ -544,9 +561,11 @@
       btn.classList.add('active');btn.setAttribute('aria-selected','true');
       if(btn.dataset.cadence==='annual'){priceNum.textContent='1,400';priceUnit.textContent='/year';priceAlt.textContent="That's $117/month, billed annually.";}
       else{priceNum.textContent='180';priceUnit.textContent='/month';priceAlt.textContent='Billed monthly. Cancel anytime.';}
+      applyPay(btn.dataset.cadence);
       if(window.skTrack)window.skTrack('toggle_cadence',{cadence:btn.dataset.cadence});
     });
   });
+  applyPay('annual');
 
   /* ===== Analytics stub ===== */
   window.skTrack=window.skTrack||function(event,props){try{console.debug('[sk-track]',event,props);}catch{}};
