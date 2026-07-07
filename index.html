@@ -127,7 +127,7 @@
   .browser .chrome{display:flex;align-items:center;gap:8px;padding:11px 15px;background:#fff;border-bottom:1px solid var(--line)}
   .dot{width:10px;height:10px;border-radius:50%}
   .browser .url{font-family:'IBM Plex Mono';color:var(--faint);font-size:12px;margin-left:10px}
-  .browser .stage{position:relative;height:460px;background:radial-gradient(110% 90% at 50% 38%,#1c2540,#0c1019)}
+  .browser .stage{position:relative;aspect-ratio:16/9;min-height:340px;background:radial-gradient(110% 90% at 50% 38%,#1c2540,#0c1019)}
   .browser .stage .ph{position:absolute;inset:0;transition:opacity .4s ease}
   .browser .stage .ph.hidden{opacity:0;pointer-events:none}
   .browser .stage .g{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 36px)}
@@ -330,46 +330,22 @@
     <h2 class="head">The whole platform. No install, no plugin.</h2>
     <p class="lead">Everything the desktop CAD tools do — screens, rigging, signal, paperwork — running in a tab.</p>
     <div class="browser">
-      <div class="chrome"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="url">app.spekset.com</span></div>
+      <div class="chrome"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="url">app.forectra.com</span></div>
       <div class="stage" id="live-stage" style="background:#0c1019">
-        <img id="demo-poster" src="assets/shops/screen-shop-overview.jpg" alt="Forectra running in the browser" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:.85;transition:opacity .6s">
-        <div id="demo-frame-wrap" style="position:absolute;inset:0"></div>
+        <a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="demo-launch" data-event="cta_try_free_demo" style="position:absolute;inset:0;display:block;text-decoration:none">
+          <img id="demo-poster" src="assets/shops/screen-shop-overview.jpg" alt="Forectra running in the browser" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+          <span class="demo-play" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:9px;background:#B4FF39;color:#14161f;font-weight:700;font-size:15px;padding:13px 24px;border-radius:11px;box-shadow:0 12px 34px rgba(0,0,0,.4)">▶ Launch the live demo</span>
+        </a>
         <div class="demo-mobile-note" style="background:linear-gradient(0deg,rgba(8,10,16,.9),rgba(8,10,16,.55))">
           <span style="color:#f3f5fb;font-weight:600;font-size:16px">The live demo runs on desktop</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#aeb6cf;line-height:1.5">Visit Forectra.com on a computer<br>to build a show yourself.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#aeb6cf;line-height:1.5">Visit forectra.com on a computer<br>to build a show yourself.</span>
         </div>
-        <a class="demo-pop" href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener">Open full-screen ↗</a>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-/* Live demo: embed the interactive app INLINE on desktop so visitors stay on the page.
-   On phones/touch we never load the WebGL app — the desktop-only note shows instead. */
-(function(){
-  var wrap=document.getElementById('demo-frame-wrap');
-  if(!wrap) return;
-  var desktop = window.matchMedia('(min-width:821px) and (hover:hover)').matches;
-  if(!desktop) return;
-  function mount(){
-    if(wrap.dataset.mounted) return; wrap.dataset.mounted='1';
-    var f=document.createElement('iframe');
-    f.src='https://app.spekset.com/?demo=1';
-    f.title='Forectra live demo — build a show yourself';
-    f.setAttribute('allow','fullscreen');
-    f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#0c1019';
-    f.addEventListener('load',function(){ var p=document.getElementById('demo-poster'); if(p) p.style.opacity='0'; });
-    wrap.appendChild(f);
-  }
-  /* Load when the window scrolls into view (keeps first paint light). */
-  var stage=document.getElementById('live-stage');
-  if('IntersectionObserver' in window && stage){
-    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ mount(); io.disconnect(); } }); },{rootMargin:'300px'});
-    io.observe(stage);
-  } else { mount(); }
-})();
-</script>
+<!-- Live demo shows a poster + Launch button; the interactive app opens full-screen in a new tab (reliable, no black inline embed). -->
 
 <!-- TICKERS -->
 <section class="tickers" id="catalog">
@@ -423,7 +399,7 @@
     <h2>Spec the whole show. Today.</h2>
     <a href="https://app.spekset.com/?demo=1" target="_blank" rel="noopener" class="btn-primary" style="margin-top:28px" data-event="cta_try_free_closer">Try it free
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <div style="margin-top:14px;font-size:14px"><a href="mailto:info@setheasterdesign.com?subject=Forectra%20Account%20Request&body=Name%3A%20%0ACompany%3A%20%0ARole%3A%20%0AWhat%20you%27d%20use%20it%20for%3A%20" data-event="cta_request_access_closer" style="color:var(--accent);text-decoration:none">or request an account →</a></div>
+    <div style="margin-top:14px;font-size:14px"><a href="mailto:hello@forectra.com?subject=Forectra%20Account%20Request&body=Name%3A%20%0ACompany%3A%20%0ARole%3A%20%0AWhat%20you%27d%20use%20it%20for%3A%20" data-event="cta_request_access_closer" style="color:var(--accent);text-decoration:none">or request an account →</a></div>
     <div class="price">$1,400 / yr · $180 / mo · free to try, no account needed</div>
 
     <details class="access-gate" id="gate-card">
@@ -542,7 +518,7 @@
     annual:{url:'',label:'Get Forectra — $1,400/year'},
     monthly:{url:'',label:'Get Forectra — $180/month'}
   };
-  const REQUEST_URL='mailto:info@setheasterdesign.com?subject=Forectra%20Account%20Request';
+  const REQUEST_URL='mailto:hello@forectra.com?subject=Forectra%20Account%20Request';
   function applyPay(cadence){
     const p=PAY[cadence]||PAY.annual;
     const url=p.url||REQUEST_URL;
