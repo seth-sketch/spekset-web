@@ -482,7 +482,7 @@
   function _setAuthCookie(userIdOrAnon){
     try{
       const exp=new Date(Date.now()+30*24*60*60*1000).toUTCString();
-      document.cookie=`sk_auth=${encodeURIComponent(userIdOrAnon)}; expires=${exp}; path=/; domain=.spekset.com; secure; samesite=lax`;
+      document.cookie=`sk_auth=${encodeURIComponent(userIdOrAnon)}; expires=${exp}; path=/; domain=.forectra.com; secure; samesite=lax`;
     }catch(e){}
   }
   if(form){
@@ -507,7 +507,7 @@
     });
   }
   function goToApp(userId){
-    const base='https://app.spekset.com/';
+    const base='https://app.forectra.com/';
     window.location.href=userId?`${base}?u=${encodeURIComponent(userId)}`:base;
   }
 
