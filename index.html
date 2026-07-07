@@ -44,7 +44,7 @@
   nav .brand b{color:var(--accent-bright)}
   nav .navlinks{display:flex;gap:26px;align-items:center}
   nav .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-size:14px}
-  nav .req{background:#B4FF39;color:#14161f;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:600}
+  nav .navlinks a.req{background:#B4FF39;color:#14161f;padding:9px 17px;border-radius:9px;font-size:14px;font-weight:700}
 
   /* hero with sliding image bg */
   .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--night)}
@@ -138,7 +138,7 @@
   .demo-mobile-note{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:0 26px}
   .demo-pop{position:absolute;bottom:10px;right:12px;z-index:5;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;color:#cfd6e8;text-decoration:none;background:rgba(8,10,16,.62);border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:8px}
   .demo-pop:hover{color:#fff;background:rgba(8,10,16,.82)}
-  @media(max-width:820px),(hover:none){ .demo-launch{display:none} .demo-mobile-note{display:flex} .demo-pop{display:none} .demo-buy{display:none} }
+  @media(max-width:820px),(hover:none){ .demo-launch{display:none} #demo-poster{display:none} .demo-mobile-note{display:flex;position:static} .browser .stage{aspect-ratio:auto;min-height:auto} .demo-pop{display:none} .demo-buy{display:none} }
 
   .tickers{overflow:hidden;padding:70px 0;border-bottom:1px solid var(--line)}
   @keyframes scL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -338,9 +338,10 @@
           <span class="demo-play" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:9px;background:#B4FF39;color:#14161f;font-weight:700;font-size:15px;padding:13px 24px;border-radius:11px;box-shadow:0 12px 34px rgba(0,0,0,.4)">▶ Start your 20-day free trial</span>
         </a>
         <a href="https://buy.stripe.com/3cIaEY95N9j8fMGao01ZS00" target="_blank" rel="noopener" class="demo-buy" data-event="cta_start_trial_demo" style="position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:6;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em;color:#eaf6d6;text-decoration:none;background:rgba(8,10,16,.6);border:1px solid rgba(180,255,57,.45);padding:8px 14px;border-radius:9px">Start your 20-day free trial →</a>
-        <div class="demo-mobile-note" style="background:linear-gradient(0deg,rgba(8,10,16,.9),rgba(8,10,16,.55))">
-          <span style="color:#f3f5fb;font-weight:600;font-size:16px">The live demo runs on desktop</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#aeb6cf;line-height:1.5">Visit forectra.com on a computer<br>to build a show yourself.</span>
+        <div class="demo-mobile-note" style="background:#0c1019;padding:40px 26px;gap:13px">
+          <span style="color:#f3f5fb;font-weight:700;font-size:18px">Best experienced on desktop</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#aeb6cf;line-height:1.7">The live 3D builder needs a bigger screen.<br>Open forectra.com on a computer to<br>design a full show — start to spec sheet.</span>
+          <a href="https://buy.stripe.com/3cIaEY95N9j8fMGao01ZS00" target="_blank" rel="noopener" data-event="cta_start_trial_demo_mobile" style="margin-top:6px;background:#B4FF39;color:#14161f;font-weight:700;font-size:13px;padding:11px 20px;border-radius:9px;text-decoration:none">Start your 20-day free trial →</a>
         </div>
       </div>
     </div>
