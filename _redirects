@@ -1,3 +1,8 @@
 # speKset redirect rules
 # /app/ proxies to the existing LED Wall Builder deployment
 /app/*  https://demo.productionplugins.com/:splat  200
+
+# Domain migration (2026-07-07): spekset.com -> forectra.com, 301, same path.
+# Hostname-scoped so forectra.com itself (same Pages project) isn't affected.
+https://spekset.com/*      https://forectra.com/:splat  301
+https://www.spekset.com/*  https://forectra.com/:splat  301
