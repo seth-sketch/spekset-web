@@ -488,6 +488,16 @@
       if(result.ok){
         sessionStorage.setItem('sk_auth','1');_setAuthCookie(result.userId);err.textContent='';
         card.classList.add('gate-success');setTimeout(()=>_afterAuth(result.userId),400);
+      }else if(/^FORECTRA-[A-Z0-9]+$/i.test((input.value||'').trim())){
+        // An app access code (FORECTRA-xxxx) belongs in the app's own gate, not
+        // the marketing splash. DON'T reject it (that stranded prospects) and
+        // DON'T redeem it here (that burns a single-use code without unlocking).
+        // Forward to app.forectra.com with the code so they create an account
+        // and redeem it there. Non-destructive: the code is only spent by the
+        // signed-in redemption in the app.
+        const code=(input.value||'').trim().toUpperCase();
+        err.textContent='';card.classList.add('gate-success');
+        setTimeout(()=>{location.href='https://app.forectra.com/?code='+encodeURIComponent(code);},500);
       }else{
         card.classList.remove('gate-shake');void card.offsetWidth;card.classList.add('gate-shake');
         err.textContent='Incorrect access code.';input.value='';input.focus();
