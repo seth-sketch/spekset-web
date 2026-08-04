@@ -481,17 +481,37 @@
       document.cookie=`sk_auth=${encodeURIComponent(userIdOrAnon)}; expires=${exp}; path=/; domain=.forectra.com; secure; samesite=lax`;
     }catch(e){}
   }
+  function _grantAndGo(userId){
+    sessionStorage.setItem('sk_auth','1');_setAuthCookie(userId);err.textContent='';
+    card.classList.add('gate-success');setTimeout(()=>_afterAuth(userId),400);
+  }
+  function _rejectCode(msg){
+    card.classList.remove('gate-shake');void card.offsetWidth;card.classList.add('gate-shake');
+    err.textContent=msg||'Incorrect access code.';input.value='';input.focus();
+  }
+  // Validate a FORECTRA-xxxx comp/VIP code against the account system's D1 table
+  // (the codes we email prospects live there, NOT in USER_CODES). On success the
+  // server burns a use + logs the redemption; we set sk_auth so the app lets
+  // them in. Front-door bridge — see /api/comp/splash-redeem in _worker.js.
+  async function _tryCompCode(raw){
+    try{
+      const r=await fetch('https://app.forectra.com/api/comp/splash-redeem',{
+        method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:(raw||'').trim()})
+      });
+      const data=await r.json().catch(()=>({}));
+      if(r.ok && data && data.ok){ _grantAndGo(data.userId||'comp'); return true; }
+      _rejectCode((data&&data.error)||'Incorrect access code.');
+    }catch(_){ _rejectCode('Couldn’t reach the server — check your connection and try again.'); }
+    return false;
+  }
   if(form){
-    form.addEventListener('submit',e=>{
+    form.addEventListener('submit',async e=>{
       e.preventDefault();
-      const result=_checkCode(input.value);
-      if(result.ok){
-        sessionStorage.setItem('sk_auth','1');_setAuthCookie(result.userId);err.textContent='';
-        card.classList.add('gate-success');setTimeout(()=>_afterAuth(result.userId),400);
-      }else{
-        card.classList.remove('gate-shake');void card.offsetWidth;card.classList.add('gate-shake');
-        err.textContent='Incorrect access code.';input.value='';input.focus();
-      }
+      const raw=input.value;
+      const result=_checkCode(raw);               // built-in owner/demo codes first (unchanged)
+      if(result.ok){ _grantAndGo(result.userId); return; }
+      err.textContent='Checking code…';           // otherwise try the comp/VIP table
+      await _tryCompCode(raw);
     });
   }
   const ownerMark=document.getElementById('owner-mark');
