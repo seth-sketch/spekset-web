@@ -1,0 +1,131 @@
+/* Forectra brand system, 2026 relaunch.
+   Shared by every page: tokens, type, buttons, header, footer, and the
+   restyle of the workspace pages (screen-shop, rack-shop, lighting, staging). */
+
+:root{
+  /* Paper and poché from the Forectra sell sheets; lime is the brand signal. */
+  --paper:#F5F6F8; --paper-2:#E9EAEF; --white:#FFFFFF;
+  --ink:#1C1C2E; --graphite:#4A4C61; --muted:#6C6E82; --faint:#9A9BAE;
+  --rule:#CDCFD9; --rule-2:#B4B6C4;
+  --stage:#1C1C2E; --stage-2:#25253A; --stage-3:#2E2E46;
+  --stage-rule:rgba(238,238,248,.13); --on-stage:#EEEEF8; --on-stage-muted:#A9AAC4;
+  --lime:#B4FF39; --lime-press:#A1EA28; --lime-ink:#3F6A00;
+  --red:#FF4F3E;
+  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --wrap:1260px; --gutter:40px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-stretch:100%;font-size:16.5px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--lime);color:var(--stage)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono)}
+.label{font-size:14px;font-weight:600;color:var(--graphite)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--lime);color:var(--stage);padding:8px 12px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:15px;line-height:1;padding:15px 20px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.btn svg{width:14px;height:14px;flex:none}
+.btn-lime{background:var(--lime);color:var(--stage)}
+.btn-lime:hover{background:var(--lime-press)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:rgba(128,128,128,.12)}
+.btn-ink{background:var(--ink);color:var(--white)}
+.btn-ink:hover{background:#000}
+
+/* ---------- header ---------- */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:60;border-bottom:1px solid transparent;transition:background .25s ease,border-color .25s ease;--link:#C9CCD3;--link-on:#fff}
+.site-head .bar{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;gap:34px}
+.site-head .logo{display:block;flex:none}
+.site-head .logo img{height:22px;width:auto}
+.site-head .logo .on-light{display:none}
+.site-head nav.primary{display:flex;gap:28px}
+.site-head nav.primary a,.site-head .signin{font-size:14.5px;color:var(--link);text-decoration:none;transition:color .15s}
+.site-head nav.primary a:hover,.site-head .signin:hover{color:var(--link-on)}
+.site-head .right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.site-head .btn{padding:11px 16px;font-size:14px}
+.site-head.solid{background:rgba(11,12,16,.92);-webkit-backdrop-filter:saturate(150%) blur(10px);backdrop-filter:saturate(150%) blur(10px);border-bottom-color:var(--stage-rule)}
+.site-head.light{--link:#4A4D55;--link-on:var(--ink);background:rgba(242,241,236,.94);-webkit-backdrop-filter:saturate(150%) blur(10px);backdrop-filter:saturate(150%) blur(10px);border-bottom-color:var(--rule)}
+.site-head.light .logo .on-dark{display:none}
+.site-head.light .logo .on-light{display:block}
+.menu-btn{display:none;align-items:center;gap:8px;background:none;border:1px solid var(--stage-rule);color:var(--on-stage);font-family:var(--sans);font-size:14px;font-weight:600;padding:9px 13px;border-radius:2px;cursor:pointer}
+.site-head.light .menu-btn{border-color:var(--rule-2);color:var(--ink)}
+.mobile-nav{display:none}
+@media (max-width:1080px){
+  .site-head nav.primary,.site-head .signin{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-nav{display:block;max-height:0;overflow:hidden;background:var(--stage);transition:max-height .3s ease}
+  .site-head.light .mobile-nav{background:var(--paper)}
+  .mobile-nav.open{max-height:80vh;border-top:1px solid var(--stage-rule)}
+  .site-head.light .mobile-nav.open{border-top-color:var(--rule)}
+  .mobile-nav .inner{padding:12px var(--gutter) 26px;display:grid}
+  .mobile-nav a{display:block;padding:13px 0;font-size:17px;text-decoration:none;color:var(--on-stage);border-bottom:1px solid var(--stage-rule)}
+  .site-head.light .mobile-nav a{color:var(--ink);border-bottom-color:var(--rule)}
+  .site-head.menu-open{background:var(--stage)}
+  .site-head.light.menu-open{background:var(--paper)}
+}
+@media (max-width:560px){ .site-head .right .btn{display:none} }
+
+/* ---------- footer ---------- */
+.site-foot{background:var(--stage);color:var(--on-stage-muted);font-size:14.5px;border-top:1px solid var(--stage-rule)}
+.site-foot .top{display:grid;grid-template-columns:1.5fr repeat(4,minmax(0,1fr));gap:40px;padding:84px 0 64px}
+.site-foot .brand img{height:22px;width:auto}
+.site-foot .brand p{margin-top:20px;max-width:30ch;color:var(--on-stage-muted);line-height:1.55}
+.site-foot .brand .addr{font-size:14px;margin-top:18px;color:var(--on-stage-muted);line-height:1.6}
+.site-foot .brand .btn{margin-top:26px}
+.site-foot h4{font-weight:600;font-size:14px;color:var(--on-stage-muted);margin-bottom:14px}
+.site-foot .col a{display:block;text-decoration:none;color:var(--on-stage);padding:5px 0}
+.site-foot .col a:hover{color:var(--lime)}
+.site-foot .base{display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;border-top:1px solid var(--stage-rule);padding:24px 0 34px;font-size:13.5px;color:var(--on-stage-muted)}
+.site-foot .base a{text-decoration:none}
+.site-foot .base a:hover{color:var(--on-stage)}
+.site-foot .base .tag{margin-left:auto;color:var(--on-stage-muted)}
+.site-foot #owner-mark{cursor:default;user-select:none}
+@media (max-width:980px){ .site-foot .top{grid-template-columns:1fr 1fr;gap:36px} .site-foot .brand{grid-column:1 / -1} }
+@media (max-width:560px){ .site-foot .top{grid-template-columns:1fr} .site-foot .base .tag{margin-left:0} }
+
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *,*::before,*::after{animation:none!important;transition:none!important} }
+
+@media (max-width:720px){ :root{--gutter:22px} body{font-size:16px} }
+
+/* =================================================================
+   Workspace pages: same markup as before, new skin.
+   ================================================================= */
+body.ws{background:var(--paper)}
+body.ws .eyb{font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--lime-ink)}
+body.ws .wrap{max-width:var(--wrap);padding:0 var(--gutter)}
+body.ws .subhero{padding:150px 0 64px;border-bottom:1px solid var(--rule);background:var(--paper)}
+body.ws .subhero h1{font-family:var(--sans);font-stretch:125%;font-weight:800;font-size:clamp(42px,6.4vw,92px);letter-spacing:-.025em;line-height:.95;margin-top:18px}
+body.ws .subhero p.lead{font-size:19px;color:var(--graphite);line-height:1.55;max-width:58ch;margin-top:22px}
+body.ws .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:40px;border-top:1px solid var(--rule);max-width:760px}
+body.ws .kpi{padding:18px 18px 0 0;border-right:1px solid var(--rule);margin-right:18px}
+body.ws .kpi:last-child{border-right:none}
+body.ws .kpi b{font-family:var(--sans);font-stretch:125%;font-weight:800;font-size:40px;line-height:1;color:var(--ink);display:block}
+body.ws .kpi span{font-size:14px;color:var(--muted);display:block;margin-top:8px}
+body.ws .shot{border-radius:0;border:1px solid var(--rule-2);box-shadow:none;background:var(--stage)}
+body.ws .feature{padding:110px 0;border-top:1px solid var(--rule);background:var(--paper)}
+body.ws .feature.alt{background:var(--paper-2)}
+body.ws .feature h2{font-family:var(--sans);font-stretch:125%;font-weight:800;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;line-height:1.02}
+body.ws .feature p{font-size:17px;color:var(--graphite);line-height:1.65}
+body.ws .two{gap:64px}
+body.ws .chip{font-family:var(--sans);font-size:13.5px;color:var(--graphite);background:transparent;border:1px solid var(--rule-2);border-radius:2px;padding:5px 10px}
+body.ws .inspector-frame{border-radius:0;border:1px solid var(--rule-2);box-shadow:none}
+body.ws .cta-band{background:var(--stage);padding:120px 0;text-align:left}
+body.ws .cta-band .glow{display:none}
+body.ws .cta-band h2{font-family:var(--sans);font-stretch:125%;font-weight:800;font-size:clamp(34px,5vw,64px);letter-spacing:-.025em;line-height:1;max-width:16ch}
+body.ws .btn-primary{border-radius:2px;margin-top:34px;font-family:var(--sans);font-weight:600}
+@media (max-width:820px){ body.ws .subhero{padding:120px 0 48px} body.ws .feature{padding:76px 0} body.ws .kpi{padding-right:12px;margin-right:12px} }
+
+/* Old inline rules on the workspace pages target bare nav/footer elements;
+   keep them off the new header and footer. */
+body.ws .site-head nav.primary{position:static;display:flex;padding:0;background:none;border:none;justify-content:flex-start;z-index:auto}
+@media (max-width:1080px){ body.ws .site-head nav.primary{display:none} }
+body.ws footer.site-foot{padding:0;text-align:left;background:var(--stage);color:var(--on-stage-muted);font-size:14.5px;border-top:1px solid var(--stage-rule)}
+body.ws .btn-primary{background:var(--lime);color:var(--stage);font-size:15px;padding:15px 20px;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+body.ws .btn-primary:hover{background:var(--lime-press)}
+body.ws .cta-band .wrap{position:relative}

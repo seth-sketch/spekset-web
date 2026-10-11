@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://forectra.com/assets/og-forectra.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,600;125,700;125,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{--ink:#0d1220;--muted:#5b6478;--faint:#9098a8;--line:#e6e8ee;--paper:#fff;--paper-2:#f7f8fa;--accent:#5f9a00;--accent-bright:#B4FF39;--night:#0a0d16}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -61,21 +61,41 @@
   footer b{font-family:'Archivo';color:var(--ink)}
   @media(max-width:820px){nav .navlinks a:not(.req){display:none}.two{grid-template-columns:1fr;gap:24px}.kpis{gap:26px}}
 </style>
+<link rel="stylesheet" href="/css/brand-2026.css?v=2">
 </head>
-<body>
+<body class="ws">
 
-<nav>
-  <a href="index.html" class="brand"><img src="/assets/forectra_logo_light.png" alt="Forectra" style="height:26px;display:block"></a>
-  <div class="navlinks">
-    <a href="index.html">Home</a>
-    <a href="screen-shop.html">Screen Shop</a>
-    <a href="rack-shop.html" class="on">Rack Shop</a>
-    <a href="lighting.html">Lighting</a>
-    <a href="staging.html">Staging</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="index.html#access" class="req">Request access</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head light solid" id="site-head">
+  <div class="bar">
+    <a class="logo" href="/" aria-label="Forectra home"><img class="on-dark" src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><img class="on-light" src="/assets/forectra_logo_light.png" alt="Forectra" width="1500" height="301"></a>
+    <nav class="primary" aria-label="Main">
+      <a href="/#draw">Product</a>
+      <a href="/#workspaces">Workspaces</a>
+      <a href="/#run">Lighting control</a>
+      <a href="/#assets">Rental and venues</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#company">Company</a>
+    </nav>
+    <div class="right">
+      <a class="signin" href="https://app.forectra.com/">Sign in</a>
+      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual">Start free trial</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </div>
   </div>
-</nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="inner">
+      <a href="/#draw">Product</a>
+      <a href="/#workspaces">Workspaces</a>
+      <a href="/#run">Lighting control</a>
+      <a href="/#assets">Rental and venues</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#company">Company</a>
+      <a href="https://app.forectra.com/">Sign in</a>
+    </div>
+  </div>
+</header>
+<main id="main">
 
 <header class="subhero">
   <div class="wrap">
@@ -117,11 +137,34 @@
   <div class="glow"></div>
   <div class="wrap">
     <h2>Rack the whole show in minutes.</h2>
-    <a href="index.html#access" class="btn-primary">Request access
+    <a href="https://app.forectra.com/?signup=1&amp;plan=annual" class="btn-primary">Start free trial
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 
-<footer><b>Forectra</b> · Design it. Spec it. Ship it. &nbsp;·&nbsp; <a href="index.html" style="color:var(--accent)">Back home</a></footer>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <img src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269">
+        <p>Production design, paperwork and show control in one file.</p>
+        <div class="addr">Forectra, Inc.<br>New York</div>
+        <a class="btn btn-lime" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough">Book a walkthrough</a>
+      </div>
+      <div class="col"><h4>Product</h4><a href="/#draw">Design</a><a href="/#spec">Spec PDF</a><a href="/#run">Lighting control</a><a href="/#collaborate">Share and review</a><a href="/#assets">Asset Control</a><a href="/#pricing">Pricing</a></div>
+      <div class="col"><h4>Workspaces</h4><a href="/screen-shop.html">Screen Shop</a><a href="/lighting.html">Lighting</a><a href="/rack-shop.html">Rack Shop</a><a href="/staging.html">Staging and audio</a></div>
+      <div class="col"><h4>Hardware</h4><a href="/#run">Forectra Console</a><a href="/#pricing">Forectra Mini</a><a href="/#pricing">Forectra Micro</a></div>
+      <div class="col"><h4>Company</h4><a href="/#company">About</a><a href="mailto:hello@forectra.com">Contact</a><a href="https://app.forectra.com/help/">Help</a><a href="https://app.forectra.com/">Sign in</a></div>
+    </div>
+    <div class="base">
+      <span>© 2026 Forectra, Inc.</span>
+      <a href="https://app.forectra.com/privacy">Privacy</a>
+      <a href="https://app.forectra.com/terms">Terms</a>
+      <span class="tag">Draw it. Spec it. Run it.</span>
+    </div>
+  </div>
+</footer>
+<script src="/js/site.js?v=2" defer></script>
 </body>
 </html>
