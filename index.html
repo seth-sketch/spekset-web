@@ -481,13 +481,13 @@
       <p class="lead">25+ page types drawn straight from the design: plots, spec sheets, rigging, power, signal, cable and budget. Change the design and every page follows. Anything unverified is flagged on the page, never invented.</p>
     </div>
     <div class="spec">
-      <div class="rail" id="spec-rail"><div class="rlbl" id="spec-rlbl">40 pages</div></div>
+      <div class="rail" id="spec-rail"><div class="rlbl" id="spec-rlbl">11 pages</div></div>
       <div class="view">
-        <img id="spec-big" src="/assets/concept/spec/page-02.jpg" alt="Spec PDF page">
-        <div class="count" id="spec-count">02 / 40</div>
+        <img id="spec-big" src="/assets/concept/spec/page-02.jpg?v=2" alt="Spec PDF page: screen specification sheet">
+        <div class="count" id="spec-count">02 / 11</div>
       </div>
     </div>
-    <p class="spec-hint">A real export from a sample show. Pick any page.</p>
+    <p class="spec-hint">11 of the 19 pages in a real export of the demo stage. Pick any page.</p>
 
     <div class="cmp-wrap">
       <div class="hdr">
@@ -792,14 +792,14 @@
 
   /* ===== Spec page viewer ===== */
   (function(){
-    var N=40, rail=document.getElementById('spec-rail'), big=document.getElementById('spec-big'), count=document.getElementById('spec-count');
+    var N=11, rail=document.getElementById('spec-rail'), big=document.getElementById('spec-big'), count=document.getElementById('spec-count');
     function pad(n){return String(n).padStart(2,'0');}
     for(var i=1;i<=N;i++){(function(i){
       var t=document.createElement('img');
-      t.src='/assets/concept/spec/thumb-'+pad(i)+'.jpg'; t.loading='lazy'; t.alt='Page '+i;
+      t.src='/assets/concept/spec/thumb-'+pad(i)+'.jpg?v=2'; t.loading='lazy'; t.alt='Page '+i;
       if(i===2)t.className='active';
       t.addEventListener('click',function(){
-        big.src='/assets/concept/spec/page-'+pad(i)+'.jpg'; count.textContent=pad(i)+' / '+N;
+        big.src='/assets/concept/spec/page-'+pad(i)+'.jpg?v=2'; count.textContent=pad(i)+' / '+N;
         rail.querySelectorAll('img').forEach(function(x){x.classList.remove('active');}); t.classList.add('active');
       });
       rail.appendChild(t);
