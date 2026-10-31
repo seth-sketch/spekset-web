@@ -167,6 +167,9 @@
   .mini p{font-size:15.5px;color:var(--on-stage-muted);line-height:1.55;margin-top:10px;max-width:640px}
   .mini p.fine{font-size:13px;color:#8A8BA6}
   @media(max-width:640px){.mini{grid-template-columns:1fr;gap:24px}.mini img{width:160px}}
+  .pr .tbc{font-size:14px;font-weight:600;color:#8A8BA6;white-space:nowrap}
+  .pr a.order{display:inline-block;margin-left:12px;background:var(--lime);color:var(--ink);font-weight:700;font-size:13px;padding:5px 11px;border-radius:4px;text-decoration:none;vertical-align:middle}
+  .pr a.order:hover{filter:brightness(1.08)}
   .run-air{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--stage-rule)}
   .run-air p{font-size:16px;color:var(--on-stage-muted)}
 
@@ -495,7 +498,7 @@
     <div class="spec">
       <div class="rail" id="spec-rail"><div class="rlbl" id="spec-rlbl">12 pages</div></div>
       <div class="view">
-        <img id="spec-big" src="/assets/concept/spec/page-01.jpg?v=3" alt="Spec PDF page: demo wall screen specification">
+        <img id="spec-big" src="/assets/concept/spec/page-01.jpg?v=4" alt="Spec PDF page: demo wall screen specification">
         <div class="count" id="spec-count">01 / 12</div>
       </div>
     </div>
@@ -540,11 +543,11 @@
     <div class="ways">
       <div class="way"><div class="k">Browser</div><h3>Web Control</h3><p>Run lights from the browser through the Forectra Companion on a local computer. Bring your own sACN node.</p></div>
       <div class="way"><div class="k">Mac and PC, <em>recommended</em></div><h3>F App</h3><p>The desktop app with show control built in. The show runs locally, so a dropped internet connection can't take the lights down.</p></div>
-      <div class="way"><div class="k">Hardware</div><h3><img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8"></h3><p>A lighting and video desk in a road case: a 14-inch touch screen, eight faders, GO, BACK and BLACKOUT, the 5-inch touch panel and eight universes, running the same show file. The first one is built.</p></div>
+      <div class="way"><div class="k">Hardware</div><h3><img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8"></h3><p>A lighting and video desk in a road case: a 14-inch touch screen, eight faders, GO, BACK and BLACKOUT, the 5-inch touch panel and eight universes, running the same show file. Order now; about four weeks to ship.</p></div>
     </div>
     <figure class="plate" style="margin-top:64px">
       <div class="img"><img src="/assets/site/run-console.jpg" alt="The first FOR-X 8 console, open: the 14-inch screen running the FOR-Control switcher, eight faders, GO, BACK and BLACKOUT, two encoders and the 5-inch touch panel" width="1600" height="900" loading="lazy"></div>
-      <figcaption class="tb"><span><b>Hardware</b>Forectra FOR-X 8</span><span><b>Inside</b>FOR-Control, lights and video</span><span>The first one, built</span></figcaption>
+      <figcaption class="tb"><span><b>Hardware</b>Forectra FOR-X 8</span><span><b>Inside</b>FOR-Control, lights and video</span><span>4-week lead time</span></figcaption>
     </figure>
     <div class="mini" id="mini">
       <img src="/assets/site/forx-mini-front.png" alt="The FOR-X Mini front face, drawn from the design set: an 8-inch touch screen, a 12-key pad, 15 display keys and two lit knobs" width="565" height="633" loading="lazy">
@@ -743,14 +746,14 @@
         <tr><td class="nm">Web Control</td><td class="ds">Run lights from the browser through the Forectra Companion. Bring your own sACN node.</td><td class="amt">+$300<small>a year</small></td></tr>
         <tr><td class="nm">F App<small>Recommended</small></td><td class="ds">Lighting control in the Mac and PC desktop app. The show runs locally, even if the internet drops.</td><td class="amt">+$600<small>a year</small></td></tr>
         <tr class="grp"><td colspan="3">Hardware</td></tr>
-        <tr><td class="nm">Forectra FOR-X 8<small>First units in build</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons and 8 universes. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small></td></tr>
-        <tr><td class="nm">FOR-X Mini<small class="dev">In design</small></td><td class="ds">An 8-inch touch console in a wall plate or desk cradle: 15 display keys, a 12-key pad, two knobs. Cat6 in, one DMX universe out.</td><td class="amt">$2,399<small>all in</small></td></tr>
-        <tr><td class="nm">FOR-X Micro<small class="dev">In development</small></td><td class="ds">The DMX node on its own. Run it from your own tablet or phone, or add our preloaded tablet.</td><td class="amt">$799<small>tablet extra</small></td></tr>
+        <tr><td class="nm">Forectra FOR-X 8<small>4-week lead time</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons and 8 universes. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small><a class="order" href="mailto:hello@forectra.com?subject=FOR-X%208%20order" data-event="order_forx8">Order</a></td></tr>
+        <tr><td class="nm">FOR-X Mini<small class="dev">In design</small></td><td class="ds">An 8-inch touch console in a wall plate or desk cradle: 15 display keys, a 12-key pad, two knobs. Cat6 in, one DMX universe out.</td><td class="amt"><span class="tbc">Pricing to come</span></td></tr>
+        <tr><td class="nm">FOR-X Micro<small class="dev">In development</small></td><td class="ds">The DMX node on its own. Run it from your own tablet or phone, or add our preloaded tablet.</td><td class="amt"><span class="tbc">Pricing to come</span></td></tr>
         <tr class="grp"><td colspan="3">Rental houses and venues</td></tr>
         <tr><td class="nm">Asset Control</td><td class="ds">Load your inventory and design from what you stock, with shortage reports before every quote.</td><td class="amt"><a class="u" href="mailto:hello@forectra.com?subject=Forectra%20Asset%20Control" style="font-size:17px">Talk to us</a><small>custom plans</small></td></tr>
       </tbody>
     </table>
-    <p class="pr-foot">Launch pricing in US dollars, subject to change. Hardware ship dates will be announced. The FOR-X 8 license renews after year two.</p>
+    <p class="pr-foot">Launch pricing in US dollars, subject to change. The FOR-X 8 ships about four weeks from order; the license renews after year two. FOR-X Mini and Micro pricing will be announced.</p>
   </div>
 </section>
 
@@ -854,10 +857,10 @@
     function pad(n){return String(n).padStart(2,'0');}
     for(var i=1;i<=N;i++){(function(i){
       var t=document.createElement('img');
-      t.src='/assets/concept/spec/thumb-'+pad(i)+'.jpg?v=3'; t.loading='lazy'; t.alt='Page '+i;
+      t.src='/assets/concept/spec/thumb-'+pad(i)+'.jpg?v=4'; t.loading='lazy'; t.alt='Page '+i;
       if(i===1)t.className='active';
       t.addEventListener('click',function(){
-        big.src='/assets/concept/spec/page-'+pad(i)+'.jpg?v=3'; count.textContent=pad(i)+' / '+N;
+        big.src='/assets/concept/spec/page-'+pad(i)+'.jpg?v=4'; count.textContent=pad(i)+' / '+N;
         rail.querySelectorAll('img').forEach(function(x){x.classList.remove('active');}); t.classList.add('active');
       });
       rail.appendChild(t);
