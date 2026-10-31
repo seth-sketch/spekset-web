@@ -159,6 +159,14 @@
   .way h3{font-stretch:112%;font-weight:700;font-size:24px;margin-top:8px;color:#fff}
   .way h3 .forx8{display:block;height:44px;width:auto;margin:-6px 0 -4px -5px}
   .way p{font-size:15.5px;color:var(--on-stage-muted);line-height:1.55;margin-top:10px}
+  .mini{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;align-items:center;margin-top:56px;padding-top:32px;border-top:1px solid var(--stage-rule)}
+  .mini img{width:200px;height:auto;display:block}
+  .mini .k{font-size:14px;font-weight:600;color:#8A8BA6}
+  .mini .k em{font-style:normal;color:var(--lime)}
+  .mini h3{font-stretch:112%;font-weight:700;font-size:24px;margin-top:8px;color:#fff}
+  .mini p{font-size:15.5px;color:var(--on-stage-muted);line-height:1.55;margin-top:10px;max-width:640px}
+  .mini p.fine{font-size:13px;color:#8A8BA6}
+  @media(max-width:640px){.mini{grid-template-columns:1fr;gap:24px}.mini img{width:160px}}
   .run-air{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--stage-rule)}
   .run-air p{font-size:16px;color:var(--on-stage-muted)}
 
@@ -407,7 +415,7 @@
         <tr><td class="qty">644</td><td>Fixtures with their real gobo wheels</td><td class="mk"></td></tr>
         <tr><td class="qty">130</td><td>LED cabinets</td><td class="mk">17</td></tr>
         <tr><td class="qty">861</td><td>Rack devices</td><td class="mk">104</td></tr>
-        <tr><td class="qty">25+</td><td>Paperwork page types</td><td class="mk"></td></tr>
+        <tr><td class="qty">41</td><td>Pages in one Spec PDF, one click</td><td class="mk"></td></tr>
         <tr><td class="qty">20</td><td>Export formats</td><td class="mk"></td></tr>
       </tbody>
     </table>
@@ -482,16 +490,16 @@
     <span class="q">Q2</span>
     <div class="hdr">
       <h2 class="h">The paperwork comes out of the model.</h2>
-      <p class="lead">25+ page types drawn straight from the design: plots, spec sheets, rigging, power, signal, cable, seating and budget. Change the design and every page follows. Anything unverified is flagged on the page, never invented.</p>
+      <p class="lead">A 41-page Spec PDF from one click: plots, spec sheets, rigging, power, signal, cable, seating and budget, drawn straight from the design. Change the design and every page follows. FOR-Sheets drafts the plates, sections and title block. Anything unverified is flagged on the page, never invented.</p>
     </div>
     <div class="spec">
-      <div class="rail" id="spec-rail"><div class="rlbl" id="spec-rlbl">11 pages</div></div>
+      <div class="rail" id="spec-rail"><div class="rlbl" id="spec-rlbl">12 pages</div></div>
       <div class="view">
-        <img id="spec-big" src="/assets/concept/spec/page-02.jpg?v=2" alt="Spec PDF page: screen specification sheet">
-        <div class="count" id="spec-count">02 / 11</div>
+        <img id="spec-big" src="/assets/concept/spec/page-01.jpg?v=3" alt="Spec PDF page: demo wall screen specification">
+        <div class="count" id="spec-count">01 / 12</div>
       </div>
     </div>
-    <p class="spec-hint">11 of the 19 pages in a real export of the demo stage. Pick any page.</p>
+    <p class="spec-hint">12 of the 41 pages in a real export. Pick any page.</p>
 
     <div class="cmp-wrap">
       <div class="hdr">
@@ -538,6 +546,15 @@
       <div class="img"><img src="/assets/site/run-console.jpg" alt="The first FOR-X 8 console, open: the 14-inch screen running the FOR-Control switcher, eight faders, GO, BACK and BLACKOUT, two encoders and the 5-inch touch panel" width="1600" height="900" loading="lazy"></div>
       <figcaption class="tb"><span><b>Hardware</b>Forectra FOR-X 8</span><span><b>Inside</b>FOR-Control, lights and video</span><span>The first one, built</span></figcaption>
     </figure>
+    <div class="mini" id="mini">
+      <img src="/assets/site/forx-mini-front.png" alt="The FOR-X Mini front face, drawn from the design set: an 8-inch touch screen, a 12-key pad, 15 display keys and two lit knobs" width="565" height="633" loading="lazy">
+      <div>
+        <div class="k"><em>Coming soon</em> · In design</div>
+        <h3>FOR-X Mini</h3>
+        <p>The small one. An 8-inch touch console that slides into a wall plate or a desk cradle, for studios, boardrooms and small stages. 15 display keys, a 12-key pad and two lit knobs. One Cat6 cable brings data and power, one DMX universe goes out. Same show file.</p>
+        <p class="fine">Drawn from the design set. Specs may change before it ships.</p>
+      </div>
+    </div>
     <div class="run-air"><div class="onair"><i></i>On air weeknights</div><p>Forectra runs Front Office Sports Tonight every weeknight. The show airs on FOX stations and streams on Samsung TV Plus.</p></div>
   </div>
 </section>
@@ -624,7 +641,7 @@
       <div class="core"><img src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><p>One show file for the design, the paperwork and the control</p></div>
       <ul class="out">
         <li class="hd">Out</li>
-        <li>Spec PDF<small>25+ page types</small></li>
+        <li>Spec PDF<small>41 pages, one click</small></li>
         <li>Drawings and rigs<small>DXF, MVR</small></li>
         <li>Media servers<small>disguise Live Push, Unreal nDisplay</small></li>
         <li>Schedules and budgets<small>Excel</small></li>
@@ -708,7 +725,7 @@
         <div class="label" style="margin-bottom:12px">Included</div>
         <ul>
           <li>Every workspace and every library</li>
-          <li>The Spec PDF, with 25+ page types, and all 20 exports</li>
+          <li>The 41-page Spec PDF and all 20 exports</li>
           <li>Unlimited projects</li>
           <li>Imports MVR, DXF, OBJ, GLB and PDF plans</li>
           <li>Rigging math and processor recommendations</li>
@@ -727,8 +744,8 @@
         <tr><td class="nm">F App<small>Recommended</small></td><td class="ds">Lighting control in the Mac and PC desktop app. The show runs locally, even if the internet drops.</td><td class="amt">+$600<small>a year</small></td></tr>
         <tr class="grp"><td colspan="3">Hardware</td></tr>
         <tr><td class="nm">Forectra FOR-X 8<small>First units in build</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons and 8 universes. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small></td></tr>
-        <tr><td class="nm">Forectra Mini<small class="dev">In development</small></td><td class="ds">A 10.1 in wall touch panel and DMX node with simple built-in software, for podcast, photo and executive studios.</td><td class="amt">$2,399<small>all in</small></td></tr>
-        <tr><td class="nm">Forectra Micro<small class="dev">In development</small></td><td class="ds">The DMX node on its own. Run it from your own tablet or phone, or add our preloaded tablet.</td><td class="amt">$799<small>tablet extra</small></td></tr>
+        <tr><td class="nm">FOR-X Mini<small class="dev">In design</small></td><td class="ds">An 8-inch touch console in a wall plate or desk cradle: 15 display keys, a 12-key pad, two knobs. Cat6 in, one DMX universe out.</td><td class="amt">$2,399<small>all in</small></td></tr>
+        <tr><td class="nm">FOR-X Micro<small class="dev">In development</small></td><td class="ds">The DMX node on its own. Run it from your own tablet or phone, or add our preloaded tablet.</td><td class="amt">$799<small>tablet extra</small></td></tr>
         <tr class="grp"><td colspan="3">Rental houses and venues</td></tr>
         <tr><td class="nm">Asset Control</td><td class="ds">Load your inventory and design from what you stock, with shortage reports before every quote.</td><td class="amt"><a class="u" href="mailto:hello@forectra.com?subject=Forectra%20Asset%20Control" style="font-size:17px">Talk to us</a><small>custom plans</small></td></tr>
       </tbody>
@@ -771,7 +788,7 @@
       </div>
       <div class="col"><h4>Product</h4><a href="#draw">Design</a><a href="#spec">Spec PDF</a><a href="#run">Show control</a><a href="#collaborate">Share and review</a><a href="#assets">Asset Control</a><a href="#pricing">Pricing</a></div>
       <div class="col"><h4>Workspaces</h4><a href="/screen-shop.html">Screen Shop</a><a href="/lighting.html">Lighting</a><a href="/rack-shop.html">Rack Shop</a><a href="/staging.html">Staging and audio</a></div>
-      <div class="col"><h4>Hardware</h4><a href="#run">Forectra FOR-X 8</a><a href="#pricing">Forectra Mini</a><a href="#pricing">Forectra Micro</a></div>
+      <div class="col"><h4>Hardware</h4><a href="#run">Forectra FOR-X 8</a><a href="#mini">FOR-X Mini</a><a href="#pricing">FOR-X Micro</a></div>
       <div class="col"><h4>Company</h4><a href="#company">About</a><a href="mailto:hello@forectra.com">Contact</a><a href="https://app.forectra.com/help/">Help</a><a href="https://app.forectra.com/">Sign in</a></div>
     </div>
     <div class="base">
@@ -833,14 +850,14 @@
 
   /* ===== Spec page viewer ===== */
   (function(){
-    var N=11, rail=document.getElementById('spec-rail'), big=document.getElementById('spec-big'), count=document.getElementById('spec-count');
+    var N=12, rail=document.getElementById('spec-rail'), big=document.getElementById('spec-big'), count=document.getElementById('spec-count');
     function pad(n){return String(n).padStart(2,'0');}
     for(var i=1;i<=N;i++){(function(i){
       var t=document.createElement('img');
-      t.src='/assets/concept/spec/thumb-'+pad(i)+'.jpg?v=2'; t.loading='lazy'; t.alt='Page '+i;
-      if(i===2)t.className='active';
+      t.src='/assets/concept/spec/thumb-'+pad(i)+'.jpg?v=3'; t.loading='lazy'; t.alt='Page '+i;
+      if(i===1)t.className='active';
       t.addEventListener('click',function(){
-        big.src='/assets/concept/spec/page-'+pad(i)+'.jpg?v=2'; count.textContent=pad(i)+' / '+N;
+        big.src='/assets/concept/spec/page-'+pad(i)+'.jpg?v=3'; count.textContent=pad(i)+' / '+N;
         rail.querySelectorAll('img').forEach(function(x){x.classList.remove('active');}); t.classList.add('active');
       });
       rail.appendChild(t);
