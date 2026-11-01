@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forectra — The manual</title>
+<meta name="description" content="The Forectra manual: FOR-Build, FOR-Sketch, FOR-Lighting, FOR-Screens, FOR-Racks, FOR-Sheets, the FOR-Control desk and its command line, the switcher, the 5-inch panel and the FOR-X 8 box.">
+<link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
+<link rel="canonical" href="https://forectra.com/manual.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Forectra">
+<meta property="og:url" content="https://forectra.com/manual.html">
+<meta property="og:title" content="Forectra — The manual">
+<meta property="og:description" content="Every workspace, the desk, the command line, the switcher, the panel and the box. First edition, written against the shipping app.">
+<meta property="og:image" content="https://forectra.com/assets/og-forectra.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,600;125,700;125,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/brand-2026.css?v=2">
+<style>
+  /* The manual: paper page in the sell-sheet family. */
+  body.manual{background:var(--paper)}
+  .mhero{padding:150px 0 56px;border-bottom:1px solid var(--rule)}
+  .mhero .eyb{font-size:15px;font-weight:600;color:var(--lime-ink)}
+  .mhero h1{font-stretch:125%;font-weight:800;font-size:clamp(44px,6.6vw,96px);letter-spacing:-.025em;line-height:.95;margin-top:16px}
+  .mhero .meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-family:var(--mono);font-size:13.5px;color:var(--muted)}
+  .mhero .meta b{color:var(--ink);font-weight:500}
+  .mhero .intro{margin-top:34px;max-width:72ch;font-size:18px;line-height:1.6;color:var(--graphite)}
+  .mhero .intro p+p{margin-top:14px}
+  .mhero .intro strong{color:var(--ink);font-weight:600}
+
+  .mbody{display:grid;grid-template-columns:250px minmax(0,1fr);gap:72px;padding:56px var(--gutter) 120px}
+  .toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;padding-right:8px;font-size:14px;line-height:1.4}
+  .toc h4{font-size:13px;font-weight:600;color:var(--graphite);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+  .toc ul{list-style:none}
+  .toc>ul>li{margin:0 0 9px}
+  .toc a{display:flex;gap:10px;text-decoration:none;color:var(--graphite);padding:3px 0}
+  .toc a:hover{color:var(--ink)}
+  .toc a.on{color:var(--ink);font-weight:600}
+  .toc a .n{font-family:var(--mono);font-size:12.5px;color:var(--lime-ink);min-width:1.6em}
+  .toc ul ul{margin:3px 0 4px 2.3em;border-left:1px solid var(--rule);padding-left:12px}
+  .toc ul ul a{font-size:13px;color:var(--muted);padding:2px 0}
+  .toc ul ul a.on{color:var(--ink)}
+
+  .text{max-width:860px;min-width:0}
+  .sec{padding:0 0 64px;margin-bottom:64px;border-bottom:1px solid var(--rule);scroll-margin-top:96px}
+  .sec:last-child{border-bottom:none}
+  .secno{display:inline-block;font-family:var(--mono);font-weight:500;font-size:14px;color:var(--lime-ink);border:1.5px solid currentColor;border-radius:999px;padding:3px 11px 2px;margin-bottom:18px}
+  .sec h2{font-stretch:125%;font-weight:800;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.02em;line-height:1.02;scroll-margin-top:100px}
+  .sec h3{font-weight:700;font-size:21px;letter-spacing:-.01em;margin-top:44px;scroll-margin-top:100px}
+  .sec h3 .n{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--lime-ink);margin-right:8px;vertical-align:2px}
+  .sec p{margin-top:16px;font-size:17px;line-height:1.65;color:var(--graphite)}
+  .sec p strong{color:var(--ink);font-weight:600}
+  .sec ul{margin:14px 0 0 1.2em;color:var(--graphite);font-size:17px;line-height:1.6}
+  .sec li{margin-top:8px}
+  .sec li strong{color:var(--ink);font-weight:600}
+  .sec code{font-family:var(--mono);font-size:.88em;background:var(--paper-2);border:1px solid var(--rule);border-radius:2px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+  .sec pre{margin-top:16px;background:var(--stage);color:var(--on-stage);font-family:var(--mono);font-size:13.5px;line-height:1.55;padding:16px 18px;border-radius:2px;overflow:auto}
+  .sec pre code{background:none;border:none;padding:0;color:inherit;white-space:pre}
+  figure{margin:26px 0 6px}
+  figure img{width:100%;border:1px solid var(--rule-2);background:var(--stage)}
+  figure.panel img{max-width:560px}
+  figcaption{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:9px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:26px}
+  .gallery figure{margin:0}
+  .gallery figure img{max-width:none}
+  .tbl{margin-top:20px;overflow:auto;border:1px solid var(--rule-2);background:var(--white)}
+  table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.5}
+  th{text-align:left;font-weight:600;color:var(--graphite);font-size:13.5px;background:var(--paper-2);padding:10px 14px;border-bottom:1px solid var(--rule-2)}
+  td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--graphite)}
+  tr:last-child td{border-bottom:none}
+  td:first-child{color:var(--ink);white-space:nowrap}
+  #s7 .tbl td:first-child{font-family:var(--mono);font-size:13.5px;white-space:normal;min-width:19em}
+  #s7 .tbl td code{background:none;border:none;padding:0}
+  #s7 .tbl td:first-child code{white-space:normal}
+  .cta{margin-top:40px;padding:36px 40px;background:var(--stage);color:var(--on-stage)}
+  .cta h3{font-stretch:125%;font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1.05;margin:0}
+  .cta p{color:var(--on-stage-muted);margin-top:10px;font-size:16px}
+  .cta .btn{margin-top:22px}
+  @media (max-width:1000px){ .mbody{grid-template-columns:1fr;gap:40px} .toc{position:static;max-height:none;columns:2;column-gap:40px} .toc h4{column-span:all} .toc>ul>li{break-inside:avoid} }
+  @media (max-width:720px){ .mhero{padding:120px 0 40px} .toc{columns:1} .sec p,.sec ul{font-size:16px} figure.panel img{max-width:none} .cta{padding:28px 24px} #s7 .tbl td:first-child{min-width:13em} }
+  @media print{ .site-head,.site-foot,.toc,.cta{display:none} .mbody{display:block;padding:0} .mhero{padding:0 0 24px} figure img{border:none} }
+</style>
+</head>
+<body class="manual">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head light solid" id="site-head">
+  <div class="bar">
+    <a class="logo" href="/" aria-label="Forectra home"><img class="on-dark" src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><img class="on-light" src="/assets/forectra_logo_light.png" alt="Forectra" width="1500" height="301"></a>
+    <nav class="primary" aria-label="Main">
+      <a href="/#draw">Product</a>
+      <a href="/#workspaces">Workspaces</a>
+      <a href="/#run">Lighting control</a>
+      <a href="/#assets">Rental and venues</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/manual.html">Manual</a>
+      <a href="/#company">Company</a>
+    </nav>
+    <div class="right">
+      <a class="signin" href="https://app.forectra.com/">Sign in</a>
+      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual">Start free trial</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="inner">
+      <a href="/#draw">Product</a>
+      <a href="/#workspaces">Workspaces</a>
+      <a href="/#run">Lighting control</a>
+      <a href="/#assets">Rental and venues</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/manual.html">Manual</a>
+      <a href="/#company">Company</a>
+      <a href="https://app.forectra.com/">Sign in</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<header class="mhero">
+  <div class="wrap">
+    <div class="eyb">The manual</div>
+    <h1>Every button.<br>Every word.</h1>
+    <div class="intro"><p>First edition, 1 November 2026, written against app v=1301. Every picture is the real app on the demo set (the Keynote show: a hung ROE wall, two IMAG screens on goal posts, a 40 × 16 deck, 15 lights on two trusses, two K2 hangs). The console pictures are the FOR-X 8 box screen at its own size, 1366 × 768.</p>
+<p>How to read it: the app has seven workspaces across the top bar. The first half of this manual is the design side (Build, Sketch, Lighting, Screens, Racks, Sheets). The second half is FOR-Control, the desk that runs the show, and the box. Anything you can type on the desk is in <strong>Section 7, the command line</strong>. If a thing is not in here, it is not finished or it does not exist; tell us which and it goes in.</p></div>
+  </div>
+</header>
+
+<div class="wrap mbody">
+  <aside class="toc" aria-label="Contents">
+    <h4>Contents</h4>
+    <ul><li><a href="#s1"><span class="n">1</span>The app at a glance</a><ul><li><a href="#s1-1">Modules</a></li><li><a href="#s1-2">Projects, Share, Assistant, Spec PDF</a></li><li><a href="#s1-3">The menus</a></li></ul></li><li><a href="#s2"><span class="n">2</span>FOR-Build — the set in 3D</a><ul><li><a href="#s2-1">Add a screen</a></li><li><a href="#s2-2">Truss and lights</a></li><li><a href="#s2-3">Decks, scenic, furniture</a></li><li><a href="#s2-4">Audio</a></li><li><a href="#s2-5">Engineering: racks, cables, power</a></li><li><a href="#s2-6">The Assistant</a></li><li><a href="#s2-7">Venue and seating</a></li></ul></li><li><a href="#s3"><span class="n">3</span>FOR-Sketch — model anything</a></li><li><a href="#s4"><span class="n">4</span>FOR-Lighting — the plot</a></li><li><a href="#s5"><span class="n">5</span>FOR-Screens and FOR-Racks</a></li><li><a href="#s6"><span class="n">6</span>Paperwork: Spec PDF, Plan layout, Sheet Composer</a></li><li><a href="#s7"><span class="n">7</span>FOR-Control — the desk</a><ul><li><a href="#s7-1">The command line</a></li><li><a href="#s7-2">Cues</a></li><li><a href="#s7-3">Faders, submasters, master, blackout</a></li><li><a href="#s7-4">Colour, gels, tint</a></li><li><a href="#s7-5">Movers: MOVERS, AIM, encoders</a></li><li><a href="#s7-6">Effects</a></li><li><a href="#s7-7">Layouts: DESK · STAGE · CUES</a></li><li><a href="#s7-8">RIG, RDM, LIVE, CONNECT</a></li><li><a href="#s7-9">DEMO</a></li></ul></li><li><a href="#s8"><span class="n">8</span>VIDEO — the switcher</a><ul><li><a href="#s8-1">Output windows and the multiview</a></li></ul></li><li><a href="#s9"><span class="n">9</span>The 5-inch panel</a></li><li><a href="#s10"><span class="n">10</span>The FOR-X 8 box</a></li></ul>
+  </aside>
+  <div class="text">
+<section id="s1" class="sec"><div class="secno">1</div><h2>The app at a glance</h2>
+<figure><img src="/assets/manual/01_build_overview.jpg" alt="The app" loading="lazy"><figcaption>The app</figcaption></figure>
+<p><strong>Top bar, left to right.</strong> The FORECTRA mark (on the box: FOR-X 8). <strong>Modules</strong>: which parts of the app are on for this show (lights, video, rigging, audio, venue, scenic, engineering, imports); a module that is off hides its sidebar sections and its pages in the paperwork. <strong>File · Edit · View · Tools · Help</strong>: the menus (what is in them is in 1.3). The <strong>workspace tabs</strong>: FOR-Build, FOR-Sketch, FOR-Lighting, FOR-Control, FOR-Screens, FOR-Racks, FOR-Sheets. On the right: <strong>Live</strong> (the box is on the network), <strong>Share</strong> (Collaborator, Client View, Reviews, Walkthrough), <strong>Assistant</strong>, <strong>Spec PDF</strong>.</p>
+<p><strong>Left.</strong> The <strong>tool rail</strong>: Select, Move, Rotate, Pan, Orbit; Measure and Protractor; the draw tools (Line, Rectangle, Circle, Polygon); Push/Pull, Eraser, Scale; More (Arc, Offset, Window, Center Lines). Beside it the <strong>sidebar</strong>: one section per module (Video, Lighting, Rigging, Scenic, Engineering, Audio, Venue &amp; Seating, Imports), each with its own add buttons and its list of what is in the show.</p>
+<p><strong>Middle.</strong> The 3D scene. Click selects. Drag orbits. Scroll zooms. Right-drag on an object rotates it. Shift locks an axis. Alt-drag copies. Esc clears.</p>
+<p><strong>Right.</strong> The <strong>inspector</strong>: everything about the thing you clicked, with the numbers that print on the paperwork.</p>
+<figure><img src="/assets/manual/02_build_inspector_wall.jpg" alt="The inspector on a wall" loading="lazy"><figcaption>The inspector on a wall</figcaption></figure>
+<h3 id="s1-1"><span class="n">1.1</span> Modules</h3>
+<figure><img src="/assets/manual/03_modules.jpg" alt="Modules" loading="lazy"><figcaption>Modules</figcaption></figure>
+<p>Modules are on/off switches for a show. Off = the sidebar section goes away, the Spec PDF leaves those pages out, FOR-Control hides what it does not need. A new show gets the modules its content needs; turn on what you want to add. Nothing is deleted by turning a module off.</p>
+<h3 id="s1-2"><span class="n">1.2</span> Projects, Share, Assistant, Spec PDF</h3>
+<ul>
+<li><strong>Projects</strong> (sidebar top): your shows, saved in the browser on this machine and in your account. New, Open, Save, Save As, Download Backup, Load Backup. On the box, File → Export Show File moves a show to a thumb drive as <code>.json</code>; File → Open loads it.</li>
+<li><strong>Share → Client View</strong>: a read-only link to the 3D for a client. <strong>Collaborator</strong>: a second designer in the same show. <strong>Reviews</strong>: comments. <strong>Walkthrough</strong>: a camera path through the set, exported as video.</li>
+<li><strong>Assistant</strong>: tell it what to build ("mirror this truss", "a 40-ft truss with 12 Sharpys spaced evenly"). It shows a plan card first (objects, gear matched, notes); Build it makes it. The ask chips answer questions (total power, weight on this truss, counts, check for problems). Section 2.6.</li>
+<li><strong>Spec PDF</strong>: the paperwork, one button. Section 6.</li>
+</ul>
+<h3 id="s1-3"><span class="n">1.3</span> The menus</h3>
+<figure><img src="/assets/manual/04_file_export_menu.jpg" alt="File → Export" loading="lazy"><figcaption>File → Export</figcaption></figure>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Menu</th>
+<th>What is in it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File</td>
+<td>New · Open… · Projects… · Save · Save As… · <strong>Import</strong> (Scene/GLB, Inventory, Floor Plan image, 3D OBJ, 3D DXF, Clear Venue) · <strong>Export</strong> (Spec PDF, Plan PDF, Sheet Composer, One-off Sheet, SVG Floor Plan, GLB, OBJ, MVR, disguise CSV, Content Manifest, Live Push, Datasmith, nDisplay config, Scene CSV, Scene PNG, Budget) · Constrain to my inventory · Project Info…</td>
+</tr>
+<tr>
+<td>Edit</td>
+<td>Undo · Redo · Cut · Copy · Paste · Duplicate · Delete · Select All · Deselect</td>
+</tr>
+<tr>
+<td>View</td>
+<td>Elevation · Perspective · Snap · Collide with walls · Grid · System Totals · Zoom In / Out / Fit · Field of view · Show/Hide (Blocks panel, Inspector, Tool rail)</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>AI Assistant… · Raster Builder… · Measure · Home · Lock console · Idle dim… · Scale Figure…</td>
+</tr>
+<tr>
+<td>Help</td>
+<td>Docs · Show Welcome Tour · Keyboard shortcuts · Play Demo · Report a bug · About</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="s2" class="sec"><div class="secno">2</div><h2>FOR-Build — the set in 3D</h2>
+<h3 id="s2-1"><span class="n">2.1</span> Add a screen</h3>
+<figure><img src="/assets/manual/05_add_screen_modal.jpg" alt="Add Screen" loading="lazy"><figcaption>Add Screen</figcaption></figure>
+<p><strong>+ Add Screen</strong> in the Video section. Pick the product (the tile), set columns × rows or a target size, name it, choose <strong>Ground</strong> or <strong>Rigged</strong>. Rigged plus <strong>Hang from goalpost</strong> makes a goal post truss sized to the screen and links the two (drag either, both move). <strong>Add &amp; close</strong> places it. The inspector then shows pitch, panel size, width, height, panel count, resolution, total pixels, weight, headers and header weight, max power, corners, and the processor it needs.</p>
+<p>Content goes on a screen from the Video section's library (drop a file in) or from FOR-Control's bin. <strong>Fit / Stretch</strong>, pan, zoom, rotate, hue, saturation, brightness, contrast are in the inspector under Content.</p>
+<h3 id="s2-2"><span class="n">2.2</span> Truss and lights</h3>
+<p><strong>+ Add Truss</strong> (Rigging). Length, height, brand and series. Lights hang on a truss's nodes: <strong>+ Light</strong> in the Lighting section, pick from the library (2,194 real fixtures), click a node. Or build the whole rig in FOR-Lighting (Section 3) and it is the same rig.</p>
+<p>Every light has an aim point. Drag the aim handle, or set it from FOR-Control (AIM). Intensity, colour and beam are FOR-Control's.</p>
+<h3 id="s2-3"><span class="n">2.3</span> Decks, scenic, furniture</h3>
+<p><strong>+ Add Stage</strong> (Scenic): a deck family, width × depth, leg height. The deck can be skirted to the floor (Facing: floor) or show its legs. Platforms, stairs, curtains, borders, legs, pipe-and-drape are in the same section. Lecterns, chairs (singly, or in a line: place two, then continue the row), tables (with linens and seats), audience blocks, cameras, FOH gear are in Venue &amp; Seating and Engineering.</p>
+<h3 id="s2-4"><span class="n">2.4</span> Audio</h3>
+<p><strong>+ Line Array</strong> (Audio): a hang of real boxes (K2, Kara II, Panther, VTX…), box count, bumper tilt, per-box splay. Point-source speakers and subs likewise. They print on the speaker schedule.</p>
+<h3 id="s2-5"><span class="n">2.5</span> Engineering: racks, cables, power</h3>
+<p><strong>+ Add Rack</strong> (Engineering → Power &amp; Data): a rack on the floor. Its contents are built in FOR-Racks (Section 5). <strong>+ Connect Cable</strong>: click the source (a screen, a projector, a light, a rack, a table, anything), click where it goes; the run routes itself (Auto, Floor or Grid: F, G, A). 23 cable types; the type follows what the two ends are (a wall gets fiber, a camera SDI, a PA speakon). House switch, dimmer beach, breakout boxes are the same section. Everything prints on the cable plan and the power &amp; data pages.</p>
+<h3 id="s2-6"><span class="n">2.6</span> The Assistant</h3>
+<figure><img src="/assets/manual/14_assistant.jpg" alt="The Assistant" loading="lazy"><figcaption>The Assistant</figcaption></figure>
+<p>Select something, open Assistant, say what you want. "Mirror this truss", "finish this truss in the same pattern", "repeat this across all trusses", "space these evenly", "populate a truss…". It plans first, you press Build it. The ask chips: what's my total power draw, weight on this truss, how many of each fixture, check this for problems.</p>
+<h3 id="s2-7"><span class="n">2.7</span> Venue and seating</h3>
+<figure><img src="/assets/manual/15_room_seating.jpg" alt="Room &amp;amp; Seating from above" loading="lazy"><figcaption>Room &amp;amp; Seating from above</figcaption></figure>
+<p>File → Import → 3D DXF drops a room plan in (units read from the file). Venue &amp; Seating: draw a room, add doors and windows, <strong>+ Add Table</strong> (round, banquet, cocktail; chairs follow), audience blocks, <strong>Guest List</strong> (import a CSV, Auto-seat; keep parties together; meal counts). It prints as a table schedule, a seating chart, place cards, a guest list and meal counts.</p>
+</section>
+<section id="s3" class="sec"><div class="secno">3</div><h2>FOR-Sketch — model anything</h2>
+<figure><img src="/assets/manual/06_sketch_shop.jpg" alt="Sketch Shop" loading="lazy"><figcaption>Sketch Shop</figcaption></figure>
+<p>A clean white stage, SketchUp rules. Draw a rectangle (two clicks), <strong>P</strong> to push/pull it into a solid, type a size (<code>24"</code>, <code>6'</code>, <code>2.5</code>) and Enter to make the pull exact. Draw on any face; push in = recess, push through = opening, pull out = boss. <strong>Window</strong> cuts straight through a face. Offset, arc, polygon, circle, eraser, line. Group with the link button (nested groups allowed; double-click enters a group, Esc leaves). <strong>Add to Scene</strong> puts the piece on the real stage; <strong>Discard</strong> throws it away.</p>
+</section>
+<section id="s4" class="sec"><div class="secno">4</div><h2>FOR-Lighting — the plot</h2>
+<figure><img src="/assets/manual/07_lighting_plot.jpg" alt="The plot builder" loading="lazy"><figcaption>The plot builder</figcaption></figure>
+<p>The plot is the same rig as the 3D, seen from above as a drawing. <strong>Fit</strong> frames it. <strong>+ Light</strong>: click on a pipe node and it hangs there, click elsewhere and it sits at trim height; the library opens for the pick. <strong>+ Pipe</strong> and <strong>+ Truss</strong>: drag end to end. <strong>Select</strong> drags lights (drop one on a pipe node and it hangs). <strong>Rotate</strong> turns a light. <strong>Number</strong>: click lights in order to number them (the counter is on the right). Right-click a light: Move, Rotate, <strong>Aim</strong> (click where it should point), Duplicate, Properties, Delete. <strong>Labels</strong> shows channel, unit, purpose. <strong>AIM</strong> shows the focus lines. <strong>PDF</strong> prints the plot.</p>
+<p>The paper plot (white, with symbol key, channel numbers, pipes) is a page of the Spec PDF.</p>
+</section>
+<section id="s5" class="sec"><div class="secno">5</div><h2>FOR-Screens and FOR-Racks</h2>
+<figure><img src="/assets/manual/08_screen_shop.jpg" alt="Screen Shop" loading="lazy"><figcaption>Screen Shop</figcaption></figure>
+<p><strong>FOR-Screens</strong> lays every screen out flat at true aspect: rename, edit in 3D, duplicate, delete, or export a Screens-only PDF (wall tables, content spec, screen detail, cable diagram).</p>
+<figure><img src="/assets/manual/09_raster_builder.jpg" alt="Raster Builder" loading="lazy"><figcaption>Raster Builder</figcaption></figure>
+<p><strong>Tools → Raster Builder</strong> (or the button on a selected wall) makes the test card for a wall: panel colours, SMPTE bars, circles, diagonals, crosshair, panel numbers, centre label, resolution text. <strong>Save to Wall</strong> puts it on the wall in 3D; <strong>Download PNG</strong> gives the file for the processor.</p>
+<figure><img src="/assets/manual/10_rack_builder.jpg" alt="Rack Builder" loading="lazy"><figcaption>Rack Builder</figcaption></figure>
+<p><strong>FOR-Racks</strong>: one strip per rack. <strong>+ Add Rack</strong> opens the Rack Builder: search the device library (processors, switchers, servers, UPS, distros, audio, comms, RF), click a card and it lands in the next free U. RU, weight, power and current add up live. Drag a device to reorder. The rack prints as an elevation.</p>
+<figure><img src="/assets/manual/11_rack_shop.jpg" alt="Rack Shop" loading="lazy"><figcaption>Rack Shop</figcaption></figure>
+</section>
+<section id="s6" class="sec"><div class="secno">6</div><h2>Paperwork: Spec PDF, Plan layout, Sheet Composer</h2>
+<figure><img src="/assets/manual/13_spec_pdf_panel.jpg" alt="Spec PDF" loading="lazy"><figcaption>Spec PDF</figcaption></figure>
+<p><strong>Spec PDF</strong> (top right) → pick a preset or the pages → <strong>Generate PDF</strong>. The full set on the demo show is 36 pages: system summary, each screen's spec sheet and rear cable diagram, content spec, truss and support, fixture schedule, channel hookup, symbol keys, platform schedule, cable plan, signal flow and cable schedule, power &amp; data, rack elevations, speaker schedule, table schedule, seating chart, place cards, guest list, meal counts, scene overview. Modules that are off leave their pages out.</p>
+<figure><img src="/assets/manual/16_plan_layout.jpg" alt="Plan layout" loading="lazy"><figcaption>Plan layout</figcaption></figure>
+<p><strong>File → Export → Plan layout…</strong>: the plan pages with their keynotes, labels and callouts as handles. Drag any of them where you want it; Reset puts one back, Reset all clears the page. Saved with the show; the PDF follows it.</p>
+<figure><img src="/assets/manual/12_sheet_composer.jpg" alt="Sheet Composer" loading="lazy"><figcaption>Sheet Composer</figcaption></figure>
+<p><strong>FOR-Sheets</strong> (Sheet Composer): your own plates. A sheet is a page (Letter, 11 × 17, 24 × 36 ARCH D) with a title block. Add blocks: <strong>+ Plan view</strong>, <strong>+ Object view</strong> (front, top, side, iso, section of anything in the show, with dimensions), <strong>+ Table</strong>, <strong>+ Notes</strong>. Drag a frame to move it, pull its corner to resize. Templates: the Scenery sheet gives front, top, side, iso and section of a selected piece in one go; save your own. <strong>Generate PDF</strong> prints the sheet. The labels tool moves callouts by hand; the dims tool adds dimensions.</p>
+</section>
+<section id="s7" class="sec"><div class="secno">7</div><h2>FOR-Control — the desk</h2>
+<figure><img src="/assets/manual/20_desk_plan.jpg" alt="The desk, plan view" loading="lazy"><figcaption>The desk, plan view</figcaption></figure>
+<p>FOR-Control is an Eos-style desk in the same file as the drawing. Open it with the FOR-Control tab (on the box it is the home screen). Three parts: the <strong>head</strong> (DESK | VIDEO, PLAN | 3D, DESK · STAGE · CUES layout, labels, surface, RIG, CONNECT, master, BLACKOUT), the <strong>command bar</strong> (LIVE/BLIND, the current cue, the command line, GO BACK RELEASE OUT RECORD DEMO), and the <strong>body</strong>: the stage (plan or 3D) with the <strong>tech panel</strong> on the right, and the <strong>bottom strip</strong> (faders, cue list, scenes, submasters, effects).</p>
+<figure><img src="/assets/manual/21_desk_3d.jpg" alt="The desk in 3D" loading="lazy"><figcaption>The desk in 3D</figcaption></figure>
+<h3 id="s7-1"><span class="n">7.1</span> The command line</h3>
+<p>Just type. Words or numbers, Enter runs it. Esc clears it. Everything the desk does has a word:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>It does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CHAN 1 THRU 8 AT 50</code> · <code>1 THRU 8 AT 50</code></td>
+<td>levels. <code>[TIME 3]</code> fades them</td>
+</tr>
+<tr>
+<td><code>3 FULL</code> · <code>5 OUT</code></td>
+<td>full, out</td>
+</tr>
+<tr>
+<td><code>1 + 4 AT 30</code> · <code>1 THRU 8 - 4 AT 30</code></td>
+<td>and, except</td>
+</tr>
+<tr>
+<td><code>RECORD CUE 5</code></td>
+<td>the next cue (or cue 5). <code>[TIME 3] [FOLLOW 2] [HANG 1] [LABEL words]</code></td>
+</tr>
+<tr>
+<td><code>RECORD CUE 5 LIGHTS</code> · <code>… VIDEO</code> · <code>… BOTH</code></td>
+<td>what the cue carries (the L / V / LV chips under RECORD CUE set the default)</td>
+</tr>
+<tr>
+<td><code>CUE 5</code> · <code>GOTO CUE 5 TIME 0</code></td>
+<td>go to a cue (in its time, or a cut)</td>
+</tr>
+<tr>
+<td><code>CUE 5 TIME 4</code> · <code>CUE 5 FOLLOW 2</code> · <code>CUE 5 LABEL Keynote</code></td>
+<td>edit a cue</td>
+</tr>
+<tr>
+<td><code>GO</code> · <code>BACK</code></td>
+<td>next cue in its time · previous cue in 1 s, no follow</td>
+</tr>
+<tr>
+<td><code>UPDATE</code></td>
+<td>the stage into the current cue</td>
+</tr>
+<tr>
+<td><code>DELETE CUE 5</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>BLIND</code> · <code>BLIND CUE 5</code> · <code>LIVE</code></td>
+<td>edit a cue without touching the stage, and back</td>
+</tr>
+<tr>
+<td><code>SNEAK [TIME 2]</code></td>
+<td>manual levels back to the cue</td>
+</tr>
+<tr>
+<td><code>RELEASE [TIME 1]</code> · <code>CUE OUT</code></td>
+<td>manual off · everything off</td>
+</tr>
+<tr>
+<td><code>RECORD SUB 3</code> · <code>SUB 3 AT 80</code></td>
+<td>a submaster from the stage, its level</td>
+</tr>
+<tr>
+<td><code>LOAD 3 SUB 2</code> · <code>LOAD 3 GM</code> · <code>FLEXI SEL</code></td>
+<td>what a fader is (CH, SUB, GM, FX, TIME, XFADE) · the fader bank = the selection</td>
+</tr>
+<tr>
+<td><code>EFFECT 6 [RATE 50] [SIZE 150] [SPREAD 100]</code> · <code>EFFECT 6 STOP</code> · <code>STOP EFFECT</code> · <code>EFFECT LIST</code></td>
+<td>the 16 effects</td>
+</tr>
+<tr>
+<td><code>MOVERS</code> · <code>AIM</code> · <code>AIM AT 10 -4</code></td>
+<td>select every mover · aim mode · aim at a stage point</td>
+</tr>
+<tr>
+<td><code>HAZE</code> · <code>HAZE 70</code></td>
+<td>the beams</td>
+</tr>
+<tr>
+<td><code>LOCK</code> · <code>DIM 10</code></td>
+<td>lock the console · idle dim after n minutes</td>
+</tr>
+<tr>
+<td><code>HELP</code></td>
+<td>this list</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="s7-2"><span class="n">7.2</span> Cues</h3>
+<p>RECORD CUE records the stage. What it records is the chip under the RECORD CUE tile: <strong>L</strong> lights only, <strong>V</strong> video only, <strong>LV</strong> both. The cue list shows each cue's tag. GO moves only what the cue carries: a lights cue never touches the screens, a video cue never touches the lights. A cue owns every light: a light the cue never recorded goes out with the cue, like a real board. Follow and hang chain cues by time. BLIND edits a cue's levels while the stage stays; SNEAK releases a hand change back to the cue.</p>
+<h3 id="s7-3"><span class="n">7.3</span> Faders, submasters, master, blackout</h3>
+<p>The bottom strip has the channel faders (the bank steps through the rig; on the box, the eight real faders are the bank). Each fader can be loaded with something else (<code>LOAD n …</code>): a sub, the master, an effect's rate, the TIME scale, a crossfader. Submasters add on top of the cue, highest wins (HTP). The master scales everything; BLACKOUT is a 2-second fade on the master and back.</p>
+<h3 id="s7-4"><span class="n">7.4</span> Colour, gels, tint</h3>
+<figure><img src="/assets/manual/22_desk_gels_tint.jpg" alt="Gels and tint" loading="lazy"><figcaption>Gels and tint</figcaption></figure>
+<p>Select a light (tap it on the stage, or type a channel). The tech panel shows its colour block: hue and saturation, the gel book as dots (ALL · LEE · ROSCO; <strong>SIMILAR</strong> sorts the book nearest to what the light has), and the tint row (WARMER, COOLER, +/- SAT, +/- GREEN). A CCT light (a par) gets colour temperature in Kelvin; a colour mixer gets the gel's colour; a CMY mover gets it too.</p>
+<h3 id="s7-5"><span class="n">7.5</span> Movers: MOVERS, AIM, encoders</h3>
+<figure><img src="/assets/manual/23_desk_movers.jpg" alt="Movers" loading="lazy"><figcaption>Movers</figcaption></figure>
+<p><strong>MOVERS</strong> selects every moving light. <strong>AIM</strong>: tap the stage (plan or 3D) and the selected movers point there; tap again, they follow; Esc ends it. An aim writes pan and tilt, so DMX and cues carry it. The encoder tiles (LEVEL · FOCUS · COLOR · BEAM) give the knobs: pan/tilt, zoom, edge, iris; the knobs follow what you pick.</p>
+<figure><img src="/assets/manual/26_desk_aim.jpg" alt="AIM on the stage" loading="lazy"><figcaption>AIM on the stage</figcaption></figure>
+<h3 id="s7-6"><span class="n">7.6</span> Effects</h3>
+<p>The 16 presets (PULSE, CHASE, STROBE, TWINKLE, RAMP, RAINBOW, COLOUR FADE, COLOUR CHASE, CIRCLE, FIGURE 8, PAN SWEEP, TILT SWEEP, BALLYHOO, CAN CAN, ZOOM PULSE, EDGE BREATHE) run on the selection; RATE and SIZE buttons or <code>EFFECT 6 RATE 50</code>. A cue records its running effects; CUE OUT stops them.</p>
+<h3 id="s7-7"><span class="n">7.7</span> Layouts: DESK · STAGE · CUES</h3>
+<figure><img src="/assets/manual/24_layout_stage.jpg" alt="STAGE layout" loading="lazy"><figcaption>STAGE layout</figcaption></figure>
+<p>The DESK · STAGE · CUES segment in the head, beside PLAN | 3D. <strong>DESK</strong> is everything. <strong>STAGE</strong> is the plan or 3D filling the screen (for AIM by touch). <strong>CUES</strong> is the cue list as cards and the faders tall, no stage. The head and the command line stay in every layout. The box remembers the choice.</p>
+<figure><img src="/assets/manual/25_layout_cues.jpg" alt="CUES layout" loading="lazy"><figcaption>CUES layout</figcaption></figure>
+<h3 id="s7-8"><span class="n">7.8</span> RIG, RDM, LIVE, CONNECT</h3>
+<figure><img src="/assets/manual/27_desk_rig_rdm.jpg" alt="RIG" loading="lazy"><figcaption>RIG</figcaption></figure>
+<p><strong>RIG</strong> opens the patch window: every light's universe and address, auto-patch, and RDM discovery when the box is on the network (the found fixtures are matched to the catalogue; a Type… picker fixes a wrong match). <strong>CONNECT</strong> is the Ethergate (sACN / Art-Net out on both DMX ports). <strong>LIVE</strong> says the box is talking to the world.</p>
+<h3 id="s7-9"><span class="n">7.9</span> DEMO</h3>
+<figure><img src="/assets/manual/28_desk_demo_menu.jpg" alt="DEMO" loading="lazy"><figcaption>DEMO</figcaption></figure>
+<p>▶ DEMO plays a show on the real console with a moving cursor and captions: Keynote, Theatre, Band, Show day, All four. <strong>5 · Film</strong> is a two-minute showreel for the camera with no captions and four hand beats (AIM, fader 1, GO, BLACKOUT); it loops until Esc. Esc stops any demo and nothing is left running.</p>
+</section>
+<section id="s8" class="sec"><div class="secno">8</div><h2>VIDEO — the switcher</h2>
+<figure><img src="/assets/manual/30_video_setup.jpg" alt="Outputs and setup" loading="lazy"><figcaption>Outputs and setup</figcaption></figure>
+<p><strong>DESK | VIDEO</strong> at the top of FOR-Control switches to the switcher. <strong>SETUP</strong> is where screens are put on outputs: every screen in the show (walls, IMAGs, TVs, projectors) and which output it is on, at what place in the output's raster. An output is a processor or TV lead: a name, a size (1080p or 4K), a monitor (on the box: which HDMI or USB-C screen), a fade time. <strong>+ OUTPUT</strong> adds one. <strong>TIDY</strong> deletes every output with no screen on it; the ✕ on an empty strip deletes that one.</p>
+<figure><img src="/assets/manual/31_video_switcher.jpg" alt="The switcher" loading="lazy"><figcaption>The switcher</figcaption></figure>
+<p><strong>SWITCH</strong> is the live desk. Left: the <strong>sources bin</strong> (drop files; + CAMERA adds a USB capture card as a live source). Middle: one strip per output: PREVIEW (next up) over PROGRAM (on air), TAKE, CUT, BACK, BLACK, FADE, and <strong>GANG</strong>. Ganged outputs preview, take, mix, fade and black together; the others are left alone (two IMAGs ganged, the main wall on its own). Bottom: the <strong>bus panel</strong> for the selected output (or its gang): PGM row (click = cut it on air), PVW row (click = next up), <strong>CUT</strong>, <strong>AUTO</strong> (dissolve over the rate), the <strong>T-BAR</strong> by hand, <strong>ALL OUTS</strong> (every output at once), <strong>FTB</strong> (fade to black, press again = up), RATE. Right: the cue list: GO, BACK, RECORD (lights + screens as the next cue).</p>
+<p>Video cues and looks: RECORD on this side records the screens (and the lights, per the scope chip). A video cue can follow a lights cue. The 5-inch panel's VIDEO page mirrors the strips.</p>
+<h3 id="s8-1"><span class="n">8.1</span> Output windows and the multiview</h3>
+<figure><img src="/assets/manual/32_multiview.jpg" alt="Multiview" loading="lazy"><figcaption>Multiview</figcaption></figure>
+<p><strong>OPEN OUTPUT n WINDOW</strong> (per output, in SETUP) opens that output's picture full screen on its monitor; the dropdown beside it picks the monitor. <strong>MULTIVIEW</strong> opens one window with every output's PROGRAM and PREVIEW across, the cue line and the gang tags, on the monitor you pick beside it. F = full screen, Q = close. Only outputs that carry a screen are shown.</p>
+</section>
+<section id="s9" class="sec"><div class="secno">9</div><h2>The 5-inch panel</h2>
+<p>The touch panel on the box is a second desk in your hand: tabs across the top.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Page</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMD</td>
+<td>the keypad: channels, AT, THRU, FULL, OUT, RECORD, GO, BACK, the command line</td>
+</tr>
+<tr>
+<td>KEYS</td>
+<td>the target keys (banks of lights, subs, cues)</td>
+</tr>
+<tr>
+<td>CUES</td>
+<td>the cue list: tap one to go there</td>
+</tr>
+<tr>
+<td>LOOKS</td>
+<td>scenes</td>
+</tr>
+<tr>
+<td>FADERS</td>
+<td>what the eight faders are (bank, subs, loads), ◀ ▶ steps the bank</td>
+</tr>
+<tr>
+<td>ENC</td>
+<td>the encoder tiles (LEVEL · FOCUS · COLOR · BEAM)</td>
+</tr>
+<tr>
+<td>VIDEO</td>
+<td>the switcher strips: preview, take, black, per output</td>
+</tr>
+<tr>
+<td>COLOUR</td>
+<td>the colour wave by touch, the tint row</td>
+</tr>
+<tr>
+<td>GELS</td>
+<td>the gel ring</td>
+</tr>
+<tr>
+<td>MOVERS</td>
+<td>the pan/tilt pad, AIM, MOVERS</td>
+</tr>
+<tr>
+<td>FX</td>
+<td>the effects</td>
+</tr>
+</tbody>
+</table></div>
+<div class="gallery"><figure><img src="/assets/manual/40_panel_cmd.jpg" alt="CMD" loading="lazy"><figcaption>CMD</figcaption></figure><figure><img src="/assets/manual/41_panel_tkeys.jpg" alt="KEYS" loading="lazy"><figcaption>KEYS</figcaption></figure><figure><img src="/assets/manual/42_panel_cues.jpg" alt="CUES" loading="lazy"><figcaption>CUES</figcaption></figure><figure><img src="/assets/manual/43_panel_looks.jpg" alt="LOOKS" loading="lazy"><figcaption>LOOKS</figcaption></figure><figure><img src="/assets/manual/44_panel_faders.jpg" alt="FADERS" loading="lazy"><figcaption>FADERS</figcaption></figure><figure><img src="/assets/manual/45_panel_enc.jpg" alt="ENC" loading="lazy"><figcaption>ENC</figcaption></figure><figure><img src="/assets/manual/46_panel_video.jpg" alt="VIDEO" loading="lazy"><figcaption>VIDEO</figcaption></figure><figure><img src="/assets/manual/47_panel_colour.jpg" alt="COLOUR" loading="lazy"><figcaption>COLOUR</figcaption></figure><figure><img src="/assets/manual/48_panel_gels.jpg" alt="GELS" loading="lazy"><figcaption>GELS</figcaption></figure><figure><img src="/assets/manual/49_panel_movers.jpg" alt="MOVERS" loading="lazy"><figcaption>MOVERS</figcaption></figure><figure><img src="/assets/manual/50_panel_fx.jpg" alt="FX" loading="lazy"><figcaption>FX</figcaption></figure></div>
+</section>
+<section id="s10" class="sec"><div class="secno">10</div><h2>The FOR-X 8 box</h2>
+<figure><img src="/assets/manual/29_about_forx8.jpg" alt="About FOR-X 8" loading="lazy"><figcaption>About FOR-X 8</figcaption></figure>
+<p>The box is a standalone console: any Forectra user signs in on it and loads their show; a thumb-drive <code>.json</code> works too. Rear: USB-C (the A8's USB4: video out with a DP-MST hub, USB, power), DMX A, DMX B, mains. Side: HDMI 1, HDMI MON. Inside: GEEKOM A8, Ethergate Mk2 (2 DMX universes out of the ports; sACN/Art-Net on the network, no cap), the 14-inch touch lid, the 5-inch panel, eight faders, GO / BACK / BLACKOUT.</p>
+<p><strong>Video heads without opening the box:</strong> HDMI 1, HDMI MON, and up to two off the rear USB-C through an MST hub. A USB capture card in any USB port is a live source.</p>
+<p><strong>Lock</strong> (Shift+Esc or <code>LOCK</code>) locks the console; <code>DIM 10</code> dims it after ten idle minutes.</p>
+</section></section>
+    <div class="cta">
+      <h3>Twenty days free. The whole app.</h3>
+      <p>Draw the show, print the paperwork, run it from the desk. No card to start.</p>
+      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_start_trial_manual">Start free trial</a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <img src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269">
+        <p>Production design, paperwork and show control in one file.</p>
+        <div class="addr">Forectra, Inc.<br>New York</div>
+        <a class="btn btn-lime" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough" data-event="cta_walkthrough_footer">Book a walkthrough</a>
+      </div>
+      <div class="col"><h4>Product</h4><a href="/#draw">Design</a><a href="/#spec">Spec PDF</a><a href="/#run">Show control</a><a href="/#collaborate">Share and review</a><a href="/#assets">Asset Control</a><a href="/#pricing">Pricing</a></div>
+      <div class="col"><h4>Workspaces</h4><a href="/screen-shop.html">Screen Shop</a><a href="/lighting.html">Lighting</a><a href="/rack-shop.html">Rack Shop</a><a href="/staging.html">Staging and audio</a></div>
+      <div class="col"><h4>Hardware</h4><a href="/#run">Forectra FOR-X 8</a><a href="/#mini">FOR-X Mini</a><a href="/#pricing">FOR-X Micro</a></div>
+      <div class="col"><h4>Company</h4><a href="/#company">About</a><a href="/manual.html">Manual</a><a href="mailto:hello@forectra.com">Contact</a><a href="https://app.forectra.com/help/">Help</a><a href="https://app.forectra.com/">Sign in</a></div>
+    </div>
+    <div class="base">
+      <span>© 2026 Forectra, Inc.</span>
+      <a href="https://app.forectra.com/privacy">Privacy</a>
+      <a href="https://app.forectra.com/terms">Terms</a>
+      <span class="tag">Draw it. Spec it. Run it.</span>
+    </div>
+  </div>
+</footer>
+<script src="/js/site.js?v=2" defer></script>
+<script>
+  // Contents rail follows the reader.
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.toc a'));
+    var targets=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))}).filter(Boolean);
+    if(!('IntersectionObserver' in window)||!targets.length)return;
+    var cur=null;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) cur=e.target.id; });
+      links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+cur); });
+    },{rootMargin:'-90px 0px -70% 0px',threshold:0});
+    targets.forEach(function(t){io.observe(t)});
+  })();
+</script>
+</body>
+</html>
