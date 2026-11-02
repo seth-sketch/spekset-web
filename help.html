@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forectra — Help and FAQ</title>
+<meta name="description" content="Answers on the trial, billing, the FOR-X 8 console, shipping, support and what Forectra does and doesn't do.">
+<link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
+<link rel="canonical" href="https://forectra.com/help.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Forectra">
+<meta property="og:url" content="https://forectra.com/help.html">
+<meta property="og:title" content="Forectra — Help and FAQ">
+<meta property="og:description" content="Answers on the trial, billing, the FOR-X 8 console, shipping, support and what Forectra does and doesn't do.">
+<meta property="og:image" content="https://forectra.com/assets/og-forectra.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,600;125,700;125,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/brand-2026.css?v=2">
+<style>
+  /* The manual: paper page in the sell-sheet family. */
+  body.manual{background:var(--paper)}
+  .mhero{padding:150px 0 56px;border-bottom:1px solid var(--rule)}
+  .mhero .eyb{font-size:15px;font-weight:600;color:var(--lime-ink)}
+  .mhero h1{font-stretch:125%;font-weight:800;font-size:clamp(44px,6.6vw,96px);letter-spacing:-.025em;line-height:.95;margin-top:16px}
+  .mhero .meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-family:var(--mono);font-size:13.5px;color:var(--muted)}
+  .mhero .meta b{color:var(--ink);font-weight:500}
+  .mhero .intro{margin-top:34px;max-width:72ch;font-size:18px;line-height:1.6;color:var(--graphite)}
+  .mhero .intro p+p{margin-top:14px}
+  .mhero .intro strong{color:var(--ink);font-weight:600}
+
+  .mbody{display:grid;grid-template-columns:250px minmax(0,1fr);gap:72px;padding:56px var(--gutter) 120px}
+  .toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;padding-right:8px;font-size:14px;line-height:1.4}
+  .toc h4{font-size:13px;font-weight:600;color:var(--graphite);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+  .toc ul{list-style:none}
+  .toc>ul>li{margin:0 0 9px}
+  .toc a{display:flex;gap:10px;text-decoration:none;color:var(--graphite);padding:3px 0}
+  .toc a:hover{color:var(--ink)}
+  .toc a.on{color:var(--ink);font-weight:600}
+  .toc a .n{font-family:var(--mono);font-size:12.5px;color:var(--lime-ink);min-width:1.6em}
+  .toc ul ul{margin:3px 0 4px 2.3em;border-left:1px solid var(--rule);padding-left:12px}
+  .toc ul ul a{font-size:13px;color:var(--muted);padding:2px 0}
+  .toc ul ul a.on{color:var(--ink)}
+
+  .text{max-width:860px;min-width:0}
+  .sec{padding:0 0 64px;margin-bottom:64px;border-bottom:1px solid var(--rule);scroll-margin-top:96px}
+  .sec:last-child{border-bottom:none}
+  .secno{display:inline-block;font-family:var(--mono);font-weight:500;font-size:14px;color:var(--lime-ink);border:1.5px solid currentColor;border-radius:999px;padding:3px 11px 2px;margin-bottom:18px}
+  .sec h2{font-stretch:125%;font-weight:800;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.02em;line-height:1.02;scroll-margin-top:100px}
+  .sec h3{font-weight:700;font-size:21px;letter-spacing:-.01em;margin-top:44px;scroll-margin-top:100px}
+  .sec h3 .n{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--lime-ink);margin-right:8px;vertical-align:2px}
+  .sec p{margin-top:16px;font-size:17px;line-height:1.65;color:var(--graphite)}
+  .sec p strong{color:var(--ink);font-weight:600}
+  .sec ul{margin:14px 0 0 1.2em;color:var(--graphite);font-size:17px;line-height:1.6}
+  .sec li{margin-top:8px}
+  .sec li strong{color:var(--ink);font-weight:600}
+  .sec code{font-family:var(--mono);font-size:.88em;background:var(--paper-2);border:1px solid var(--rule);border-radius:2px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+  .sec pre{margin-top:16px;background:var(--stage);color:var(--on-stage);font-family:var(--mono);font-size:13.5px;line-height:1.55;padding:16px 18px;border-radius:2px;overflow:auto}
+  .sec pre code{background:none;border:none;padding:0;color:inherit;white-space:pre}
+  figure{margin:26px 0 6px}
+  figure img{width:100%;border:1px solid var(--rule-2);background:var(--stage)}
+  figure.panel img{max-width:560px}
+  figcaption{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:9px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:26px}
+  .gallery figure{margin:0}
+  .gallery figure img{max-width:none}
+  .tbl{margin-top:20px;overflow:auto;border:1px solid var(--rule-2);background:var(--white)}
+  table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.5}
+  th{text-align:left;font-weight:600;color:var(--graphite);font-size:13.5px;background:var(--paper-2);padding:10px 14px;border-bottom:1px solid var(--rule-2)}
+  td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--graphite)}
+  tr:last-child td{border-bottom:none}
+  td:first-child{color:var(--ink);white-space:nowrap}
+  #s7 .tbl td:first-child{font-family:var(--mono);font-size:13.5px;white-space:normal;min-width:19em}
+  #s7 .tbl td code{background:none;border:none;padding:0}
+  #s7 .tbl td:first-child code{white-space:normal}
+  .cta{margin-top:40px;padding:36px 40px;background:var(--stage);color:var(--on-stage)}
+  .cta h3{font-stretch:125%;font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1.05;margin:0}
+  .cta p{color:var(--on-stage-muted);margin-top:10px;font-size:16px}
+  .cta .btn{margin-top:22px}
+  @media (max-width:1000px){ .mbody{grid-template-columns:1fr;gap:40px} .toc{position:static;max-height:none;columns:2;column-gap:40px} .toc h4{column-span:all} .toc>ul>li{break-inside:avoid} }
+  @media (max-width:720px){ .mhero{padding:120px 0 40px} .toc{columns:1} .sec p,.sec ul{font-size:16px} figure.panel img{max-width:none} .cta{padding:28px 24px} #s7 .tbl td:first-child{min-width:13em} }
+  @media print{ .site-head,.site-foot,.toc,.cta{display:none} .mbody{display:block;padding:0} .mhero{padding:0 0 24px} figure img{border:none} }
+</style>
+</head>
+<body class="manual">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head light solid" id="site-head">
+  <div class="bar">
+    <a class="logo" href="/" aria-label="Forectra home"><img class="on-dark" src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><img class="on-light" src="/assets/forectra_logo_light.png" alt="Forectra" width="1500" height="301"></a>
+    <nav class="primary" aria-label="Main">
+      <a href="/#draw">Product</a>
+      <a href="/#workspaces">Workspaces</a>
+      <a href="/#run">Lighting control</a>
+      <a href="/#assets">Rental and venues</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/manual.html">Manual</a>
+      <a href="/#company">Company</a>
+    </nav>
+    <div class="right">
+      <a class="signin" href="https://app.forectra.com/">Sign in</a>
+      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual">Start free trial</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="inner">
+      <a href="/#draw">Product</a>
+      <a href="/#workspaces">Workspaces</a>
+      <a href="/#run">Lighting control</a>
+      <a href="/#assets">Rental and venues</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/manual.html">Manual</a>
+      <a href="/#company">Company</a>
+      <a href="https://app.forectra.com/">Sign in</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<header class="mhero">
+  <div class="wrap">
+    <div class="eyb">Help</div>
+    <h1>Questions,<br>answered.</h1>
+    <div class="intro"><p>Short answers first. The full product reference is the <a href="/manual.html">manual</a>. Anything not here: <a href="mailto:hello@forectra.com">hello@forectra.com</a>, and a person answers.</p></div>
+  </div>
+</header>
+
+<div class="wrap mbody">
+  <aside class="toc" aria-label="Contents">
+    <h4>Contents</h4>
+    <ul><li><a href="#the-trial-and-the-license"><span class="n">1</span>The trial and the license</a><ul><li><a href="#what-do-i-get-in-the-20-days">What do I get in the 20 days?</a></li><li><a href="#why-do-you-need-a-card-to-start">Why do you need a card to start?</a></li><li><a href="#what-does-it-cost-after-the-trial">What does it cost after the trial?</a></li><li><a href="#can-i-cancel">Can I cancel?</a></li><li><a href="#is-there-a-team-plan">Is there a team plan?</a></li><li><a href="#what-is-web-control-and-the-f-app">What is Web Control and the F App?</a></li></ul></li><li><a href="#the-for-x-8-console"><span class="n">2</span>The FOR-X 8 console</a><ul><li><a href="#what-is-it">What is it?</a></li><li><a href="#what-does-8-495-include">What does $8,495 include?</a></li><li><a href="#how-long-to-ship">How long to ship?</a></li><li><a href="#where-do-you-ship">Where do you ship?</a></li><li><a href="#what-about-warranty">What about warranty?</a></li><li><a href="#can-i-return-it">Can I return it?</a></li><li><a href="#is-my-data-on-the-box">Is my data on the box?</a></li></ul></li><li><a href="#using-forectra"><span class="n">3</span>Using Forectra</a><ul><li><a href="#what-does-it-import">What does it import?</a></li><li><a href="#what-does-it-export">What does it export?</a></li><li><a href="#does-it-control-real-lights">Does it control real lights?</a></li><li><a href="#does-it-switch-real-video">Does it switch real video?</a></li><li><a href="#does-it-do-audio">Does it do audio?</a></li><li><a href="#which-browser">Which browser?</a></li><li><a href="#can-i-work-offline">Can I work offline?</a></li></ul></li><li><a href="#support"><span class="n">4</span>Support</a><ul><li><a href="#how-do-i-get-help">How do I get help?</a></li><li><a href="#can-you-build-my-show">Can you build my show?</a></li><li><a href="#where-are-you">Where are you?</a></li></ul></li></ul>
+  </aside>
+  <div class="text">
+<section id="the-trial-and-the-license" class="sec"><div class="secno">1</div><h2>The trial and the license</h2>
+<h3 id="what-do-i-get-in-the-20-days">What do I get in the 20 days?</h3>
+<p>The whole app. Every workspace, every library, the Spec PDF and all 20 exports, unlimited projects. Nothing is held back for paying customers.</p>
+<h3 id="why-do-you-need-a-card-to-start">Why do you need a card to start?</h3>
+<p>So the account carries straight through if you keep it. We email you before the first charge. Cancel before day 20 and nothing is charged.</p>
+<h3 id="what-does-it-cost-after-the-trial">What does it cost after the trial?</h3>
+<p>$1,800 a year, billed annually. One plan. No monthly option.</p>
+<h3 id="can-i-cancel">Can I cancel?</h3>
+<p>Yes, from your account page, any time. [tbc] The license runs to the end of the period you paid for. Your show files stay downloadable as <code>.json</code> backups.</p>
+<h3 id="is-there-a-team-plan">Is there a team plan?</h3>
+<p>Each designer needs a license. A second designer can be a <strong>Collaborator</strong> on your show without a license of their own for review and comment; they need a license to edit. [tbc] For a studio with several seats, write to us.</p>
+<h3 id="what-is-web-control-and-the-f-app">What is Web Control and the F App?</h3>
+<p>Add-ons to the design license for running lights. <strong>Web Control</strong> ($300 a year) runs lights from the browser through the Forectra Companion with your own sACN node. The <strong>F App</strong> ($600 a year) is the Mac and PC desktop app; the show runs locally even if the internet drops. The FOR-X 8 console includes its license.</p>
+<section id="the-for-x-8-console" class="sec"><div class="secno">2</div><h2>The FOR-X 8 console</h2>
+<h3 id="what-is-it">What is it?</h3>
+<p>A lighting and video desk in a road case: a 14-inch touch screen, a 5-inch touch panel, eight faders with OLED labels, encoders, GO / BACK / BLACKOUT, eight universes of DMX, four switchable video outputs and camera capture in. It runs the same show file as the app. Sheet 11 of the <a href="/manual.html#s10">manual</a> has the hardware detail.</p>
+<h3 id="what-does-8-495-include">What does $8,495 include?</h3>
+<p>The console, two years of Forectra license and support, and the road case. After year two the license renews at the design-license price. [tbc]</p>
+<h3 id="how-long-to-ship">How long to ship?</h3>
+<p>About four weeks from order. Each one is built to order. We email a tracking number when it leaves.</p>
+<h3 id="where-do-you-ship">Where do you ship?</h3>
+<p>United States and Canada at launch. Elsewhere, write to us first.</p>
+<h3 id="what-about-warranty">What about warranty?</h3>
+<p>One year, parts and labour, on the console. The GEEKOM computer inside carries its maker's own warranty on top. Road-case damage from handling is not covered. [tbc — warranty terms to confirm with counsel before the first shipment]</p>
+<h3 id="can-i-return-it">Can I return it?</h3>
+<p>Within 14 days of delivery, unused and in its case, for a refund less return shipping. After that, warranty applies. [tbc]</p>
+<h3 id="is-my-data-on-the-box">Is my data on the box?</h3>
+<p>Your show files live in your account and in the box's local storage. Anyone with a Forectra account can sign in on the box and load their own shows. A thumb-drive <code>.json</code> works too.</p>
+<section id="using-forectra" class="sec"><div class="secno">3</div><h2>Using Forectra</h2>
+<h3 id="what-does-it-import">What does it import?</h3>
+<p>MVR, DXF, OBJ, GLB and PDF plans. Vectorworks plots come in as MVR or DXF.</p>
+<h3 id="what-does-it-export">What does it export?</h3>
+<p>Spec PDF, Plan PDF, Sheet Composer plates, SVG floor plan, GLB, OBJ, MVR, disguise CSV, content manifest, Datasmith, nDisplay config, scene CSV and PNG, budget, and more. The manual lists all 20.</p>
+<h3 id="does-it-control-real-lights">Does it control real lights?</h3>
+<p>Yes, with Web Control, the F App or the FOR-X 8: sACN and Art-Net out, RDM discovery, 2,194 fixture profiles with real DMX modes.</p>
+<h3 id="does-it-switch-real-video">Does it switch real video?</h3>
+<p>On the FOR-X 8, yes: four switchable outputs, a USB capture card as a live source, preview/program per output, CUT, AUTO, T-bar, fade to black. Lights and video share one cue list.</p>
+<h3 id="does-it-do-audio">Does it do audio?</h3>
+<p>Audio is designed, not controlled: line arrays, point sources and subs go in the model and print on the speaker schedule. Forectra does not run audio playback or mixing.</p>
+<h3 id="which-browser">Which browser?</h3>
+<p>Chrome or Edge, current version, on a Mac or PC with a real GPU. Safari works for review links. No tablet or phone editing. [tbc]</p>
+<h3 id="can-i-work-offline">Can I work offline?</h3>
+<p>The browser app needs a connection to save. The F App and the FOR-X 8 run the show locally; sync happens when you are back online. [tbc]</p>
+<section id="support" class="sec"><div class="secno">4</div><h2>Support</h2>
+<h3 id="how-do-i-get-help">How do I get help?</h3>
+<p><a href="mailto:hello@forectra.com">hello@forectra.com</a>. Weekday replies within a business day; show-day questions from license holders get a same-day answer. [tbc] Help → Report a bug inside the app sends us your show file and the log.</p>
+<h3 id="can-you-build-my-show">Can you build my show?</h3>
+<p>Forectra, Inc. doesn't take design work, but Seth Easter Design does. Write to us and we'll point you the right way.</p>
+<h3 id="where-are-you">Where are you?</h3>
+<p>New York. Forectra, Inc. is a Delaware corporation.</p></section>
+    <div class="cta">
+      <h3>Twenty days free. The whole app.</h3>
+      <p>Draw the show, print the paperwork, run it from the desk. No card to start.</p>
+      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_start_trial_manual">Start free trial</a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <img src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269">
+        <p>Production design, paperwork and show control in one file.</p>
+        <div class="addr">Forectra, Inc.<br>New York</div>
+        <a class="btn btn-lime" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough" data-event="cta_walkthrough_footer">Book a walkthrough</a>
+      </div>
+      <div class="col"><h4>Product</h4><a href="/#draw">Design</a><a href="/#spec">Spec PDF</a><a href="/#run">Show control</a><a href="/#collaborate">Share and review</a><a href="/#assets">Asset Control</a><a href="/#pricing">Pricing</a></div>
+      <div class="col"><h4>Workspaces</h4><a href="/screen-shop.html">Screen Shop</a><a href="/lighting.html">Lighting</a><a href="/rack-shop.html">Rack Shop</a><a href="/staging.html">Staging and audio</a></div>
+      <div class="col"><h4>Hardware</h4><a href="/#run">Forectra FOR-X 8</a><a href="/#mini">FOR-X Mini</a><a href="/#pricing">FOR-X Micro</a></div>
+      <div class="col"><h4>Company</h4><a href="/#company">About</a><a href="/manual.html">Manual</a><a href="mailto:hello@forectra.com">Contact</a><a href="/help.html">Help</a><a href="https://app.forectra.com/">Sign in</a></div>
+    </div>
+    <div class="base">
+      <span>© 2026 Forectra, Inc.</span>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <span class="tag">Draw it. Spec it. Run it.</span>
+    </div>
+  </div>
+</footer>
+<script src="/js/site.js?v=2" defer></script>
+<script>
+  // Contents rail follows the reader.
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.toc a'));
+    var targets=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))}).filter(Boolean);
+    if(!('IntersectionObserver' in window)||!targets.length)return;
+    var cur=null;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) cur=e.target.id; });
+      links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+cur); });
+    },{rootMargin:'-90px 0px -70% 0px',threshold:0});
+    targets.forEach(function(t){io.observe(t)});
+  })();
+</script>
+</body>
+</html>
