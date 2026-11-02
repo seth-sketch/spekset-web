@@ -62,6 +62,22 @@
   .dark .tb b{color:#8A8BA6}
 
   /* ---------- hero: a cue stack over the lit stage ---------- */
+  /* The film: full-width player under the hero, poster first, plays on tap */
+  .film{background:var(--stage);padding:0 0 8px}
+  .film .frame{position:relative;max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+  .film .box{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--stage-rule);overflow:hidden}
+  .film video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000}
+  .film .play{position:absolute;inset:0;width:100%;height:100%;border:none;background:rgba(14,15,22,.18);cursor:pointer;display:flex;align-items:flex-end;padding:0 40px 36px;color:var(--on-stage);text-align:left;font-family:var(--sans);transition:background .2s}
+  .film .play:hover{background:rgba(14,15,22,.32)}
+  .film .play>span{display:block;max-width:640px}
+  .film .play .k,.film .play .t{display:block}
+  .film .play .k{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--lime);margin-bottom:8px}
+  .film .play .t{font-stretch:125%;font-weight:800;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.025em;line-height:1}
+  .film .play .b{display:inline-flex;align-items:center;gap:12px;margin-top:18px;background:var(--lime);color:var(--stage);font-weight:600;font-size:15px;padding:13px 18px;border-radius:2px}
+  .film .play .b svg{width:14px;height:14px}
+  .film .play.off{display:none}
+  .film .cap{display:flex;justify-content:space-between;gap:20px;padding:14px 0 36px;font-family:var(--mono);font-size:12.5px;color:var(--on-stage-muted)}
+  @media (max-width:720px){ .film .play{padding:0 20px 20px} .film .play .b{display:none} .film .cap{flex-direction:column;gap:6px} }
   .hero{min-height:100vh;min-height:100svh;background:var(--stage);color:var(--on-stage);display:flex;flex-direction:column;overflow:hidden}
   .hero .img{position:absolute;inset:0;background:url('/assets/site/hero-beams.jpg') 85% 50%/cover no-repeat}
   .hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,28,46,.94) 0%,rgba(28,28,46,.7) 34%,rgba(28,28,46,.1) 62%,rgba(28,28,46,0) 100%),linear-gradient(0deg,rgba(28,28,46,.92) 0%,rgba(28,28,46,0) 34%)}
@@ -233,11 +249,7 @@
   .lic .r{padding:40px}
   .lic h3{font-stretch:125%;font-weight:800;font-size:30px;letter-spacing:-.02em;margin-top:8px}
   .lic .what{font-size:16px;color:var(--graphite);margin-top:10px;max-width:40ch}
-  .toggle{display:inline-flex;border:1px solid var(--rule-2);padding:3px;margin-top:26px;background:var(--paper)}
-  .toggle .toggle-btn{border:none;background:none;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--graphite);padding:8px 14px;cursor:pointer}
-  .toggle .toggle-btn.active{background:var(--ink);color:#fff}
-  .toggle .toggle-save{font-weight:500;margin-left:8px;opacity:.8}
-  .price-amount{font-stretch:125%;font-weight:800;letter-spacing:-.03em;margin-top:22px;line-height:1}
+  .price-amount{font-stretch:125%;font-weight:800;letter-spacing:-.03em;margin-top:30px;line-height:1}
   .price-amount .price-currency{font-size:28px;vertical-align:top;position:relative;top:8px}
   .price-amount .price-num{font-size:72px}
   .price-amount .price-unit{font-stretch:100%;font-weight:500;font-size:17px;color:var(--muted);letter-spacing:0;margin-left:6px}
@@ -404,6 +416,21 @@
   </div>
 </section>
 
+<!-- The film -->
+<section class="film" id="film" aria-label="Forectra in two and a half minutes">
+  <div class="frame">
+    <div class="box">
+      <video id="sizzle" playsinline preload="none" poster="/assets/video/forectra-sizzle-poster.jpg" controls controlslist="nodownload">
+        <source src="/assets/video/forectra-sizzle-1080.mp4" type="video/mp4">
+      </video>
+      <button class="play" id="sizzle-play" type="button" aria-label="Play: Forectra in two and a half minutes">
+        <span><span class="k">THE FILM · 2:30</span><span class="t">Draw it. Spec it. Run it.<br>In two and a half minutes.</span><span class="b"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>Watch the film</span></span>
+      </button>
+    </div>
+    <div class="cap"><span>Every frame is the real app on the demo show.</span><span>No voiceover. Sound on.</span></div>
+  </div>
+</section>
+
 <!-- Studio + bill of materials -->
 <section class="sec studio" id="about">
   <div class="wrap two" style="align-items:center">
@@ -545,7 +572,7 @@
     <div class="ways">
       <div class="way"><div class="k">Browser</div><h3>Web Control</h3><p>Run lights from the browser through the Forectra Companion on a local computer. Bring your own sACN node.</p></div>
       <div class="way"><div class="k">Mac and PC, <em>recommended</em></div><h3>F App</h3><p>The desktop app with show control built in. The show runs locally, so a dropped internet connection can't take the lights down.</p></div>
-      <div class="way"><div class="k">Hardware</div><h3><img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8"></h3><p>A lighting and video desk in a road case: a 14-inch touch screen, eight faders, GO, BACK and BLACKOUT, the 5-inch touch panel and eight universes, running the same show file. Order now; about four weeks to ship.</p></div>
+      <div class="way"><div class="k">Hardware</div><h3><img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8"></h3><p>A lighting and video desk in a road case: a 14-inch touch screen, eight faders, GO, BACK and BLACKOUT, the 5-inch touch panel, eight universes, four switchable video outputs and camera capture in, running the same show file. Order now; about four weeks to ship.</p></div>
     </div>
     <figure class="plate" style="margin-top:64px">
       <div class="img"><img src="/assets/site/run-console.jpg" alt="The first FOR-X 8 console, open: the 14-inch screen running the FOR-Control switcher, eight faders, GO, BACK and BLACKOUT, two encoders and the 5-inch touch panel" width="1600" height="900" loading="lazy"></div>
@@ -715,12 +742,8 @@
         <div class="label">Start here</div>
         <h3>Forectra design license</h3>
         <p class="what">Every workspace, every library, the Spec PDF and all 20 exports, in the browser.</p>
-        <div class="toggle" role="tablist" aria-label="Billing cycle">
-          <button class="toggle-btn active" data-cadence="annual" role="tab" aria-selected="true">Annual<span class="toggle-save">save $360</span></button>
-          <button class="toggle-btn" data-cadence="monthly" role="tab" aria-selected="false">Monthly</button>
-        </div>
         <a id="price-link" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_price_click" style="text-decoration:none;color:inherit;display:block"><div class="price-amount"><span class="price-currency">$</span><span class="price-num" id="price-num">1,800</span><span class="price-unit" id="price-unit">a year</span></div></a>
-        <div class="price-alt" id="price-alt">That's $150 a month, billed annually after 20 free days.</div>
+        <div class="price-alt" id="price-alt">20 days free, then $1,800 a year. Card required.</div>
         <div class="btns">
           <a id="pay-btn" href="https://app.forectra.com/?signup=1&amp;plan=annual" class="btn btn-lime" data-event="cta_try_free_pricing">Start free trial</a>
           <a class="btn btn-line" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough" data-event="cta_walkthrough_pricing">Book a walkthrough</a>
@@ -748,7 +771,7 @@
         <tr><td class="nm">Web Control</td><td class="ds">Run lights from the browser through the Forectra Companion. Bring your own sACN node.</td><td class="amt">+$300<small>a year</small></td></tr>
         <tr><td class="nm">F App<small>Recommended</small></td><td class="ds">Lighting control in the Mac and PC desktop app. The show runs locally, even if the internet drops.</td><td class="amt">+$600<small>a year</small></td></tr>
         <tr class="grp"><td colspan="3">Hardware</td></tr>
-        <tr><td class="nm">Forectra FOR-X 8<small>4-week lead time</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons and 8 universes. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small><a class="order" href="https://buy.stripe.com/14A00ka9R0MC2ZU7bO1ZS02" target="_blank" rel="noopener" data-event="order_forx8">Order</a></td></tr>
+        <tr><td class="nm">Forectra FOR-X 8<small>4-week lead time</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons, 8 universes, 4 switchable video outputs and camera capture in. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small><a class="order" href="https://buy.stripe.com/14A00ka9R0MC2ZU7bO1ZS02" target="_blank" rel="noopener" data-event="order_forx8">Order</a></td></tr>
         <tr><td class="nm">FOR-X Mini<small class="dev">In design</small></td><td class="ds">An 8-inch touch console in a wall plate or desk cradle: 15 display keys, a 12-key pad, two knobs. Cat6 in, one DMX universe out.</td><td class="amt"><span class="tbc">Pricing to come</span></td></tr>
         <tr><td class="nm">FOR-X Micro<small class="dev">In development</small></td><td class="ds">The DMX node on its own. Run it from your own tablet or phone, or add our preloaded tablet.</td><td class="amt"><span class="tbc">Pricing to come</span></td></tr>
         <tr class="grp"><td colspan="3">Rental houses and venues</td></tr>
@@ -767,7 +790,7 @@
       <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_try_free_closer">Start free trial</a>
       <a class="btn btn-line" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough&body=Name%3A%20%0ACompany%3A%20%0AWhat%20you%27re%20working%20on%3A%20" data-event="cta_walkthrough_closer">Book a walkthrough</a>
     </div>
-    <p class="fine">$1,800 a year or $180 a month, with 20 days free. Already in Vectorworks? Bring the plot in as MVR or DXF.</p>
+    <p class="fine">$1,800 a year, with 20 days free. Already in Vectorworks? Bring the plot in as MVR or DXF.</p>
 
     <details class="access-gate" id="gate-card">
       <summary class="gate-summary">Have an access code?</summary>
@@ -825,29 +848,25 @@
 
   /* ===== Trial sign-up =====
      Every trial button opens the app's sign-up page. The app creates the account,
-     then opens Stripe Checkout for the plan picked here (20 days free, card
-     required). */
-  function signupUrl(plan){ return APP+'?signup=1&plan='+(plan==='monthly'?'monthly':'annual'); }
+     then opens Stripe Checkout for the annual plan (20 days free, card
+     required). Annual only — no monthly plan. */
+  function signupUrl(plan){ return APP+'?signup=1&plan=annual'; }
   function applyPlan(plan){
     const btn=document.getElementById('pay-btn'), plink=document.getElementById('price-link');
     if(btn) btn.href=signupUrl(plan);
     if(plink) plink.href=signupUrl(plan);
   }
 
-  /* ===== Pricing toggle ===== */
-  const toggleBtns=document.querySelectorAll('.toggle-btn'),
-        priceNum=document.getElementById('price-num'), priceUnit=document.getElementById('price-unit'), priceAlt=document.getElementById('price-alt');
-  toggleBtns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      toggleBtns.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
-      btn.classList.add('active');btn.setAttribute('aria-selected','true');
-      if(btn.dataset.cadence==='annual'){priceNum.textContent='1,800';priceUnit.textContent='a year';priceAlt.textContent="That's $150 a month, billed annually after 20 free days.";}
-      else{priceNum.textContent='180';priceUnit.textContent='a month';priceAlt.textContent='Billed monthly after 20 free days. Cancel anytime.';}
-      applyPlan(btn.dataset.cadence);
-      if(window.skTrack)window.skTrack('toggle_cadence',{cadence:btn.dataset.cadence});
-    });
-  });
   applyPlan('annual');
+
+  /* ===== The film ===== */
+  (function(){
+    var v=document.getElementById('sizzle'), b=document.getElementById('sizzle-play');
+    if(!v||!b)return;
+    v.removeAttribute('controls');
+    b.addEventListener('click',function(){ b.classList.add('off'); v.setAttribute('controls',''); v.play(); if(window.skTrack)window.skTrack('film_play'); });
+    v.addEventListener('ended',function(){ b.classList.remove('off'); v.removeAttribute('controls'); v.load(); });
+  })();
 
   /* ===== Analytics stub ===== */
   window.skTrack=window.skTrack||function(event,props){try{console.debug('[sk-track]',event,props);}catch{}};
