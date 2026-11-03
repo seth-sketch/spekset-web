@@ -75,9 +75,13 @@
   .film .play .t{font-stretch:125%;font-weight:800;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.025em;line-height:1}
   .film .play .b{display:inline-flex;align-items:center;gap:12px;margin-top:18px;background:var(--lime);color:var(--stage);font-weight:600;font-size:15px;padding:13px 18px;border-radius:2px}
   .film .play .b svg{width:14px;height:14px}
+  .film .play .big{position:absolute;left:50%;top:50%;width:128px;height:128px;margin:-64px 0 0 -64px;border-radius:50%;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.85);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+  .film .play .big svg{width:52px;height:52px;margin-left:8px;fill:#fff;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+  .film .play:hover .big{transform:scale(1.06);background:var(--lime);border-color:var(--lime)}
+  .film .play:hover .big svg{fill:var(--stage);filter:none}
   .film .play.off{display:none}
   .film .cap{display:flex;justify-content:space-between;gap:20px;padding:14px 0 36px;font-family:var(--mono);font-size:12.5px;color:var(--on-stage-muted)}
-  @media (max-width:720px){ .film .play{padding:0 20px 20px} .film .play .b{display:none} .film .cap{flex-direction:column;gap:6px} }
+  @media (max-width:720px){ .film .play{padding:0 20px 20px} .film .play .b{display:none} .film .play .big{width:84px;height:84px;margin:-42px 0 0 -42px} .film .play .big svg{width:36px;height:36px;margin-left:5px} .film .cap{flex-direction:column;gap:6px} }
   .hero{min-height:100vh;min-height:100svh;background:var(--stage);color:var(--on-stage);display:flex;flex-direction:column;overflow:hidden}
   .hero .img{position:absolute;inset:0;background:url('/assets/site/hero-beams.jpg') 85% 50%/cover no-repeat}
   .hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,28,46,.94) 0%,rgba(28,28,46,.7) 34%,rgba(28,28,46,.1) 62%,rgba(28,28,46,0) 100%),linear-gradient(0deg,rgba(28,28,46,.92) 0%,rgba(28,28,46,0) 34%)}
@@ -403,6 +407,7 @@
       <div class="ctas">
         <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_try_free">Start free trial</a>
         <a class="btn btn-line" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough&body=Name%3A%20%0ACompany%3A%20%0AWhat%20you%27re%20working%20on%3A%20" data-event="cta_walkthrough_hero">Book a walkthrough</a>
+        <a class="btn btn-line film-link" href="#film" data-event="cta_watch_film_hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>Watch the film · 2:30</a>
       </div>
       <p class="fine">20 days free. Card required. We email you before any charge.</p>
     </div>
@@ -424,6 +429,7 @@
         <source src="/assets/video/forectra-sizzle-1080.mp4" type="video/mp4">
       </video>
       <button class="play" id="sizzle-play" type="button" aria-label="Play: Forectra in two and a half minutes">
+        <span class="big" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg></span>
         <span><span class="k">THE FILM · 2:30</span><span class="t">Draw it. Spec it. Run it.<br>In two and a half minutes.</span><span class="b"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>Watch the film</span></span>
       </button>
     </div>
