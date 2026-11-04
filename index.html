@@ -349,6 +349,43 @@
     .spec .view{height:300px;padding:14px}
     .facts .row{grid-template-columns:104px 1fr}
   }
+  /* ---------- v2: loops ---------- */
+  .lps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px;margin-top:56px}
+  .lps.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lp{margin:0;min-width:0}
+  .lp .vid{position:relative;aspect-ratio:16/9;background:var(--stage);border:1px solid var(--rule-2);overflow:hidden}
+  .dark .lp .vid{border-color:var(--stage-rule)}
+  .lp video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--stage)}
+  .lp figcaption{margin-top:14px;font-size:15.5px;color:var(--graphite);line-height:1.5}
+  .lp figcaption b{display:block;font-stretch:112%;font-weight:700;font-size:19px;color:var(--ink);margin-bottom:4px}
+  .dark .lp figcaption{color:var(--on-stage-muted)}
+  .dark .lp figcaption b{color:#fff}
+  .lp .tag{position:absolute;left:0;bottom:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--lime);background:rgba(14,15,22,.78);padding:5px 9px}
+  .also{font-size:16px;color:var(--graphite);margin-top:40px;max-width:70ch;line-height:1.6}
+  .also a{margin-left:4px}
+  .console{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center;margin-top:88px;padding-top:56px;border-top:1px solid var(--stage-rule)}
+  .console .forx8{height:52px;width:auto;display:block;margin-left:-5px}
+  .console p{font-size:16.5px;color:var(--on-stage-muted);line-height:1.55;margin-top:18px;max-width:46ch}
+  .console .price{font-stretch:125%;font-weight:800;font-size:40px;letter-spacing:-.02em;color:#fff;margin-top:22px;line-height:1}
+  .console .price small{font-stretch:100%;font-weight:500;font-size:15px;color:#8A8BA6;letter-spacing:0;margin-left:10px}
+  .console .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .console .fine{font-size:13.5px;color:#8A8BA6;margin-top:16px}
+  .mini2{display:flex;gap:24px;align-items:center;margin-top:48px;padding-top:28px;border-top:1px solid var(--stage-rule);font-size:15.5px;color:var(--on-stage-muted);line-height:1.5}
+  .mini2 img{width:96px;height:auto;flex:none}
+  .mini2 b{color:#fff;font-weight:700}
+  .mini2 em{font-style:normal;color:var(--lime);font-weight:600}
+  .more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 72px;margin-top:48px;border-top:2px solid var(--ink)}
+  .more > div{padding:28px 0;border-bottom:1px solid var(--rule-2)}
+  .more h3{font-stretch:112%;font-weight:700;font-size:21px;line-height:1.2}
+  .more p{font-size:16px;color:var(--graphite);line-height:1.55;margin-top:8px}
+  .more p a{margin-left:2px}
+  .who2{margin-top:56px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
+  .who2 p{font-size:17px;color:var(--graphite);line-height:1.6;max-width:56ch}
+  .who2 .q2{padding-left:20px;border-left:3px solid var(--lime);font-stretch:112%;font-weight:600;font-size:19px;line-height:1.4;color:var(--ink)}
+  .who2 .q2 cite{display:block;font-style:normal;font-stretch:100%;font-weight:400;font-size:14px;color:var(--muted);margin-top:10px}
+  @media (max-width:960px){.console,.who2{grid-template-columns:1fr;gap:32px}}
+  @media (max-width:720px){.lps,.lps.four,.more{grid-template-columns:1fr}.lps{gap:32px}.mini2{align-items:flex-start}}
+  @media (prefers-reduced-motion:reduce){.cue{animation:none}}
 </style>
 </head>
 <body>
@@ -358,14 +395,11 @@
   <div class="bar">
     <a class="logo" href="/" aria-label="Forectra home"><img class="on-dark" src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><img class="on-light" src="/assets/forectra_logo_light.png" alt="" width="1500" height="301"></a>
     <nav class="primary" aria-label="Main">
-      <a href="#draw">Product</a>
-      <a href="#workspaces">Workspaces</a>
+      <a href="#draw">Design</a>
+      <a href="#spec">Paperwork</a>
       <a href="#run">Show control</a>
-      <a href="#seating">Seating</a>
-      <a href="#assets">Rental and venues</a>
       <a href="#pricing">Pricing</a>
       <a href="/manual.html">Manual</a>
-      <a href="#company">Company</a>
     </nav>
     <div class="right">
       <a class="signin" href="https://app.forectra.com/">Sign in</a>
@@ -375,14 +409,12 @@
   </div>
   <div class="mobile-nav" id="mobile-nav">
     <div class="inner">
-      <a href="#draw">Product</a>
-      <a href="#workspaces">Workspaces</a>
+      <a href="#draw">Design</a>
+      <a href="#spec">Paperwork</a>
       <a href="#run">Show control</a>
       <a href="#seating">Seating</a>
-      <a href="#assets">Rental and venues</a>
       <a href="#pricing">Pricing</a>
       <a href="/manual.html">Manual</a>
-      <a href="#company">Company</a>
       <a href="https://app.forectra.com/">Sign in</a>
       <a href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_start_trial_mobile">Start free trial</a>
     </div>
@@ -403,7 +435,7 @@
         <a class="cue" href="#spec"><span class="qn">Q2</span><span class="qt">Spec it.</span></a>
         <a class="cue" href="#run"><span class="qn">Q3</span><span class="qt">Run it.</span></a>
       </h1>
-      <p class="lead">Forectra is one file for the whole production. Design LED, lighting, projection, rigging, scenic, audio and seating in one 3D model, print the paperwork in one click, and run the lights and video from the same file.</p>
+      <p class="lead">One file for the whole show. Draw it in 3D, print the paperwork in one click, and run the lights and video from the same file.</p>
       <div class="ctas">
         <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_try_free">Start free trial</a>
         <a class="btn btn-line" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough&body=Name%3A%20%0ACompany%3A%20%0AWhat%20you%27re%20working%20on%3A%20" data-event="cta_walkthrough_hero">Book a walkthrough</a>
@@ -437,88 +469,21 @@
   </div>
 </section>
 
-<!-- Studio + bill of materials -->
-<section class="sec studio" id="about">
-  <div class="wrap two" style="align-items:center">
-    <div>
-      <h2 class="h" style="max-width:13ch">Built inside a working design studio.</h2>
-      <p class="lead">Forectra grew out of Seth Easter Design, a New York production design studio for broadcast and live events. It does what our own shows need, and it runs one every night.</p>
-      <p class="who">Its founder, Seth Easter, is a three-time Emmy-winning production designer with more than 20 years of network news, six Olympics and presidential debate stages behind him.</p>
-    </div>
-    <table class="bom">
-      <caption>Bill of materials: what's in the library</caption>
-      <thead><tr><th>Qty</th><th>Item</th><th>Makers</th></tr></thead>
-      <tbody>
-        <tr><td class="qty">2,194</td><td>Lighting fixtures, with DMX modes</td><td class="mk">40+</td></tr>
-        <tr><td class="qty">644</td><td>Fixtures with their real gobo wheels</td><td class="mk"></td></tr>
-        <tr><td class="qty">130</td><td>LED cabinets</td><td class="mk">17</td></tr>
-        <tr><td class="qty">861</td><td>Rack devices</td><td class="mk">104</td></tr>
-        <tr><td class="qty">41</td><td>Pages in one Spec PDF, one click</td><td class="mk"></td></tr>
-        <tr><td class="qty">20</td><td>Export formats</td><td class="mk"></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- Production schedule -->
-<section class="sec alt" id="show">
-  <div class="wrap">
-    <div class="hdr">
-      <h2 class="h" style="max-width:16ch">From the first call to the last cue.</h2>
-      <p class="lead">One file carries the show through every stage. We haven't found another tool that designs the show, prints the paperwork and runs the lights from the same file.</p>
-    </div>
-    <div class="sched">
-      <div class="stp"><div class="t">First call</div><h3>Drop in the venue</h3><p>OBJ, GLB, DXF, MVR or a PDF plan. Units are detected on import.</p></div>
-      <div class="stp"><div class="t">Design</div><h3>Build every department</h3><p>Screens, lights, projection, rigging, scenic and audio, with real products and real weights.</p></div>
-      <div class="stp"><div class="t">Client review</div><h3>Send a link</h3><p>The client orbits the model and measures it in a browser. Nothing to install.</p></div>
-      <div class="stp"><div class="t">Paperwork</div><h3>Print the package</h3><p>Plots, spec sheets, rigging, power, signal and budget, in one click.</p></div>
-      <div class="stp"><div class="t">The quote</div><h3>Check the shelf</h3><p>The rental house sees what's short before the quote goes out.</p></div>
-      <div class="stp"><div class="t">Load-in</div><h3>Hand off to the crew</h3><p>DXF, MVR, Excel, and rasters with every panel numbered.</p></div>
-      <div class="stp go"><div class="t">Show</div><h3>Run it</h3><p>The plot is the console: lights and video on one cue list. sACN out, and the look holds if the app closes.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- Q1 Draw -->
 <section class="sec" id="draw">
   <div class="wrap">
-    <div class="two">
-      <div>
-        <span class="q">Q1</span>
-        <h2 class="h">Every department in one model.</h2>
-        <p class="lead">Screens, lights, projection, rigging, scenic, audio, racks, cable and seating share one 3D scene, with real products, real weights and real power. Change it once and everything that depends on it follows, paperwork included.</p>
-        <div class="points">
-          <div><h3>Any wall shape</h3><p>Flat, curved, circle, S-curve, wave, portal, floor and cutouts.</p></div>
-          <div><h3>See every beam first</h3><p>Haze, gels and gobos. Focus by clicking any surface.</p></div>
-          <div><h3>Model anything</h3><p>FOR-Sketch: push/pull, inference snaps, holes, cuts and groups.</p></div>
-          <div><h3>AI assistant</h3><p>"Mirror this truss." "Total power?" It shows each change before it makes it.</p></div>
-        </div>
-      </div>
-      <div class="draw-plate">
-        <figure class="plate">
-          <div class="img"><img src="/assets/site/draw-volume.jpg" alt="Curved LED wall under truss with content mapped, designed in Forectra" width="1740" height="1045" loading="lazy"></div>
-          <figcaption class="tb"><span><b>View</b>Perspective</span><span><b>Scene</b>Curved LED volume</span><span>Rendered in Forectra</span></figcaption>
-        </figure>
-        <div class="inset"><img src="/assets/site/draw-speccard.jpg" alt="Live wall spec: panels, resolution, weight, rigging and power" width="590" height="910" loading="lazy"></div>
-      </div>
+    <span class="q">Q1</span>
+    <div class="hdr">
+      <h2 class="h">Every department in one model.</h2>
+      <p class="lead">Screens, lights, projection, rigging, scenic, audio and seating in one 3D scene, built from real products with real weights and power. Change it once and everything that depends on it follows.</p>
     </div>
-
-    <div class="ws-index" id="workspaces">
-      <div class="hd">
-        <h3>Workspaces</h3>
-        <p>Dedicated shops for the gear you spec most. Every one comes with the license.</p>
-      </div>
-      <table class="ix">
-        <thead><tr><th>Workspace</th><th>What it covers</th><th>Library</th><th></th></tr></thead>
-        <tbody>
-          <tr><td class="nm">Screen Shop</td><td class="ds">Flat, curved and portal LED walls, with the pixel-accurate Raster Builder.</td><td class="lib">130 cabinets from 17 makers</td><td class="go"><a class="u" href="/screen-shop.html">Open</a></td></tr>
-          <tr><td class="nm">Lighting</td><td class="ds">Place, focus, gobo and patch. Anything missing pulls from GDTF Share.</td><td class="lib">2,194 fixtures from 40+ makers</td><td class="go"><a class="u" href="/lighting.html">Open</a></td></tr>
-          <tr><td class="nm">Rack Shop</td><td class="ds">Racks built to the RU, with live weight, power and current.</td><td class="lib">861 devices from 104 makers</td><td class="go"><a class="u" href="/rack-shop.html">Open</a></td></tr>
-          <tr><td class="nm">Venue and seating</td><td class="ds">Rooms, doors, windows, tables, guest lists, place cards and seating exports to Excel.</td><td class="lib">18 standard tables</td><td class="go"><a class="u" href="#seating">See it</a></td></tr>
-          <tr><td class="nm">Staging and audio</td><td class="ds">Platforms, barricades, soft goods, speaker arrays and the speaker schedule.</td><td class="lib">Built in</td><td class="go"><a class="u" href="/staging.html">Open</a></td></tr>
-        </tbody>
-      </table>
+    <div class="lps four">
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-build.jpg" data-src="/assets/loops/loop-build.mp4" aria-label="Building a stage in Forectra: truss, LED walls and lights"></video><span class="tag">FOR-BUILD</span></div><figcaption><b>Build the set</b>Walls, truss, decks and lights, from 130 LED cabinets and 2,194 fixtures.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-plot.jpg" data-src="/assets/loops/loop-plot.mp4" aria-label="The lighting plot in Forectra"></video><span class="tag">FOR-LIGHTING</span></div><figcaption><b>Draw the plot</b>Place, focus and patch. See every beam before the truck leaves.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-projection.jpg" data-src="/assets/loops/loop-projection.mp4" aria-label="Projection in Forectra: click the screen and the projector parks and picks its lens"></video><span class="tag">PROJECTION</span></div><figcaption><b>Click the screen</b>The projector parks, picks its lens and fills the screen. Move it and the image stays.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-assistant.jpg" data-src="/assets/loops/loop-assistant.mp4" aria-label="The Forectra assistant mirroring a truss"></video><span class="tag">ASSISTANT</span></div><figcaption><b>Ask for it</b>"Mirror this truss." "Total power?" It shows the change before it makes it.</figcaption></figure>
     </div>
+    <p class="also">Also FOR-Sketch for modelling anything, racks built to the RU, the venue dropped in from DXF, MVR or a PDF plan, and the Raster Builder for pixel-accurate walls. <a class="u" href="/screen-shop.html">Screen Shop</a> · <a class="u" href="/lighting.html">Lighting</a> · <a class="u" href="/rack-shop.html">Rack Shop</a> · <a class="u" href="/staging.html">Staging and audio</a></p>
   </div>
 </section>
 
@@ -528,7 +493,11 @@
     <span class="q">Q2</span>
     <div class="hdr">
       <h2 class="h">The paperwork comes out of the model.</h2>
-      <p class="lead">A 41-page Spec PDF from one click: plots, spec sheets, rigging, power, signal, cable, seating and budget, drawn straight from the design. Change the design and every page follows. FOR-Sheets drafts the plates, sections and title block. Anything unverified is flagged on the page, never invented.</p>
+      <p class="lead">A 41-page Spec PDF in one click. Change the design and every page follows. Anything unverified is flagged on the page, never invented.</p>
+    </div>
+    <div class="lps">
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-spec.jpg" data-src="/assets/loops/loop-spec.mp4" aria-label="The Spec PDF pages in Forectra"></video><span class="tag">SPEC PDF</span></div><figcaption><b>One click</b>Plots, spec sheets, rigging, power, signal, cable, seating and budget.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-sheets.jpg" data-src="/assets/loops/loop-sheets.mp4" aria-label="FOR-Sheets drafting a plate"></video><span class="tag">FOR-SHEETS</span></div><figcaption><b>Drafted plates</b>Sections, dimensions and a title block, drawn from the model.</figcaption></figure>
     </div>
     <div class="spec">
       <div class="rail" id="spec-rail"><div class="rlbl" id="spec-rlbl">12 pages</div></div>
@@ -537,20 +506,7 @@
         <div class="count" id="spec-count">01 / 12</div>
       </div>
     </div>
-    <p class="spec-hint">12 of the 41 pages in a real export. Pick any page.</p>
-
-    <div class="cmp-wrap">
-      <div class="hdr">
-        <h3>The render, then the signal underneath.</h3>
-        <p>Drag across the image. The finished look is on one side, and on the other is the raster map the video team builds against: every cabinet, processor feed and content target.</p>
-      </div>
-      <div class="compare" id="cmp">
-        <img class="bottom" src="/assets/concept/hero-raster.jpg" alt="Raster map view of the stage" loading="lazy">
-        <img class="top" id="cmp-top" src="/assets/concept/hero-build.jpg" alt="Lit show view of the stage" loading="lazy">
-        <div class="tag l">Lit show</div><div class="tag r">Raster map</div>
-        <div class="handle" id="cmp-handle"><div class="grip">↔</div></div>
-      </div>
-    </div>
+    <p class="spec-hint">12 of the 41 pages from a real export. Pick any page.</p>
   </div>
 </section>
 
@@ -560,40 +516,36 @@
     <span class="q">Q3</span>
     <div class="hdr">
       <h2 class="h">Lights and video.<br>One cue list. One&nbsp;GO.</h2>
-      <p class="lead">Every fixture you placed is already patched. Open FOR-Control and the plot becomes a desk: a fader for every light, a command line you type into, and one cue list for the lights and the screens. Record a cue and the screens go in with the lights. Press GO and both move.</p>
+      <p class="lead">Every light you placed is already patched. Open FOR-Control and the plot becomes the desk: a fader for every light, a command line, and one cue list for the lights and the screens.</p>
     </div>
-    <figure class="plate" style="margin-top:64px">
-      <div class="img"><img src="/assets/site/run-desk.jpg" alt="FOR-Control desk: the rig plan, a fader for every light, the command line and the cue list" width="1600" height="899" loading="lazy"></div>
-      <figcaption class="tb"><span><b>View</b>FOR-Control desk</span><span><b>Output</b>Art-Net and sACN</span><span>The real app</span></figcaption>
-    </figure>
-    <div class="ways">
-      <div class="way"><div class="k">The desk</div><h3>Just type</h3><p>CHAN 1 THRU 8 AT 50, then ENTER. Record a cue with a time and a name. BLIND edits a cue without touching the stage, and submasters add on top.</p></div>
-      <div class="way"><div class="k">The switcher</div><h3>Preview, then take</h3><p>Each output gets a preview and a program row. CUT, AUTO at your rate, drag the T-bar or fade to black. A USB capture card brings in a camera or a laptop as a live source.</p></div>
-      <div class="way"><div class="k">The 5-inch panel</div><h3>Run it by touch</h3><p>A keypad, the cue list, the faders, colour, gels and movers on the little screen. Press ▶ DEMO and the console runs a show by itself, with a moving cursor and captions.</p></div>
+    <div class="lps four">
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-desk.jpg" data-src="/assets/loops/loop-desk.mp4" aria-label="The FOR-Control command line"></video><span class="tag">THE DESK</span></div><figcaption><b>Just type</b>CHAN 1 THRU 8 AT 50. Record a cue with a time. Press GO.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-switcher.jpg" data-src="/assets/loops/loop-switcher.mp4" aria-label="The FOR-Control video switcher"></video><span class="tag">THE SWITCHER</span></div><figcaption><b>Preview, then take</b>CUT, AUTO or the T-bar, per output. A camera in by USB. Cues record with the lights.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-aim.jpg" data-src="/assets/loops/loop-aim.mp4" aria-label="AIM: touching the stage points the moving lights there"></video><span class="tag">AIM</span></div><figcaption><b>Touch the stage</b>The movers point there. Pan and tilt come from the model.</figcaption></figure>
+      <figure class="lp"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-demo.jpg" data-src="/assets/loops/loop-demo.mp4" aria-label="DEMO mode running a show by itself"></video><span class="tag">DEMO</span></div><figcaption><b>Press DEMO</b>The console runs a show by itself, with captions, while you learn it.</figcaption></figure>
     </div>
-    <figure class="plate" style="margin-top:64px">
-      <div class="img"><img src="/assets/site/run-switcher.jpg" alt="FOR-Control switcher: sources, a preview and program row for each output, CUT, AUTO and the T-bar" width="1600" height="899" loading="lazy"></div>
-      <figcaption class="tb"><span><b>View</b>FOR-Control switcher</span><span><b>Sources</b>Stills, clips and live capture</span><span>The real app</span></figcaption>
-    </figure>
-    <div class="ways">
-      <div class="way"><div class="k">Browser</div><h3>Web Control</h3><p>Run lights from the browser through the Forectra Companion on a local computer. Bring your own sACN node.</p></div>
-      <div class="way"><div class="k">Mac and PC, <em>recommended</em></div><h3>F App</h3><p>The desktop app with show control built in. The show runs locally, so a dropped internet connection can't take the lights down.</p></div>
-      <div class="way"><div class="k">Hardware</div><h3><img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8"></h3><p>A lighting and video desk in a road case: a 14-inch touch screen, eight faders, GO, BACK and BLACKOUT, the 5-inch touch panel, eight universes, four switchable video outputs and camera capture in, running the same show file. Order now; about four weeks to ship.</p></div>
-    </div>
-    <figure class="plate" style="margin-top:64px">
-      <div class="img"><img src="/assets/site/run-console.jpg" alt="The first FOR-X 8 console, open: the 14-inch screen running the FOR-Control switcher, eight faders, GO, BACK and BLACKOUT, two encoders and the 5-inch touch panel" width="1600" height="900" loading="lazy"></div>
-      <figcaption class="tb"><span><b>Hardware</b>Forectra FOR-X 8</span><span><b>Inside</b>FOR-Control, lights and video</span><span>4-week lead time</span></figcaption>
-    </figure>
-    <div class="mini" id="mini">
-      <img src="/assets/site/forx-mini-front.png" alt="The FOR-X Mini front face, drawn from the design set: an 8-inch touch screen, a 12-key pad, 15 display keys and two lit knobs" width="565" height="633" loading="lazy">
+
+    <div class="console" id="forx8">
+      <figure class="plate">
+        <div class="img"><img src="/assets/site/run-console.jpg" alt="The first FOR-X 8 console, open: the 14-inch screen running the FOR-Control switcher, eight faders, GO, BACK and BLACKOUT, two encoders and the 5-inch touch panel" width="1600" height="900" loading="lazy"></div>
+        <figcaption class="tb"><span><b>Hardware</b>Forectra FOR-X 8</span><span><b>Inside</b>FOR-Control, lights and video</span><span>The first unit</span></figcaption>
+      </figure>
       <div>
-        <div class="k"><em>Coming soon</em> · In design</div>
-        <h3>FOR-X Mini</h3>
-        <p>The small one. An 8-inch touch console that slides into a wall plate or a desk cradle, for studios, boardrooms and small stages. 15 display keys, a 12-key pad and two lit knobs. One Cat6 cable brings data and power, one DMX universe goes out. Same show file.</p>
-        <p class="fine">Drawn from the design set. Specs may change before it ships.</p>
+        <img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8">
+        <p>A lighting and video desk in a road case. A 14-inch touch screen, eight faders with OLED labels, the 5-inch touch panel, GO, BACK and BLACKOUT, 8 universes, four switchable video outputs and camera capture in. It runs the same show file.</p>
+        <div class="price">$8,495<small>ships in about four weeks</small></div>
+        <div class="btns">
+          <a class="btn btn-lime" href="https://buy.stripe.com/14A00ka9R0MC2ZU7bO1ZS02" target="_blank" rel="noopener" data-event="order_forx8">Order the FOR-X 8</a>
+          <a class="btn btn-line" href="#pricing">Run it in the app instead</a>
+        </div>
+        <p class="fine">Two years of Forectra included. FOR-Control also runs in the browser or the Mac and PC app; see pricing.</p>
       </div>
     </div>
-    <div class="run-air"><div class="onair"><i></i>On air weeknights</div><p>Forectra runs Front Office Sports Tonight every weeknight. The show airs on FOX stations and streams on Samsung TV Plus.</p></div>
+    <div class="mini2" id="mini">
+      <img src="/assets/site/forx-mini-front.png" alt="The FOR-X Mini front face, drawn from the design set" width="565" height="633" loading="lazy">
+      <div><em>Coming soon</em> · <b>FOR-X Mini.</b> An 8-inch touch console for a wall plate or a desk cradle: 15 display keys, a 12-key pad, two knobs. One Cat6 in, one DMX universe out. Same show file. Drawn from the design set; specs may change.</div>
+    </div>
+    <div class="run-air"><div class="onair"><i></i>On air weeknights</div><p>Forectra runs Front Office Sports Tonight every weeknight, on FOX stations and Samsung TV Plus.</p></div>
   </div>
 </section>
 
@@ -601,136 +553,31 @@
 <section class="sec alt" id="seating">
   <div class="wrap split rev">
     <div>
-      <h2 class="h">Set the room. Seat every guest.</h2>
-      <p class="lead">Venue &amp; Seating draws the ballroom, fills it with real tables and chairs and seats the guest list, in the same file as the stage and the screens.</p>
+      <h2 class="h">Seat the room.</h2>
+      <p class="lead">Draw the ballroom, fill it with real tables and chairs, and seat the guest list from a spreadsheet, in the same file as the stage and the screens. The seating chart and the place cards come out in the Spec PDF.</p>
       <ul class="list">
-        <li><b>Rooms</b><span>Draw by size or freehand, then drag, add or remove corners. Doors take a hinge side and swing; windows take sill and head heights.</span></li>
-        <li><b>Tables</b><span>18 standard tables with any seat count. Draw a table area with the type and spacing you pick, re-flow it later and restyle the whole group at once.</span></li>
-        <li><b>Guest list</b><span>Import CSV or Excel with headers in any order. Drag guests to chairs by mouse or touch, or auto-seat with each party kept at one table.</span></li>
-        <li><b>Paperwork</b><span>Table schedule, seating chart, Avery 5371 place cards, guest list, audience seating and meal counts, paginated in the Spec PDF. Seating exports to Excel, a sheet per table.</span></li>
+        <li><b>Rooms</b><span>By size or freehand. Doors swing, windows have sills.</span></li>
+        <li><b>Tables</b><span>18 standard tables, any seat count. Draw an area and it fills.</span></li>
+        <li><b>Guests</b><span>CSV or Excel in. Drag to a chair, or auto-seat by party.</span></li>
       </ul>
-      <p class="small-note">Also audience rows with aisle width, chair style and curves, loose chairs that take guests, lecterns, crowd cut-outs and barricade runs. Turn it on from Modules in any project.</p>
     </div>
-    <figure class="plate mcol">
-      <div class="img"><img src="/assets/site/venue-gala.jpg" alt="A ballroom in Forectra: round tables with ivory linens and gold chairs facing a stage and an LED screen" width="1800" height="1053" loading="lazy"></div>
-      <figcaption class="tb"><span><b>Room</b>Sample gala, 56 × 64 ft</span><span><b>Seats</b>20 rounds, 160 guests</span><span>Rendered in Forectra</span></figcaption>
-    </figure>
+    <figure class="lp mcol"><div class="vid"><video muted loop playsinline preload="none" poster="/assets/loops/loop-seating.jpg" data-src="/assets/loops/loop-seating.mp4" aria-label="Seating a ballroom in Forectra"></video><span class="tag">VENUE &amp; SEATING</span></div></figure>
   </div>
 </section>
 
-<!-- Share and review -->
-<section class="sec" id="collaborate">
-  <div class="wrap split">
-    <div>
-      <h2 class="h">Everyone on the show, in the same file.</h2>
-      <p class="lead">Producers, directors, clients and the other departments see the real model, not a PDF of it.</p>
-      <ul class="list">
-        <li><b>Client View</b><span>Send a link. They orbit the 3D model and take measurements in their browser. It's view only, with nothing to install.</span></li>
-        <li><b>Collaborator links</b><span>Another designer opens the full show, makes changes and sends it back with a note. You see what changed and accept or reject it.</span></li>
-        <li><b>Walkthroughs</b><span>Record a walkthrough video from saved cameras for the people who won't open a link.</span></li>
-      </ul>
-    </div>
-    <figure class="plate mcol">
-      <div class="img"><img src="/assets/site/collab-share.jpg" alt="The Share menu in Forectra: Collaborator, Client View, Reviews and Walkthrough" width="1400" height="979" loading="lazy"></div>
-      <figcaption class="tb"><span><b>Menu</b>Share</span><span>Collaborator, Client View, Reviews, Walkthrough</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- Asset Control -->
-<section class="sec alt" id="assets">
-  <div class="wrap split rev">
-    <div>
-      <h2 class="h">Design from what's on the shelf.</h2>
-      <p class="lead">Asset Control is for rental houses and venues. Import your inventory and every design draws from it: stock counts in the picker, unstocked products locked, shortages flagged before the quote.</p>
-      <ul class="list">
-        <li><b>Import</b><span>A RentalWorks export, or any CSV or Excel sheet with item, quantity and location.</span></li>
-        <li><b>Constrain</b><span>Turn on "Constrain to my inventory" and designers can only pick products you stock.</span></li>
-        <li><b>Shortage report</b><span>Used, available and short while the design is still a draft. It exports to Excel.</span></li>
-        <li><b>Swap</b><span>Right-click a wall to change it to a product you stock. The grid, content and rigging stay put.</span></li>
-      </ul>
-      <p class="small-note">Today it covers LED screens. Lighting and the rest of the shop are next.</p>
-      <a class="u" href="mailto:hello@forectra.com?subject=Forectra%20Asset%20Control" data-event="cta_asset_control">Talk to us about a rental or venue plan</a>
-    </div>
-    <figure class="plate mcol">
-      <div class="img"><img src="/assets/site/asset-control.jpg" alt="Inventory loaded into Forectra, with an LED wall designed from stocked products" width="1400" height="831" loading="lazy"></div>
-      <figcaption class="tb"><span><b>Inventory</b>Sample, 143 products</span><span><b>Locations</b>5</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- Pipeline -->
-<section class="sec" id="pipeline">
+<!-- Everything else, short -->
+<section class="sec" id="more">
   <div class="wrap">
-    <div class="hdr">
-      <h2 class="h" style="max-width:14ch">It fits the way shows already get made.</h2>
-      <p class="lead">Nobody has to throw out their tools. Bring in the venue and the plot, and hand every department files their software already opens.</p>
+    <h2 class="h">And the rest.</h2>
+    <div class="more">
+      <div id="collaborate"><h3>Everyone sees the real model.</h3><p>Send a Client View link and they orbit the 3D model in a browser, nothing to install. Collaborators open the full show, make changes and send it back for you to accept.</p></div>
+      <div id="assets"><h3>Design from what's on the shelf.</h3><p>Asset Control, for rental houses and venues: load your inventory and every design draws from it, with shortages flagged before the quote. <a class="u" href="mailto:hello@forectra.com?subject=Forectra%20Asset%20Control" data-event="cta_asset_control">Talk to us</a></p></div>
+      <div id="pipeline"><h3>It fits the tools you have.</h3><p>In: Vectorworks plots as MVR or DXF, venue models, PDF plans, GDTF fixtures, inventory and guest lists. Out: the Spec PDF, DXF, MVR, Excel, disguise, Unreal nDisplay, and sACN to any node.</p></div>
+      <div id="notes"><h3>What you can count on.</h3><p>A production designer answers your questions. Your files export whenever you want. The Mac and PC app runs the show with no internet. We email you before any charge.</p></div>
     </div>
-    <div class="flow">
-      <ul class="in">
-        <li class="hd">In</li>
-        <li>Vectorworks plots<small>MVR, DXF</small></li>
-        <li>Venue models<small>OBJ, GLB, DXF</small></li>
-        <li>Floor plans<small>PDF</small></li>
-        <li>Fixtures<small>GDTF Share</small></li>
-        <li>Inventory<small>RentalWorks, CSV, Excel</small></li>
-        <li>Guest lists<small>CSV, Excel</small></li>
-      </ul>
-      <div class="core"><img src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><p>One show file for the design, the paperwork and the control</p></div>
-      <ul class="out">
-        <li class="hd">Out</li>
-        <li>Spec PDF<small>41 pages, one click</small></li>
-        <li>Drawings and rigs<small>DXF, MVR</small></li>
-        <li>Media servers<small>disguise Live Push, Unreal nDisplay</small></li>
-        <li>Schedules and budgets<small>Excel</small></li>
-        <li>Seating<small>Excel, place cards</small></li>
-        <li>Lighting<small>sACN to any node</small></li>
-      </ul>
-    </div>
-    <dl class="makers">
-      <dt>LED and video</dt><dd><span>ROE</span><span>Absen</span><span>AOTO</span><span>Barco</span><span>INFiLED</span><span>Unilumin</span><span>Leyard</span><span>PixelFlex</span><span>Samsung</span><span>Sony</span><span>LG</span><span>Brompton</span><span>NovaStar</span></dd>
-      <dt>Lighting</dt><dd><span>Robe</span><span>Martin</span><span>Clay Paky</span><span>Vari-Lite</span><span>High End Systems</span><span>ETC</span><span>Elation</span><span>Chauvet Professional</span><span>GLP</span><span>Ayrton</span><span>Astera</span></dd>
-      <dt>Audio</dt><dd><span>L-Acoustics</span><span>d&amp;b audiotechnik</span><span>Meyer Sound</span><span>DiGiCo</span><span>Yamaha</span><span>Shure</span><span>Sennheiser</span></dd>
-    </dl>
-    <p class="tm">Makers in the Forectra product library. Names and marks belong to their owners.</p>
-  </div>
-</section>
-
-<!-- General notes -->
-<section class="sec alt" id="notes">
-  <div class="wrap">
-    <h2 class="h">What you can count on.</h2>
-    <p class="gn-title">General notes</p>
-    <ol class="notes">
-      <li><div><h3>A production designer answers.</h3><p>Questions go to someone who designs shows for a living, not to a ticket queue.</p></div></li>
-      <li><div><h3>Your files are yours.</h3><p>Export DXF, MVR, Excel and PDF whenever you want. Nothing is locked in.</p></div></li>
-      <li><div><h3>No surprise charges.</h3><p>Twenty days free. We email you before any charge, and you can cancel anytime.</p></div></li>
-      <li><div><h3>It never guesses.</h3><p>Unverified power or weight is flagged on the page, never invented.</p></div></li>
-      <li><div><h3>The show stays up.</h3><p>The Mac and PC apps run the lights with no internet, and sACN holds the look if the app closes.</p></div></li>
-      <li><div><h3>It keeps getting better.</h3><p>Updates ship continuously and are included with your license.</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<!-- Company -->
-<section class="sec" id="company">
-  <div class="wrap two" style="align-items:center">
-    <div>
-      <h2 class="h" style="max-width:13ch">Made by the people who make shows.</h2>
-      <p class="lead">Forectra exists because our own shows needed one file that the designer, the shop, the client and the crew could all trust. We build it the way we design: to the deadline, and to the drawing.</p>
-      <blockquote class="quote">
-        <p>"Forectra isn't here to replace the deep CAD suites. It's for designers, rental houses and broadcast teams who want speed without giving up accuracy."</p>
-        <cite>Seth Easter, founder. Three-time Emmy winner, with ADG and DuPont-Columbia awards.</cite>
-      </blockquote>
-    </div>
-    <div class="facts">
-      <div class="head"><img src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"></div>
-      <div class="row"><b>Company</b><span>Forectra, Inc.</span></div>
-      <div class="row"><b>Based in</b><span>New York</span></div>
-      <div class="row"><b>Founder</b><span>Seth Easter, production designer</span></div>
-      <div class="row"><b>Studio</b><span>Seth Easter Design, broadcast and live events</span></div>
-      <div class="row"><b>On air</b><span>Front Office Sports Tonight, weeknights on FOX stations and Samsung TV Plus</span></div>
-      <div class="row"><b>Contact</b><span><a class="u" href="mailto:hello@forectra.com">hello@forectra.com</a></span></div>
+    <div class="who2" id="company">
+      <p>Forectra is built inside Seth Easter Design, a New York production design studio for broadcast and live events. It does what our own shows need, and it runs one every weeknight. Seth is a three-time Emmy-winning production designer with twenty years of network news, six Olympics and presidential debate stages behind him. <a class="u" href="mailto:hello@forectra.com">hello@forectra.com</a></p>
+      <blockquote class="q2">"Forectra isn't here to replace the deep CAD suites. It's for designers, rental houses and broadcast teams who want speed without giving up accuracy."<cite>Seth Easter, founder</cite></blockquote>
     </div>
   </div>
 </section>
@@ -740,7 +587,7 @@
   <div class="wrap">
     <div class="hdr">
       <h2 class="h" style="max-width:12ch">One show file. Five ways to run it.</h2>
-      <p class="lead">Start with the design license. Add lighting control the way your room needs it, and move up without rebuilding the show.</p>
+      <p class="lead">Start with the design license. Add show control the way your room needs it.</p>
     </div>
 
     <div class="lic">
@@ -773,11 +620,11 @@
     <table class="pr">
       <thead><tr><th>Add</th><th>What it is</th><th style="text-align:right">Price</th></tr></thead>
       <tbody>
-        <tr class="grp"><td colspan="3">Lighting control</td></tr>
+        <tr class="grp"><td colspan="3">Show control</td></tr>
         <tr><td class="nm">Web Control</td><td class="ds">Run lights from the browser through the Forectra Companion. Bring your own sACN node.</td><td class="amt">+$300<small>a year</small></td></tr>
-        <tr><td class="nm">F App<small>Recommended</small></td><td class="ds">Lighting control in the Mac and PC desktop app. The show runs locally, even if the internet drops.</td><td class="amt">+$600<small>a year</small></td></tr>
+        <tr><td class="nm">F App<small>Recommended</small></td><td class="ds">Show control in the Mac and PC desktop app. The show runs locally, even if the internet drops.</td><td class="amt">+$600<small>a year</small></td></tr>
         <tr class="grp"><td colspan="3">Hardware</td></tr>
-        <tr><td class="nm">Forectra FOR-X 8<small>4-week lead time</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons, 8 universes, 4 switchable video outputs and camera capture in. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small><a class="order" href="https://buy.stripe.com/14A00ka9R0MC2ZU7bO1ZS02" target="_blank" rel="noopener" data-event="order_forx8">Order</a></td></tr>
+        <tr><td class="nm">Forectra FOR-X 8<small>4-week lead time</small></td><td class="ds">A road case with a 14-inch touch screen, a 5-inch touch panel, 8 faders with OLED labels, encoders, show buttons, 8 universes, 4 switchable video outputs and camera capture in. Includes 2 years of license and support.</td><td class="amt">$8,495<small>one time</small><a class="order" href="https://buy.stripe.com/14A00ka9R0MC2ZU7bO1ZS02" target="_blank" rel="noopener" data-event="order_forx8_pricing">Order</a></td></tr>
         <tr><td class="nm">FOR-X Mini<small class="dev">In design</small></td><td class="ds">An 8-inch touch console in a wall plate or desk cradle: 15 display keys, a 12-key pad, two knobs. Cat6 in, one DMX universe out.</td><td class="amt"><span class="tbc">Pricing to come</span></td></tr>
         <tr><td class="nm">FOR-X Micro<small class="dev">In development</small></td><td class="ds">The DMX node on its own. Run it from your own tablet or phone, or add our preloaded tablet.</td><td class="amt"><span class="tbc">Pricing to come</span></td></tr>
         <tr class="grp"><td colspan="3">Rental houses and venues</td></tr>
@@ -820,9 +667,9 @@
         <div class="addr">Forectra, Inc.<br>New York</div>
         <a class="btn btn-lime" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough" data-event="cta_walkthrough_footer">Book a walkthrough</a>
       </div>
-      <div class="col"><h4>Product</h4><a href="#draw">Design</a><a href="#spec">Spec PDF</a><a href="#run">Show control</a><a href="#collaborate">Share and review</a><a href="#assets">Asset Control</a><a href="#pricing">Pricing</a></div>
+      <div class="col"><h4>Product</h4><a href="#draw">Design</a><a href="#spec">Spec PDF</a><a href="#run">Show control</a><a href="#seating">Seating</a><a href="#collaborate">Share and review</a><a href="#assets">Asset Control</a><a href="#pricing">Pricing</a></div>
       <div class="col"><h4>Workspaces</h4><a href="/screen-shop.html">Screen Shop</a><a href="/lighting.html">Lighting</a><a href="/rack-shop.html">Rack Shop</a><a href="/staging.html">Staging and audio</a></div>
-      <div class="col"><h4>Hardware</h4><a href="#run">Forectra FOR-X 8</a><a href="#mini">FOR-X Mini</a><a href="#pricing">FOR-X Micro</a></div>
+      <div class="col"><h4>Hardware</h4><a href="#forx8">Forectra FOR-X 8</a><a href="#mini">FOR-X Mini</a><a href="#pricing">FOR-X Micro</a></div>
       <div class="col"><h4>Company</h4><a href="#company">About</a><a href="/manual.html">Manual</a><a href="mailto:hello@forectra.com">Contact</a><a href="https://app.forectra.com/help/">Help</a><a href="https://app.forectra.com/">Sign in</a></div>
     </div>
     <div class="base">
@@ -852,17 +699,13 @@
     });
   }
 
-  /* ===== Trial sign-up =====
-     Every trial button opens the app's sign-up page. The app creates the account,
-     then opens Stripe Checkout for the annual plan (20 days free, card
-     required). Annual only — no monthly plan. */
+  /* ===== Trial sign-up ===== Annual only — no monthly plan. */
   function signupUrl(plan){ return APP+'?signup=1&plan=annual'; }
   function applyPlan(plan){
     const btn=document.getElementById('pay-btn'), plink=document.getElementById('price-link');
     if(btn) btn.href=signupUrl(plan);
     if(plink) plink.href=signupUrl(plan);
   }
-
   applyPlan('annual');
 
   /* ===== The film ===== */
@@ -872,6 +715,23 @@
     v.removeAttribute('controls');
     b.addEventListener('click',function(){ b.classList.add('off'); v.setAttribute('controls',''); v.play(); if(window.skTrack)window.skTrack('film_play'); });
     v.addEventListener('ended',function(){ b.classList.remove('off'); v.removeAttribute('controls'); v.load(); });
+  })();
+
+  /* ===== Function loops: load and play only while on screen ===== */
+  (function(){
+    var vids=document.querySelectorAll('video[data-src]');
+    var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!('IntersectionObserver' in window)||still){ return; }
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v=e.target;
+        if(e.isIntersecting){
+          if(!v.getAttribute('src')){ v.setAttribute('src',v.dataset.src); v.load(); }
+          var p=v.play(); if(p&&p.catch)p.catch(function(){});
+        } else if(!v.paused){ v.pause(); }
+      });
+    },{rootMargin:'200px 0px',threshold:0.1});
+    vids.forEach(function(v){ io.observe(v); });
   })();
 
   /* ===== Analytics stub ===== */
@@ -892,15 +752,6 @@
       });
       rail.appendChild(t);
     })(i);}
-  })();
-
-  /* ===== Lit/raster compare ===== */
-  (function(){
-    var cmp=document.getElementById('cmp'), top=document.getElementById('cmp-top'), handle=document.getElementById('cmp-handle'), dragging=false;
-    function setPos(clientX){var r=cmp.getBoundingClientRect();var p=Math.max(0,Math.min(1,(clientX-r.left)/r.width));top.style.clipPath='inset(0 '+((1-p)*100)+'% 0 0)';handle.style.left=(p*100)+'%';}
-    cmp.addEventListener('pointerdown',function(e){dragging=true;setPos(e.clientX);});
-    window.addEventListener('pointermove',function(e){if(dragging)setPos(e.clientX);});
-    window.addEventListener('pointerup',function(){dragging=false;});
   })();
 </script>
 </body>
