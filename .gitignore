@@ -9,6 +9,7 @@
 *.mp4
 !assets/promo.mp4
 !assets/video/*.mp4
+!assets/loops/*.mp4
 *.mov
 *.pkf
 *.aiff
