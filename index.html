@@ -100,6 +100,23 @@
   .hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
   .hero .ctas .btn-line{color:#EEEEF8;border-color:rgba(238,238,248,.38)}
   .hero .fine{font-size:14px;color:#9A9BB6;margin-top:18px}
+  .hero{position:relative}
+  .site-head nav.primary a,.site-head .signin{white-space:nowrap}
+  .site-head nav.primary{gap:24px}
+  @media (max-width:1320px){ .site-head nav.primary{gap:16px} .site-head .bar{gap:22px} }
+  @media (max-width:1200px){ .site-head nav.primary a,.site-head .signin{font-size:13.5px} .site-head nav.primary{gap:12px} }
+  .hero .hw{position:absolute;right:40px;bottom:96px;width:400px;display:flex;flex-direction:column;background:rgba(20,22,31,.86);border:1px solid rgba(180,255,57,.35);border-radius:14px;overflow:hidden;backdrop-filter:blur(6px);box-shadow:0 18px 50px rgba(0,0,0,.45);z-index:2}
+  .hero .hw-img img{display:block;width:100%;height:170px;object-fit:cover;object-position:50% 55%}
+  .hero .hw-body{padding:16px 18px 18px}
+  .hero .hw-logo{height:30px;width:auto;display:block;margin:0 0 8px -3px}
+  .hero .hw-body p{font-size:15px;color:#C9CADF;margin:0}
+  .hero .hw-price{font-size:13.5px;color:#A9AAC4;margin-top:10px;line-height:1.45}
+  .hero .hw-price b{font-size:22px;color:#fff;font-weight:600;margin-right:4px}
+  .hero .hw-ctas{display:flex;align-items:center;gap:16px;margin-top:14px}
+  .hero .hw-ctas .btn{padding:10px 16px;font-size:15px}
+  .hero .hw-more{color:#B4FF39;font-size:15px;text-decoration:none}
+  @media (max-width:1240px){ .hero .hw{position:relative;right:auto;bottom:auto;width:100%;max-width:560px;flex-direction:row;margin-top:34px} .hero .hw-img{flex:0 0 42%} .hero .hw-img img{height:100%;min-height:160px} }
+  @media (max-width:560px){ .hero .hw{flex-direction:column} .hero .hw-img img{height:170px;min-height:0} }
   .hero .foot{position:relative;border-top:1px solid var(--stage-rule)}
   .hero .foot .wrap{display:flex;align-items:center;gap:22px;min-height:64px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
   .onair{display:flex;align-items:center;gap:11px;font-weight:600;font-size:15px;color:#fff;white-space:nowrap}
@@ -361,6 +378,7 @@
       <a href="#draw">Product</a>
       <a href="#workspaces">Workspaces</a>
       <a href="#run">Show control</a>
+      <a href="#forx8">FOR-X 8</a>
       <a href="#seating">Seating</a>
       <a href="#assets">Rental and venues</a>
       <a href="#pricing">Pricing</a>
@@ -378,6 +396,7 @@
       <a href="#draw">Product</a>
       <a href="#workspaces">Workspaces</a>
       <a href="#run">Show control</a>
+      <a href="#forx8">FOR-X 8</a>
       <a href="#seating">Seating</a>
       <a href="#assets">Rental and venues</a>
       <a href="#pricing">Pricing</a>
@@ -403,13 +422,22 @@
         <a class="cue" href="#spec"><span class="qn">Q2</span><span class="qt">Spec it.</span></a>
         <a class="cue" href="#run"><span class="qn">Q3</span><span class="qt">Run it.</span></a>
       </h1>
-      <p class="lead">Forectra is one file for the whole production. Design LED, lighting, projection, rigging, scenic, audio and seating in one 3D model, print the paperwork in one click, and run the lights and video from the same file.</p>
+      <p class="lead">Forectra is one file for the whole production. Design LED, lighting, projection, rigging, scenic, audio and seating in one 3D model, print the paperwork in one click, and run the lights and video from the same file, in the browser or on the FOR-X 8 console.</p>
       <div class="ctas">
         <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_try_free">Start free trial</a>
         <a class="btn btn-line" href="mailto:hello@forectra.com?subject=Forectra%20walkthrough&body=Name%3A%20%0ACompany%3A%20%0AWhat%20you%27re%20working%20on%3A%20" data-event="cta_walkthrough_hero">Book a walkthrough</a>
         <a class="btn btn-line film-link" href="#film" data-event="cta_watch_film_hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>Watch the film · 2:30</a>
       </div>
       <p class="fine">20 days free. Card required. We email you before any charge.</p>
+      <aside class="hw" aria-label="Forectra FOR-X 8 console">
+        <a class="hw-img" href="#forx8" data-event="hero_forx8_image"><img src="/assets/site/run-console.jpg" alt="The FOR-X 8 console, open: 14-inch touch screen, eight faders and the 5-inch touch panel" width="1600" height="900"></a>
+        <div class="hw-body">
+          <img class="hw-logo" src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8">
+          <p>The lighting and video desk in a road case. Runs the same show file.</p>
+          <div class="hw-price"><b>$8,495</b> one time · 2 years of license included · ships in about 4 weeks</div>
+          <div class="hw-ctas"><a class="btn btn-lime" href="https://buy.stripe.com/14A00ka9R0MC2ZU7bO1ZS02" target="_blank" rel="noopener" data-event="order_forx8_hero">Order the FOR-X 8</a><a class="hw-more" href="#forx8" data-event="hero_forx8_more">See it</a></div>
+        </div>
+      </aside>
     </div>
   </div>
   <div class="foot">
@@ -580,7 +608,7 @@
       <div class="way"><div class="k">Mac and PC, <em>recommended</em></div><h3>F App</h3><p>The desktop app with show control built in. The show runs locally, so a dropped internet connection can't take the lights down.</p></div>
       <div class="way"><div class="k">Hardware</div><h3><img src="/assets/site/forx8-logo.svg" alt="Forectra FOR-X 8" class="forx8"></h3><p>A lighting and video desk in a road case: a 14-inch touch screen, eight faders, GO, BACK and BLACKOUT, the 5-inch touch panel, eight universes, four switchable video outputs and camera capture in, running the same show file. Order now; about four weeks to ship.</p></div>
     </div>
-    <figure class="plate" style="margin-top:64px">
+    <figure class="plate" id="forx8" style="margin-top:64px;scroll-margin-top:96px">
       <div class="img"><img src="/assets/site/run-console.jpg" alt="The first FOR-X 8 console, open: the 14-inch screen running the FOR-Control switcher, eight faders, GO, BACK and BLACKOUT, two encoders and the 5-inch touch panel" width="1600" height="900" loading="lazy"></div>
       <figcaption class="tb"><span><b>Hardware</b>Forectra FOR-X 8</span><span><b>Inside</b>FOR-Control, lights and video</span><span>4-week lead time</span></figcaption>
     </figure>
