@@ -22,3 +22,4 @@ speKset_P1_*
 # Never commit secrets
 .env
 .env.local
+!m/*.mp4
