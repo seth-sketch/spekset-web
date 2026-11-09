@@ -6,6 +6,7 @@
 <title>Forectra: design, spec and run the whole show</title>
 <meta name="description" content="Production design software for live events and broadcast. LED, lighting, projection, rigging, scenic, audio and seating in one 3D model, the paperwork in one click, and the lights and video run from the same file.">
 <link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="shortcut icon" href="/assets/favicon.svg?v=3">
 <link rel="canonical" href="https://forectra.com/">
 <meta property="og:type" content="website">
@@ -207,6 +208,7 @@
   .split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:80px;align-items:center}
   .split.rev{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
   .split.rev .mcol{order:-1}
+  .split > *{min-width:0}
   .split h2.h{font-size:clamp(34px,4.2vw,60px);max-width:12ch}
   .list{list-style:none;margin-top:34px;border-top:1px solid var(--rule-2)}
   .list li{display:grid;grid-template-columns:170px 1fr;gap:18px;padding:17px 0;border-bottom:1px solid var(--rule-2);font-size:16px;color:var(--graphite);line-height:1.5}

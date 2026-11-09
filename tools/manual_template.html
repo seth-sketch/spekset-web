@@ -6,10 +6,11 @@
 <title>Forectra — The manual</title>
 <meta name="description" content="The Forectra manual: FOR-Build, FOR-Sketch, FOR-Lighting, FOR-Screens, FOR-Racks, FOR-Sheets, the FOR-Control desk and its command line, the switcher, the 5-inch panel and the FOR-X 8 box.">
 <link rel="icon" href="/assets/favicon.svg?v=3" type="image/svg+xml">
-<link rel="canonical" href="https://forectra.com/manual.html">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://forectra.com/manual">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Forectra">
-<meta property="og:url" content="https://forectra.com/manual.html">
+<meta property="og:url" content="https://forectra.com/manual">
 <meta property="og:title" content="Forectra — The manual">
 <meta property="og:description" content="Every workspace, the desk, the command line, the switcher, the panel and the box. First edition, written against the shipping app.">
 <meta property="og:image" content="https://forectra.com/assets/og-forectra.png">
@@ -17,6 +18,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,600;125,700;125,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/brand-2026.css?v=2">
+<style>
+  /* Same nav fit as the home page: nine links on one line from 1081px up */
+  .site-head nav.primary a,.site-head .signin{white-space:nowrap}
+  .site-head nav.primary{gap:24px}
+  @media (max-width:1320px){ .site-head nav.primary{gap:16px} .site-head .bar{gap:22px} }
+  @media (max-width:1200px){ .site-head nav.primary a,.site-head .signin{font-size:13.5px} .site-head nav.primary{gap:12px} }
+</style>
 <style>
   /* The manual: paper page in the sell-sheet family. */
   body.manual{background:var(--paper)}
@@ -86,19 +94,21 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head light solid" id="site-head">
   <div class="bar">
-    <a class="logo" href="/" aria-label="Forectra home"><img class="on-dark" src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><img class="on-light" src="/assets/forectra_logo_light.png" alt="Forectra" width="1500" height="301"></a>
+    <a class="logo" href="/" aria-label="Forectra home"><img class="on-dark" src="/assets/forectra_logo.png" alt="Forectra" width="1603" height="269"><img class="on-light" src="/assets/forectra_logo_light.png" alt="" width="1500" height="301"></a>
     <nav class="primary" aria-label="Main">
       <a href="/#draw">Product</a>
       <a href="/#workspaces">Workspaces</a>
-      <a href="/#run">Lighting control</a>
+      <a href="/#run">Show control</a>
+      <a href="/forx8.html">FOR-X 8</a>
+      <a href="/#seating">Seating</a>
       <a href="/#assets">Rental and venues</a>
       <a href="/#pricing">Pricing</a>
-      <a href="/manual.html">Manual</a>
+      <a href="/manual.html" aria-current="page" style="color:var(--link-on)">Manual</a>
       <a href="/#company">Company</a>
     </nav>
     <div class="right">
       <a class="signin" href="https://app.forectra.com/">Sign in</a>
-      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual">Start free trial</a>
+      <a class="btn btn-lime" href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_start_trial_nav">Start free trial</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
     </div>
   </div>
@@ -106,12 +116,15 @@
     <div class="inner">
       <a href="/#draw">Product</a>
       <a href="/#workspaces">Workspaces</a>
-      <a href="/#run">Lighting control</a>
+      <a href="/#run">Show control</a>
+      <a href="/forx8.html">FOR-X 8</a>
+      <a href="/#seating">Seating</a>
       <a href="/#assets">Rental and venues</a>
       <a href="/#pricing">Pricing</a>
-      <a href="/manual.html">Manual</a>
+      <a href="/manual.html" aria-current="page" style="color:var(--link-on)">Manual</a>
       <a href="/#company">Company</a>
       <a href="https://app.forectra.com/">Sign in</a>
+      <a href="https://app.forectra.com/?signup=1&amp;plan=annual" data-event="cta_start_trial_mobile">Start free trial</a>
     </div>
   </div>
 </header>
@@ -152,7 +165,7 @@
       </div>
       <div class="col"><h4>Product</h4><a href="/#draw">Design</a><a href="/#spec">Spec PDF</a><a href="/#run">Show control</a><a href="/#collaborate">Share and review</a><a href="/#assets">Asset Control</a><a href="/#pricing">Pricing</a></div>
       <div class="col"><h4>Workspaces</h4><a href="/screen-shop.html">Screen Shop</a><a href="/lighting.html">Lighting</a><a href="/rack-shop.html">Rack Shop</a><a href="/staging.html">Staging and audio</a></div>
-      <div class="col"><h4>Hardware</h4><a href="/#run">Forectra FOR-X 8</a><a href="/#mini">FOR-X Mini</a><a href="/#pricing">FOR-X Micro</a></div>
+      <div class="col"><h4>Hardware</h4><a href="/forx8.html">Forectra FOR-X 8</a><a href="/forx8.html#mini">FOR-X Mini</a><a href="/forx8.html#micro">FOR-X Micro</a></div>
       <div class="col"><h4>Company</h4><a href="/#company">About</a><a href="/manual.html">Manual</a><a href="mailto:hello@forectra.com">Contact</a><a href="https://app.forectra.com/help/">Help</a><a href="https://app.forectra.com/">Sign in</a></div>
     </div>
     <div class="base">
