@@ -6,3 +6,10 @@
 # Hostname-scoped so forectra.com itself (same Pages project) isn't affected.
 https://spekset.com/*      https://forectra.com/:splat  301
 https://www.spekset.com/*  https://forectra.com/:splat  301
+
+# Legal pages (2026-11-09). The Terms of Service and Privacy Policy live in the
+# app (app.forectra.com). Without these, forectra.com/terms and /privacy fell
+# through to the homepage, and the Stripe billing portal links to
+# forectra.com/terms. 302 so the target can move later without stale caches.
+/terms    https://app.forectra.com/terms    302
+/privacy  https://app.forectra.com/privacy  302
